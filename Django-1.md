@@ -2,7 +2,7 @@
 
 ## 1.1创建一个名为BookStore的Django项目
 
-- `django-admin startproject BookStore`![image-20220320160013211](../../Library/Application Support/typora-user-images/image-20220320160013211.png)
+- `django-admin startproject BookStore`![image-20220320160013211](https://raw.githubusercontent.com/yaocunhao/picture/main/image-20220320160013211.png)
 
 - 配置文件详解
   - manage.py文件
