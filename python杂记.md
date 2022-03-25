@@ -147,3 +147,18 @@
 - 参数带*号
   - 单星号：*agrs，将所有参数以元组(tuple)的形式导入
   - 双星号：**kwargs，将参数以字典(dict)的形式导入
+
+- from threading import local
+  - 为每个线程创建一个空间(本地线程存储技术)
+
+- import_modul
+
+  - ```
+    from importlib import import_module
+    t = import_module(包的名字)
+    ```
+
+  - 返回值为这个包(文件)的对象，t.name 从这个文件中获取变量，类等等
+
+- `__class__` 查看对象所在的类
+- `__dict__` 查看对象的属性,让所有的字段以字典的形式返回

@@ -330,4 +330,3 @@ urlpatterns = [
 - 在static标签中引用文件时有两个查找路径：1、app下的static。2、工程下的commen_static（STATICFILES_DIRS)
 
   STATICFILES_DIRS告诉django,首先到STATICFILES_DIRS里面寻找静态文件,其次再到各个app的static文件夹里面找(注意，django查找静态文件是惰性查找，查找到第一个，就停止查找了)
-  

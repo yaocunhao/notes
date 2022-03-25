@@ -129,7 +129,7 @@ message Lane {
   repeated Limit height_limits = 9;  // in meters. 以米为单位
 
   // Ids of connected lanes.
-  //连接车道的ID
+  //连接车道的ID,前后继
   repeated int64 predecessors = 10;
   repeated int64 successors = 11;
 
