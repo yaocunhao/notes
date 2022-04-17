@@ -398,7 +398,7 @@
         pass
     instance = MyClass()
     print(type(instance))  # <class '__main__.MyClass'>
-    print(type(MyClass)  # <class 'type'> 可以看到，这个类的类型为type
+    print(type(MyClass)  # <class 'type'> 可以看到，这个类的类型为type，即myClass其实是type的对象
     ```
 
   -  用户自定义类，只不过是 type 类的 __call__ 运算符重载

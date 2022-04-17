@@ -1,6 +1,6 @@
 # 一、字段含义
 
-- 先看voyager之中onboard/hdmap/hdmap_protos/road.proto，查看输出的pb数据
+- 先看voyager之中onboard/hdmap/hdmap_protos/road.proto，查看输出的pb数据,.
 - 再看model文件和数据库之中的文件
 
 ```protobuf
@@ -129,7 +129,7 @@ message Lane {
   repeated Limit height_limits = 9;  // in meters. 以米为单位
 
   // Ids of connected lanes.
-  //连接车道的ID
+  //连接车道的ID,前后继
   repeated int64 predecessors = 10;
   repeated int64 successors = 11;
 

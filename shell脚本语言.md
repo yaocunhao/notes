@@ -1,15 +1,69 @@
-[文章连接](https://blog.csdn.net/weixin_43288201/article/details/105643692?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164672904316780271518406%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=164672904316780271518406&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-105643692.pc_search_result_cache&utm_term=shell%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80&spm=1018.2226.3001.4187)
+# 一、脚本语言认识
 
+- 脚本语言的第一行
 
+  - `#!/bin/bash`
+  - `#！`是一个约定标记，告诉系统这个脚本需要用什么解释器来执行，即使用哪一种shell
 
-# 一、三种不同的执行方式
+- 脚本语言作为可执行程序
 
-- ./xxx.sh :先按照 文件中#!指定的解析器解析，#！不存在再使用默认的解释器，下同
-- bash xxx.sh:指明先用bash解析器解析
-- . xxx.sh 直接使用默认解析器解析（不会执行第一行的#！指定的解析器）但是第一行还是要写的
+- 脚本语言作为解释器参数
 
-# 二、变量
+  ```bash
+  #!/bin/bash
+  /bin/python test.py
+  ```
 
-- 定义变量：变量名=变量值，num=10
-- 引用变量：$变量名
-- 清除变量值：unset
+  
+
+# 二、Shell变量
+
+## 2.1 变量的基本操作
+
+- 定义变量
+  - name="tom"
+  - 等号左右不能有空格
+- 使用变量
+  - echo $name
+- 只读变量
+  - readonly name
+- 删除变量
+  - unset name
+  - uunset 不能删除只读变量
+
+## 2.2 变量类型
+
+- 局部变量
+  - 局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序不能访问局部变量
+- 环境变量
+  - 所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量
+- shell 变量
+  - shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行
+
+## 2.3 shell 字符串
+
+- 字符串可以用单、双、无引号
+
+- 单引号字符串的限制
+
+  - 单引号里面的任何字符都会原样的输出，单引号字符串中的变量是无效的
+  - 单引号字串中不能出现单独一个的单引号（对单引号使用转义符后也不行），但可成对出现，作为字符串拼接使用
+
+- 双引号
+
+  - 双引号里可以有变量
+
+  - 双引号里可以出现转义字符
+
+    ```bash
+    实例
+    your_name="runoob"
+    str="Hello, I know you are \"$your_name\"! \n"
+    echo -e $str
+    输出结果为：
+    
+    Hello, I know you are "runoob"! 
+    ```
+
+- 拼接字符串
+  - 

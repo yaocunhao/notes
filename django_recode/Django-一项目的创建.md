@@ -1,6 +1,9 @@
 # 一、创建一个名为BookStore的Django项目
 
-- `django-admin startproject BookStore`![image-20220320160013211](https://raw.githubusercontent.com/yaocunhao/picture/main/image-20220320160013211.png)
+- `django-admin startproject BookStore`
+  - 需要注意的是 第一个BookStore是命令创建出来的，也就是所谓的项目根目录
+  - 而生成的这些配置所在目录的名称是可以进行更改的![image-20220320160013211](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220320160013211.png)
+
 - 配置文件详解
   - manage.py文件
     - 一级子目录中的 manage.py 文件是管理 Django 项目的重要命令行工具，它主要用于启动项目、创建应用和完成数据库的迁移等
@@ -14,7 +17,7 @@
 
 # 二、配置Pycharm
 
-![截屏2022-03-20 下午7.51.47](https://raw.githubusercontent.com/yaocunhao/picture/main/%E6%88%AA%E5%B1%8F2022-03-20%20%E4%B8%8B%E5%8D%887.51.47.png)
+![截屏2022-03-20 下午7.51.47](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/%E6%88%AA%E5%B1%8F2022-03-20%20%E4%B8%8B%E5%8D%887.51.47.png)
 
 # 三、创建应用
 

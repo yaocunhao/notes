@@ -1,52 +1,143 @@
-http://10.190.9.216:6001/static/map-editor2.0/index.html#/label
-
-
-
-
-
--  标椎和红绿灯标注功能？
-- 空的数据表 -> 保存region相关数据
-- region只展示 guangzhou && 改名为 ceshi
-
-
-
-
-
-```C
-server { #主机设置
-
-    listen       3002;
-    server_name   localhost;
-    #root         /home/xiaoju/fe/voyager/offboard/cloud/src/fe_static/project/map-editor2.0/;
-    #index       index.html index.htm;
-
-    ##location / {
-    #   root        /home/xiaoju/fe/voyager/offboard/cloud/src/fe_static/output/map-editor2.0/;
-    #   index       index.html index.htm;
-    #   root  html;
-
-    #}
-
-    location ^~ /static/map-editor2.0/ {
-      alias   /home/xiaoju/fe/voyager/offboard/cloud/src/fe_static/output/map-editor2.0/;
-      index index.html;
+```json
+{
+    "9519": {
+        "associate_lanes": [
+            {
+                "lane_id": 119117,
+                "type": 2
+            },
+            {
+                "lane_id": 112257,
+                "type": 1
+            }
+        ],
+        "boundary": {
+            "polylines": [
+                {
+                    "length": 0.5000000009236102,
+                    "points": [
+                        {
+                            "x": 7353.9071062404155,
+                            "y": 15602.76087835651,
+                            "z": 28.22491291558949,
+                            "zone": "50S"
+                        },
+                        {
+                            "x": 7353.935599257964,
+                            "y": 15602.752018994524,
+                            "z": 27.111398785175574,
+                            "zone": "50S"
+                        },
+                        {
+                            "x": 7353.311699090791,
+                            "y": 15602.970893977981,
+                            "z": 27.06915248388178,
+                            "zone": "50S"
+                        },
+                        {
+                            "x": 7353.283819319049,
+                            "y": 15602.979459084732,
+                            "z": 28.174035809003698,
+                            "zone": "50S"
+                        }
+                    ]
+                }
+            ]
+        },
+        "box_id": 0,
+        "id": 9519,
+        "lights": [
+            1
+        ],
+        "obj_id": 0,
+        "object_type": 1,
+        "position": {
+            "x": 7353.609555977055,
+            "y": 15602.865812603437,
+            "z": 27.644874998412636,
+            "zone": "50S"
+        },
+        "road_ids": [
+            38455
+        ],
+        "signal_condition": 1,
+        "stop_line_ids": [
+            15085
+        ],
+        "task_id": 0,
+        "type": 3,
+        "update_time": "Tue, 07 Dec 2021 03:44:32 GMT"
+    },
+    "9519": {
+        "associate_lanes": [
+            {
+                "lane_id": 119117,
+                "type": 2
+            },
+            {
+                "lane_id": 112257,
+                "type": 1
+            }
+        ],
+        "boundary": {
+            "polylines": [
+                {
+                    "length": 0.5000000009236102,
+                    "points": [
+                        {
+                            "x": 7353.9071062404155,
+                            "y": 15602.76087835651,
+                            "z": 28.22491291558949,
+                            "zone": "50S"
+                        },
+                        {
+                            "x": 7353.935599257964,
+                            "y": 15602.752018994524,
+                            "z": 27.111398785175574,
+                            "zone": "50S"
+                        },
+                        {
+                            "x": 7353.311699090791,
+                            "y": 15602.970893977981,
+                            "z": 27.06915248388178,
+                            "zone": "50S"
+                        },
+                        {
+                            "x": 7353.283819319049,
+                            "y": 15602.979459084732,
+                            "z": 28.174035809003698,
+                            "zone": "50S"
+                        }
+                    ]
+                }
+            ]
+        },
+        "box_id": 0,
+        "id": 9519,
+        "lights": [
+            1
+        ],
+        "obj_id": 0,
+        "object_type": 1,
+        "position": {
+            "x": 7353.609555977055,
+            "y": 15602.865812603437,
+            "z": 27.644874998412636,
+            "zone": "50S"
+        },
+        "road_ids": [
+            38455
+        ],
+        "signal_condition": 1,
+        "stop_line_ids": [
+            15085
+        ],
+        "task_id": 0,
+        "type": 3,
+        "update_time": "Tue, 07 Dec 2021 03:44:32 GMT"
     }
-
-    location ^~ /static/img/tiles/ {
-      alias   /home/xiaoju/data/;
-      add_header Access-Control-Allow-Origin '*';
-      index index.html;
-    }
-
-    location /map_editor/api/v2/ {
-       proxy_pass_header Server;
-       proxy_redirect off;
-       proxy_set_header X-Real-IP $remote_addr;
-       proxy_set_header X-Scheme $scheme;
-       proxy_pass http://10.190.9.216:6001;
-    }
-
-
 }
 ```
+
+
 
