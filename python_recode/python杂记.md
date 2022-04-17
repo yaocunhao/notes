@@ -19,7 +19,7 @@
     - object -- 对象】
     - name -- 字符串，属性名
 
--  if not
+- if not
   - 和if的语义相反
   - 在使用if not 的时候，如果表达式的结果为false则执行后面的逻辑，如果表达式的结果为true则跳过
 
@@ -146,7 +146,28 @@
 
 - 参数带*号
   - 单星号：*agrs，将所有参数以元组(tuple)的形式导入
+
   - 双星号：**kwargs，将参数以字典(dict)的形式导入
+
+    ```python
+    def func(*args, **kwargs):
+        print(type(args), type(kwargs))
+        print(args, kwargs)
+    
+    
+    di = {'1': 1, '2': 2}
+    l = [1, 2, 3, 4, 5, 65]
+    t = (2, 2, 2, 2,)
+    
+    # 不管传入什么类型的参数，都会编程元组args的一个参数
+    # 传入参数的格式为 xx=xx，就会自动变成字典dict的一个键值对
+    
+    func(di, l, t, a=22, c='3423')
+    # <class 'tuple'> <class 'dict'>
+    # ({'1': 1, '2': 2}, [1, 2, 3, 4, 5, 65], (2, 2, 2, 2)) {'a': 22, 'c': '3423'}
+    ```
+
+    
 
 - from threading import local
   - 为每个线程创建一个空间(本地线程存储技术)
@@ -161,4 +182,138 @@
   - 返回值为这个包(文件)的对象，t.name 从这个文件中获取变量，类等等
 
 - `__class__` 查看对象所在的类
+
 - `__dict__` 查看对象的属性,让所有的字段以字典的形式返回
+
+- protobuf 嵌套类的使用
+
+  ```python
+  import addressbook_pb2
+  
+  
+  def func():
+      p = addressbook_pb2.Person
+      p.name = "123"
+      p.age = 456
+      p.sex = "333"
+      print(p.name)
+      print(p.age)
+      print(p.sex)
+      print(type(p))
+  
+      c = addressbook_pb2.Person.Child() # 获取嵌套的Child类,带括号定义对象，不带括号获取的是一个类
+      c.cname = "123"
+      c.cage = 4444
+  
+      print(c.cname)
+      print(c.cage)
+  
+  func()
+  
+  ```
+
+- 异常
+
+  - 当程序出现异常的时候会终止，如果不想终止就需要进行异常的捕获，然后进行处理，处理完整之后会继续进行下面的逻辑
+  - raise 手动抛出异常
+  - except进行异常的捕获处理
+
+- enumerate
+
+  - 比如for遍历list的时候，是无法获取下标的 ，使用enumerate就可以获取下标了
+
+    ```python
+    def func():
+        list = [43, 432, 54, 43, 534, 5, 42, 3, 53]
+        for k,v in list:
+            print(k,v)
+    ```
+
+- 逻辑运算符
+
+  - and 两边都为真的时候，选择and后面的内容分，and都为假的时候，选择前面的内容
+  - or都为假的时候，选择后面的
+  - 优先级
+    - () > not  > and > or
+  - in 在、not in 不在
+
+- python3 和 python2区别
+
+  - python2 有input 和 raw_input,python3只有input
+    - raw_input 输入字符串不需要引号，input接收字符串需要引号，python3则进行了整合
+  - python2 有int 和long ,python3 只有int
+
+- 字符串是一个不可变的数据类型
+
+  ```python
+  name = "cccc"
+  c = name.upper()
+  print(name,c) # cccc CCCC
+  
+  # 可以看到原来的字符串并没有变
+  
+  ```
+
+- itertools.product
+  - 求笛卡尔积
+  - [参考链接](https://www.cnblogs.com/xxxxxxxxx/p/11544432.html)
+
+- collections.defaultdict(list)
+  - 使用dict字典类型时，如果引用的key不存在，就会抛出KeyError。如果希望Key不存在时，返回一个默认值，就可以用defaultdict
+  - [参考链接](https://www.cnblogs.com/pypypy/p/12093944.html)
+
+- [字符串编码问题](https://wenku.baidu.com/view/edcec5d90ba1284ac850ad02de80d4d8d15a0166.html)
+
+- 格式化 f -string
+
+  ```python
+  msg = f"姓名{name}" # 不需要使用占位符，直接使用f，里面用{}进行格式化即可
+  print(msg)
+  ```
+
+- 类型区分
+
+  ```python
+  class Base:
+      pass
+  
+  b =Base()
+  print(type(b)) # <class '__main__.Base'> b 是Base的对象，所有打印出来的b的类型是Base
+  print(type(Base)) # <class 'type'>，Base是type的对象，所以打印出来的类型是type
+  ```
+
+- **zip()** 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。如果各个迭代器的元素个数不一致，则返回列表长度与最短的对象相同，利用 * 号操作符，可以将元组解压为列表
+
+  ```python
+  # zip
+  list = [1, 2, 3, 4, 5]
+  z = zip(list)
+  print(z) # zip
+  print(type(zip)) # type
+  print(*z) # (1,) (2,) (3,) (4,) (5,)
+  
+  # -------示例2----------
+  # zip
+  list = [1, 2, 3, 4, 5]
+  list2 = ['a', 'b', 'c']
+  z = zip(list, list2)
+  print(z)  # zip
+  print(type(zip))  # type
+  print(*z)  # (1, 'a') (2, 'b') (3, 'c')
+  
+  
+  
+  ```
+
+  
+
+- extend
+  - extend() 函数用于在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表
+
+- 函数前面带一短横
+  - 希望这个函数只在类内或者是由其[子类](https://so.csdn.net/so/search?q=子类&spm=1001.2101.3001.7020)进行调用
+
+- 单双引号
+  - 都可以用来标识字符串
+  - 双引号中不需要使用`\`来对字符进行转义(双引号除外)
+  - 当字符串中出现双引号时，如果外层的引号为单引号则不需要使用转义字符

@@ -1,6 +1,6 @@
 # 一、字段含义
 
-- 先看voyager之中onboard/hdmap/hdmap_protos/road.proto，查看输出的pb数据
+- 先看voyager之中onboard/hdmap/hdmap_protos/road.proto，查看输出的pb数据,.
 - 再看model文件和数据库之中的文件
 
 ```protobuf

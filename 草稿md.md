@@ -1,32 +1,143 @@
-```python
-class CacheHandler:
-    """
-    A Cache Handler to manage access to Cache instances.
-
-    Ensure only one instance of each alias exists per thread.
-    """
-    def __init__(self):
-        self._caches = local()
-
-    def __getitem__(self, alias):
-        try:
-            return self._caches.caches[alias]
-        except AttributeError:
-            self._caches.caches = {}
-        except KeyError:
-            pass
-
-        if alias not in settings.CACHES:
-            raise InvalidCacheBackendError(
-                "Could not find config for '%s' in settings.CACHES" % alias
-            )
-
-        cache = _create_cache(alias)
-        self._caches.caches[alias] = cache
-        return cache
-
-    def all(self):
-        return getattr(self._caches, 'caches', {}).values()
-
+```json
+{
+    "9519": {
+        "associate_lanes": [
+            {
+                "lane_id": 119117,
+                "type": 2
+            },
+            {
+                "lane_id": 112257,
+                "type": 1
+            }
+        ],
+        "boundary": {
+            "polylines": [
+                {
+                    "length": 0.5000000009236102,
+                    "points": [
+                        {
+                            "x": 7353.9071062404155,
+                            "y": 15602.76087835651,
+                            "z": 28.22491291558949,
+                            "zone": "50S"
+                        },
+                        {
+                            "x": 7353.935599257964,
+                            "y": 15602.752018994524,
+                            "z": 27.111398785175574,
+                            "zone": "50S"
+                        },
+                        {
+                            "x": 7353.311699090791,
+                            "y": 15602.970893977981,
+                            "z": 27.06915248388178,
+                            "zone": "50S"
+                        },
+                        {
+                            "x": 7353.283819319049,
+                            "y": 15602.979459084732,
+                            "z": 28.174035809003698,
+                            "zone": "50S"
+                        }
+                    ]
+                }
+            ]
+        },
+        "box_id": 0,
+        "id": 9519,
+        "lights": [
+            1
+        ],
+        "obj_id": 0,
+        "object_type": 1,
+        "position": {
+            "x": 7353.609555977055,
+            "y": 15602.865812603437,
+            "z": 27.644874998412636,
+            "zone": "50S"
+        },
+        "road_ids": [
+            38455
+        ],
+        "signal_condition": 1,
+        "stop_line_ids": [
+            15085
+        ],
+        "task_id": 0,
+        "type": 3,
+        "update_time": "Tue, 07 Dec 2021 03:44:32 GMT"
+    },
+    "9519": {
+        "associate_lanes": [
+            {
+                "lane_id": 119117,
+                "type": 2
+            },
+            {
+                "lane_id": 112257,
+                "type": 1
+            }
+        ],
+        "boundary": {
+            "polylines": [
+                {
+                    "length": 0.5000000009236102,
+                    "points": [
+                        {
+                            "x": 7353.9071062404155,
+                            "y": 15602.76087835651,
+                            "z": 28.22491291558949,
+                            "zone": "50S"
+                        },
+                        {
+                            "x": 7353.935599257964,
+                            "y": 15602.752018994524,
+                            "z": 27.111398785175574,
+                            "zone": "50S"
+                        },
+                        {
+                            "x": 7353.311699090791,
+                            "y": 15602.970893977981,
+                            "z": 27.06915248388178,
+                            "zone": "50S"
+                        },
+                        {
+                            "x": 7353.283819319049,
+                            "y": 15602.979459084732,
+                            "z": 28.174035809003698,
+                            "zone": "50S"
+                        }
+                    ]
+                }
+            ]
+        },
+        "box_id": 0,
+        "id": 9519,
+        "lights": [
+            1
+        ],
+        "obj_id": 0,
+        "object_type": 1,
+        "position": {
+            "x": 7353.609555977055,
+            "y": 15602.865812603437,
+            "z": 27.644874998412636,
+            "zone": "50S"
+        },
+        "road_ids": [
+            38455
+        ],
+        "signal_condition": 1,
+        "stop_line_ids": [
+            15085
+        ],
+        "task_id": 0,
+        "type": 3,
+        "update_time": "Tue, 07 Dec 2021 03:44:32 GMT"
+    }
+}
 ```
+
+
 
