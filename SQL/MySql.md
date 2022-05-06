@@ -1,0 +1,5 @@
+- 本地连接
+  - mysql -h localhost -u root -p123 
+    - -p 为密码，-p和密码之间**不可有空格**
+- 远程连接
+  - mysql -h -P -u -p

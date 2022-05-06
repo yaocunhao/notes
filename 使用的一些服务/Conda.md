@@ -1,0 +1,2 @@
+- 是一个包、环境管理工具
+- [conda](https://www.jianshu.com/p/f09c1ccdee31)

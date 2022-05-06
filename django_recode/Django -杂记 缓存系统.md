@@ -1,3 +1,9 @@
+[TOC]
+
+# 零、参考文章
+
+[1](https://blog.csdn.net/weixin_30696427/article/details/98191448)
+
 # 一、配置文件
 
 ```python
@@ -22,7 +28,7 @@ class CacheHandler:
     def __init__(self):
         self._caches = local() #本地线程存储技术，获取了一个对象
 
-    def __getitem__(self, alias): #重载了[]，返回对应的那个变量
+    def __getitem__(self, alias): #根据下标返回对应的值
         try:
             return self._caches.caches[alias]
         except AttributeError:# 找不到属性报错

@@ -35,3 +35,8 @@
 
 - ingeix
 - hdfs
+
+# SQL
+
+- redis
+- mongoDB

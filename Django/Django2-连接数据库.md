@@ -217,15 +217,30 @@
 
 ### 3.2.2 字段约束
 
-| 选项        | 说明                                     |
-| ----------- | ---------------------------------------- |
-| null        | 如果为Ture，允许为空，默认为False        |
-| blank       | 如果为True，运行为空，默认为False        |
-| db_column   | 字段的名称，如果未指定，则使用属性的名称 |
-| db_index    | 是否创建索引，默认False                  |
-| default     | 默认值                                   |
-| primary_key | 主键，默认False                          |
-| unique      | 唯一键，默认False                        |
+| 选项         | 说明                                                         |
+| ------------ | ------------------------------------------------------------ |
+| null         | 如果为Ture，允许为空，默认为False。日期型、时间型以及数字型字段不接受空字符串。所以当设置 IntegerField，DateTimeField 型字段可以为空时，需要将 blank 与 null 均设为 True 才可以。 |
+| blank        | 如果为True，运行为空，默认为False。如果是字符型字段 CharField 和 TextField，它们是用空字符串来存储空值的 |
+| db_column    | 字段的名称，如果未指定，则使用属性的名称                     |
+| db_index     | 是否创建索引，默认False                                      |
+| default      | 默认值                                                       |
+| primary_key  | 主键，默认False                                              |
+| unique       | 唯一键，默认False                                            |
+| choices      | 用于给字段设置选择的值，是一个可迭代的对象(list/tupple)，其实就是SQL之中的set/enum |
+| verbose_name | 在admin后台管理系统上显示的名称，如果没有设置这个字段，Django将会直接展示字段名并且将字段中的下划线转变为空格 |
+
+```python
+# 创建表
+class UserInfo(models.Model):
+    # 定义chocies参数的对应关系，以元组（或者列表）的形式进行表述：
+    choices = (
+        (male, '男性'),
+        (female, '女性'),
+    )
+    gender = models.CharField(max_length=2,choices = choices,default='male')
+```
+
+
 
 ## 3.3 主键
 
@@ -849,6 +864,8 @@
 # 五、查询集
 
 ## 5.1 查询集概念
+
+- **如果返回的查询集为空，再对其进行过滤器操作时，不会报错**
 
 - Django的ORM也存在查询集的概念，也称为查询结果集QuerySet，表示从数据库中获取的对象集合
 

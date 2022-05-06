@@ -54,6 +54,22 @@
     - name -- 字符串，对象属性。
     - default -- 默认返回值，如果不提供该参数，在没有对应属性时，将触发 AttributeError。
 
+- `__getattr()__`
+
+  - 当访问一个对象不存在的属性之时，会抛出异常，这个异常就是由该接口抛出的
+
+    ```python
+    class Base:
+    	def __getattr__(self,name): #
+    		print("not find!!!")
+    
+    b = Base()
+    b.cc   # not find!!!
+    
+    ```
+
+    
+
 - setattr()
 
   - 用于设置属性值，该属性不一定是存在的
@@ -143,6 +159,25 @@
 
 - importlib.import_module()使用方法
   - 动态地获取另一个py文件中定义好的变量/方法，只要设置好py的文件路径即可
+
+    ```python
+    from importlib import import_module
+    
+    def test():
+      path = 'test.test' # 模块的路径
+      obj = import_module(path) # 导入模块，obj就是test模块
+      
+      b = obj.Base() # 获取模块之中的类 && 定义出来一个对象
+      print(b.name,b.sex,b.age) 
+    
+      f = obj.func # 获取模块之中的函数
+      f()
+      print(obj)
+    
+    test()
+    ```
+
+    
 
 - 参数带*号
   - 单星号：*agrs，将所有参数以元组(tuple)的形式导入
@@ -317,3 +352,32 @@
   - 都可以用来标识字符串
   - 双引号中不需要使用`\`来对字符进行转义(双引号除外)
   - 当字符串中出现双引号时，如果外层的引号为单引号则不需要使用转义字符
+
+- `__getitem__`
+
+  - **魔法函数**，当遍历类的时候就会调用这个方法
+
+  ```python
+  class Base:
+  	def __init__(self,_name):
+  		self.name = _name
+  	
+  	def __getitem__(self,index):
+  		return self.name[index]			
+  
+  
+  b = Base(['jim','tom','hah'])
+  for i in b:
+  	print(i)
+  	
+  	# jim
+  	# tom
+  	# hah
+  ```
+
+- `__all__`
+
+  - python模块中的__all__，用于模块导入时限制，如：**from module import \***
+  - 此时被导入模块若定义了__all__属性，则只有__all__内指定的属性、方法、类可被导入
+  - 若没定义，则导入模块内的所有公有属性，方法和类。**也就是说通过all来控制跨文件访问**
+

@@ -206,6 +206,8 @@
 
 # 六、使用技巧
 
+##  6.1 传参技巧
+
 - 多个装饰器装饰同一个函数，并且装饰器拥有多层，那么可以先进行传参
 
 - 这种嵌套使用的情况之下，先执行的是传参动作
@@ -252,6 +254,36 @@
   # hello
   # check end
   # log_end
+  ```
+
+
+## 6.2 巧妙运用call 函数
+
+- ``__call__``
+
+  - 如果定义了call函数，对象名()的方式就会调用这个函数，因此可以使用一个类来代替装饰器
+  - 类中的``__init__`` 则可以当做参数接收器
+
+- 代码演示
+
+  ```python
+  class Test():
+    def __init__(self) -> None: # 相当于参数接收器
+        self.name = 'str'
+    
+    def __call__(self,func):  # 直接就进行了函数的调用
+        func()
+        print(self.name)
+  
+  
+  
+  # 此时，Test() 实际上就是 call，如果加上() 就实现了对call函数的调用
+  @Test()
+  def func():
+    print("i am func")
+  
+  #i am func
+  #str
   ```
 
   

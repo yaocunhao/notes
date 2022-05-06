@@ -25,6 +25,35 @@
     - admin.site.register([Book,Author,UserInfo]) 方法实现多个模型类的注册
     - admin.site.register(Book) 实现单个模型类的注册![image-20220320225437581](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220320225437581.png)
 
+- 进入管理界面
+
+  - ip:port/admin
+
+- 效果展示
+
+  ```python
+  # app.models 文件
+  class Demo(models.Model):
+    id = models.BigAutoField(primary_key=True)
+    create_time = models.DateTimeField(auto_now_add=True)  # 创建记录之时会添加时间
+    update_time = models.DateTimeField(auto_now_add=True)  # 更新记录之时，会改变时间
+    demo_field = models.CharField(max_length=20, default='', db_index=True)
+    str_field = models.CharField(max_length=20, default='', db_index=True)
+  
+  # app.admin 文件
+  from django.contrib import admin
+  from app_demo.models import Demo
+  # 需要管理的数据库
+  admin.site.register(Demo)
+  
+  # 创建用户和密码
+   python manage.py createsuperuser --username=ych --email=ych@163.com
+  
+  # ip:port/admi 查看界面效果
+  ```
+
+  ![image-20220423161035483](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220423161035483.png)
+
 # 四、django_admin_log数据表
 
 - Admin 应用在数据库迁移的过程中只创建了 django_admin_log 一张表 ，用于记录通过管理后台完成的对 Model 的增删改操作

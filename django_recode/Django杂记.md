@@ -345,7 +345,7 @@ urlpatterns = [
 [文档](https://django-extensions.readthedocs.io/en/latest/runscript.html)
 
 - 脚本可以放在项目或者App的script目录之下
-- 如果寻找不到，则说明路径太深，则需要带上路径
+- **如果寻找不到，则说明路径太深，则需要带上路径**
 
 
 
