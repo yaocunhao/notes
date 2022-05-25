@@ -106,9 +106,10 @@
 
       - 任意关键字参数可以在字典中传递给目标视图
       - **表示的是route匹配到的URL的一个别名**
-
+      - [方便前台开发](https://blog.csdn.net/weixin_30721899/article/details/99085659?ops_request_misc=&request_id=&biz_id=102&utm_term=django%20path%E4%B9%8B%E4%B8%AD%E7%9A%84%E5%88%AB%E5%90%8D&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-99085659.142^v10^pc_search_result_control_group,157^v8^control&spm=1018.2226.3001.4187)
+    
     - 第四个参数kwargs
-
+    
       - 命名你的 URL 可以让你从 Django 的其他地方明确地引用它，尤其是在模板中。这个强大的功能允许您对项目的 URL 模式进行全局更改，而只需触摸一个文件
 
 - 在网址中输入ip:port/polls/ 就可以访问到内容了

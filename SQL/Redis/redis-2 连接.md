@@ -8,6 +8,7 @@
   PONG
   ```
 
+- auto password 进行验证
 
 
 # 二、远程连接

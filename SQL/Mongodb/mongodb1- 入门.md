@@ -2,6 +2,24 @@
 
 [启动参考链接](https://www.cnblogs.com/runningRain/p/13809109.html)
 
+[安装](https://blog.csdn.net/m0_46825740/article/details/121671455?ops_request_misc=&request_id=&biz_id=102&utm_term=ubuntu%20%E4%B8%8B%E5%AE%89%E8%A3%85mongo&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-121671455.142^v9^control,157^v4^control&spm=1018.2226.3001.4187)
+
+[账号密码设置](https://blog.csdn.net/weixin_42140261/article/details/105242450?ops_request_misc=&request_id=&biz_id=102&utm_term=mongo%20%E6%80%8E%E4%B9%88%E8%AE%BE%E7%BD%AE%E8%B4%A6%E5%8F%B7%E5%92%8C%E5%AF%86%E7%A0%81&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-4-105242450.nonecase&spm=1018.2226.3001.4187)
+
+[配置文件字段解析](https://blog.csdn.net/weixin_33733810/article/details/85607451?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2-85607451-blog-79302711.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2-85607451-blog-79302711.pc_relevant_default&utm_relevant_index=5)
+
+[权限概念](https://blog.csdn.net/Lemonss123/article/details/123456874?ops_request_misc=&request_id=&biz_id=102&utm_term=MongonDb%E6%9D%83%E9%99%90%E6%A6%82%E5%BF%B5&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-123456874.142^v10^pc_search_result_control_group,157^v12^control&spm=1018.2226.3001.4187)
+
+- **以centos为测试机**
+  - `mongod --dbpath /var/log/mongodb --logpath /var/log/mongodb/mongod.log --fork`
+
+- 启动和关闭
+
+  ```python
+  启动：sudo service mongodb start
+  关闭：sudo service mongodb stop
+  ```
+
 - 启动MongoDB
 
   ```python
@@ -19,6 +37,20 @@
   ```
   mongo
   ```
+
+- 配置文件启动
+
+  ```python
+  ./mongod -f /path/mongod.conf  
+  ```
+
+- 配置文件关闭
+
+  ```
+  mongod -f /path/mongod.conf  --shutdown
+  ```
+
+  
 
 # 二、基础命令
 

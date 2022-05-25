@@ -1,0 +1,82 @@
+# 一、property 函数
+
+## 1.1 应用场景
+
+- 用 `类对象.属性` 的方式访问类中定义的属性，这种做法是欠妥的，因为它破坏了类的封装原则，类包含的属性应该是隐藏的，只允许通过类提供的公有方法来间接实现对类属性的访问和操作
+- 因此我们应该将类的属性设置为私有的，然后提供接口去修改和访问，但是这样需要调用接口比较麻烦，此时property函数的作用就体现出来了
+  - 通过property函数可以继续采用 `类对象.属性`的方式进行访问。
+  - 在获取、设置、删除对象属性的时候，需要做一些额外的工作
+
+## 2.1 语法和使用
+
+- 语法
+
+  - property(fget=None, fset=None, fdel=None, doc=None) -> property attribute
+    - `fget` 是**获取属性值的方法**。
+    - `fset` 是**设置属性值的方法**。
+    - `fdel` 是**删除属性值的方法**。
+    - `doc` 是**属性描述信息**。如果省略，会把 `fget` 方法的 `docstring` 拿来用（如果有的话）
+  - 在使用 property() 函数时，以上 4 个参数可以仅指定第 1 个、或者前 2 个、或者前 3 个，也可以全部指定。也就是说，property() 函数中参数的指定并不是完全随意的
+
+- 报错原因
+
+  - 可以省略设置属性值的方法，此时该属性变成**只读属性**。如果此时仍然设置属性，会抛出异常 `AttributeError: can't set attribute`
+
+- 演示
+
+  ```python
+  class Test:
+  	def __init__(self,name='tom') -> None:
+  			self.__name=name
+  	
+  	def getname(self):
+  		"""获取名字"""
+  		print("property test")
+  		return self.__name
+  
+  	name = property(fget=getname) # 修饰get函数，即只是可读的
+  
+  t = Test()
+  print(Test.name.__doc__) # 获取文档，类名.属性.__doc__进行访问
+  print(t.name) # 修饰后，继续对象.name  访问成员
+  
+  # 获取名字
+  # property test
+  # tom
+  ```
+
+  
+
+# 二、@property
+
+- **@property是property()的语法糖**
+
+- `@property` 语法糖提供了比 `property()` 函数更简洁直观的写法
+
+- 被 `@property` 装饰的方法是**获取属性值的方法**，被装饰**方法的名字会被用做 `属性名`**
+
+- 被 `@属性名.setter` 装饰的方法是**设置属性值的方法**
+
+- 被 `@属性名.deleter` 装饰的方法是**删除属性值的方法**
+
+  ```python
+  class Test:
+  	def __init__(self,name='tom') -> None:
+  			self.__name=name
+  	
+  	@property
+  	def name(self):
+  		return self.__name
+  	
+  	@name.setter # 进行属性的设置
+  	def name(self,name):
+  		self.__name=name
+  	
+  
+  t = Test()
+  t.name = 'Jim' # 设置属性
+  print(t.name) # Jim
+  
+  ```
+
+  

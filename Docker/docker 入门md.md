@@ -78,6 +78,8 @@
 
 # 四、容器操作
 
+[参考链接](https://blog.csdn.net/weixin_39553910/article/details/89962805?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165286216716782246471214%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165286216716782246471214&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-2-89962805-null-null.142^v10^control,157^v4^control&utm_term=docker%E7%9A%84run%E6%B2%A1%E5%90%AF%E5%8A%A8&spm=1018.2226.3001.4187)
+
 ## 4.1 基本概念
 
 - 有了镜像后，就可以创建容器来运行这个镜像，通过**Docker run 镜像名字**来运行的，下面加载一个centos镜像然后运行它
@@ -265,12 +267,6 @@ mysql> show databases;
 
   
 
-# 六、容器数据卷
-
-
-
-
-
 # 七、docker file
 
 - [参考链接](https://blog.csdn.net/decvo6179/article/details/102078181?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165102621416780366515915%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165102621416780366515915&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-102078181-null-null-2~all~sobaiduend~default-1-102078181.142^v9^control,157^v4^control&utm_term=dockfile+&spm=1018.2226.3001.4187)
@@ -282,7 +278,7 @@ mysql> show databases;
 
 - [参考链接](https://www.qikegu.com/docs/3016)
 
-
+- [Docker Compose和Docker Stack区别](https://blog.csdn.net/m0_67402564/article/details/124171654?ops_request_misc=&request_id=&biz_id=102&utm_term=docker-compose%20%20%E5%92%8C%20docker%20stack&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-124171654.142^v10^control,157^v4^control&spm=1018.2226.3001.4187)
 
 ## 8.1 作用
 
@@ -335,3 +331,6 @@ docker run -itd --name sq_test -p 8888:3306 -v /home/didi/docker_test:/etc/mysql
 - 当启动一个以应用程序(比如mysql)为镜像的容器时，当前的操作系统采用的是本机的系统镜像
 - 端口的挂载
   - 如果没有端口的挂载，服务是不可以被外部进行访问的
+
+- 查看日志
+  - https://blog.csdn.net/sunyanchun/article/details/123640865

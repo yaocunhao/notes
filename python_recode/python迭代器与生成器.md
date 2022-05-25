@@ -74,7 +74,7 @@
 
   - `__iter__()` == iter()，即liter(list) 等价于 `list.__iter__()`
   - `__next__()` == next() 
-  - python之中没有`__iter__`方法，所以推荐使用iter()和next()
+  - python2之中没有`__iter__`方法，所以推荐使用iter()和next()
 
 # 二、生成器
 
