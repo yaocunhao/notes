@@ -57,6 +57,8 @@
 
 - 启动mysql
 
+  - 第四点讲述
+
 - 登录myql
 
   ```
@@ -97,6 +99,7 @@
 
 - 启动方式二：
   - service.mysql start
+    - 也就是说service start 本质就是调用的这种方式
   - 这种方式需要将`mysql-5.7.38-linux-glibc2.12-x86_64/support-files/mysql.server` 放置到PATH路径中的文件夹下面
   - 所以可以直接 ./mysql.server start
 

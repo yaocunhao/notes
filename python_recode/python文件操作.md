@@ -27,5 +27,4 @@
 
 # 三、文件压缩操作(tarfile)
 
-- [参考链接](https://blog.csdn.net/yincheng_fans/article/details/94638828?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164964964616780271915492%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164964964616780271915492&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-94638828.142^v7^control,157^v4^control&utm_term=tarfile&spm=1018.2226.3001.4187)
-
+- [参考链接](https://blog.csdn.net/zhongbeida_xue/article/details/71124568?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165456983416782390585819%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165456983416782390585819&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-71124568-null-null.142^v11^pc_search_result_control_group,157^v13^control&utm_term=tarfile.open&spm=1018.2226.3001.4187)

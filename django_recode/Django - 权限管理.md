@@ -303,9 +303,10 @@ class Group(models.Model):
   +-----------------+--------------+------+-----+---------+----------------+
   ```
 
-  - name 表示权限名称，字符最大长度为 255
-  - content_type 表示与 ContentType 是外键关联关系，这张表主要用于记录 App 与 model 的信息
-  -  codename 代表权限的名称编码值，最多允许 100 个字符长度
+  - name 表示权限的作用，字符最大长度为 255
+  - conten_type_id 表示对model模型的一个标识id
+  - content_type 表示与 ContentType 是外键关联关系，这张表主要用于记录 App 与 model 的信息,**表示这个permission是属于哪个app下的哪个models**
+  -  codename 代表权限的名称，最多允许 100 个字符长度
 
 - ```
   mysql> desc django_content_type;
@@ -383,7 +384,7 @@ class Group(models.Model):
 
   - Model 内置的权限被定义在 Django `django.db.models.options.Options`模块之中
 
-    - 在定义的 Options 类中包含了 default_permisssions 属性，它指定了这以上的四种权限，如下所示：
+    - 在定义的 Options 类中包含了 default_permisssions 属性，它指定了这以上的四种权限，如下所示(注: Django 2.0前没有view权限)：
 
       ```python
       default_permissions = ('add', 'change', 'delete', 'view')
@@ -407,7 +408,7 @@ class Group(models.Model):
   - user_username.has_perm('user.add_article')
   - user_username.has_perm('user.change_article')
 - 查看某个用户所在用户组的权限或某个用户的所有权限(包括从用户组获得的权限)，我们可以使用 get_group_permissions() 和 get_all_permissions() 方法
-  - user_username.get_group_permissions()
+  - user_username.get_group_permissions() (User用户对象.方法)
   - user_username.get_all_permissions()
 
 ## 3.4 测试代码
@@ -465,9 +466,11 @@ def run():
 
 
 
-# 四、权限管理自定义以及权限校验
+# 四、User、Group、Permission关联起来
 
 - 在大多数情况下 Django 默认的权限管理，不能满足开发者的实际业务需求，这时候就需要添加自定义权限，Django 给开发者提供了不止一种的方法来完成自定义权限
+
+  [参考链接](https://blog.csdn.net/qq_41475058/article/details/104556833?ops_request_misc=&request_id=&biz_id=102&utm_term=Django%20%E7%9A%84%E6%9D%83%E9%99%90%E6%98%AF%E5%AF%B9%E4%BB%80%E4%B9%88%E8%AE%BE%E7%BD%AE%E7%9A%84%EF%BC%9F&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-104556833.142^v10^pc_search_result_control_group,157^v12^control&spm=1018.2226.3001.4187)
 
 ## 4.1 实现添加自定义权限
 
@@ -475,8 +478,263 @@ def run():
 
 - 将需要的权限添加在Model的Meta属性中，创建添加相应的权限
 
+  ```python
+  from django.db import models
+  from django.contrib.auth import get_user_model
+  
+  class Movie(models.Model):
+  	id = models.BigAutoField(primary_key=True)
+  	name = models.CharField(max_length=10,default='')
+  	
+  	# 外键为settings.AUTH_USER_MODEL指定的User model
+  	# 当前的数据删除，对应的外键数据也会被删除(on_delete=CASCADE)
+  	# 外键为settings.AUTH_USER_MODEL指定的User model,实际上就是关联的auth_user 之中的用户id
+  	author = models.ForeignKey(get_user_model(),on_delete=models.CASCADE) 
+  
+  	class Meta:
+  		db_table = 'movie'
+  		#第一个元素指定了权限的名称 codename，第二个元素指定了权限的 name(作用)
+  		permissions=(
+  			('make_movie', 'can make book '), #添加制作电影权限
+  			)
   ```
+
+- 下图展示数据库中权限表添加权限前后的差别
+
+  ![image-20220525235543104](../../../Library/Application Support/typora-user-images/image-20220525235543104.png)
+
+### 4.1.2 通过代码添加权限
+
+- 在auth_test App的视图函数中编写代码
+
+  ```python
+  from django.contrib.auth.models import Permission, ContentType
+  from auth_test.models import Movie
+  from django.http import HttpResponse
+  
+  
+  def add_permissions(request):
+    #  返回给定模型的ContentType对象,即在数据表中插入一行(记录app和model)，然后作为外键用于权限创建
+    # 表示这个权限属于那个app下的model
+    # 创建 ContentType如果必要的话。查找被缓存，以便后续查找 对于相同的模型不要击中数据库
+    content_type = ContentType.objects.get_for_model(Movie)
+  
+    # 创建权限
+    permission = Permission.objects.create(name='can test permission',
+                                           codename='test_movie',
+                                           content_type=content_type)
+    return HttpResponse('权限创建成功')
   
   ```
 
+- 配置好url，然后通过游览器访问，效果如下![image-20220526001222653](../../../Library/Application Support/typora-user-images/image-20220526001222653.png)
+
+## 4.2 授权与验证
+
+- 当前auth_user下面的权限![image-20220526001906432](../../../Library/Application Support/typora-user-images/image-20220526001906432.png)
+
+- ych是超级用户不需要授予权限，因此用test_user 来测试
+
+### 4.2.1 用户权限管理操作
+
+- **权限本身只是一个数据，必须和用户进行绑定，才能起到作用**User模型和权限之间的管理，可以通过以下几种方式来管理：
+  - myuser.user_permissions.set(permission_list)：直接给定一个权限的列表。
+  - myuser.user_permissions.add(permission,permission,…)：一个个添加权限。
+  - myuser.user_permissions.remove(permission,permission,…)：一个个删除权限。
+  - myuser.user_permissions.clear()：清除权限。
+  - myuser.has_perm(’<app_name>.’)：判断是否拥有某个权限。权限参数是一个字符串，格式是app_name.codename。
+  - myuser.get_all_permissons()：获取所有的权限
+
+- **给用户添加、删除权限的过程其实就是修改 auth_user_user_permissions 表数据记录的过程**，它是 User 和 Permission 的多对多关联关系表
+
+- 在操作用户权限的过程中，我们要给 Movie 的实例添加属性需要使用它的 user_permissions 属性，首先，我们来获取 User 对象和 Permission 对象实例，操作权限的代码分别如下所示：
+
+  ```python
+  from django.contrib.auth.models import User, Permission
+  from django.contrib.auth.models import Group
+  from django.contrib.auth import authenticate
   
+  def permissions_manage():
+    user = User.objects.get(username='test_user')  # 获取用户对象
+    add_movie = Permission.objects.get(codename='add_movie')  # 获取‘add_movie’权限对象
+    change_movie = Permission.objects.get(codename='change_movie')
+    print(user.get_all_permissions())  # 查看实例对象所有权限若无任何返回值是空集合set
+  
+    user.user_permissions.set([add_movie])  # 将user的权限设置为当前权限值，之前权限的会自动去掉(也就是在auth_user_user_permissions中添加关联关系)
+    
+    print(user.get_all_permissions()) # {'auth_test.add_movie'} ,注意会有缓存问题，因此打印不及时
+  
+    user.user_permissions.add(change_movie)  # 在当前权限的基础新增权限
+    print(user.get_all_permissions())
+  
+    user.user_permissions.add(add_movie, change_movie)  # 同时也可接受多个权限值
+    print(user.get_all_permissions())
+  
+    user.user_permissions.remove(change_movie)  # 删除权限(在关系表中删除该关系)
+    print(user.get_all_permissions())
+  
+    #user.user_permissions.clear()  # 清空所有权限
+    print(user.get_all_permissions())
+  
+  ```
+
+### 4.2.2 用户组权限管理操作
+
+- 权限组管理接口
+
+  ```python
+  group.permissions.set([permission_list])
+  group.permissions.add(permission, permission, ...)
+  group.permissions.remove(permission, permission, ...)
+  group.permissions.clear()
+  ```
+
+- 给用户组添加、删除权限的过程基本同 User 是类似的
+
+  ```python
+  def permissions_manage_group():
+    # 从权限列表获取权限
+    add_movie = Permission.objects.get(codename='add_movie')
+    change_movie = Permission.objects.get(codename='change_movie')
+  
+    # 创建用户组
+    group_movie = Group.objects.create(name="movie_group")  # 在auth_group中插入一行
+    # 添加用户组权限 -> 在auth_group_premission表中建立起对应的关系
+    group_movie.permissions.set([add_movie, change_movie])
+  
+    # 获取对象
+    user = User.objects.get(username='test_user')
+    # 将用户添加到组中
+    user.groups.add(group_movie)
+    # 打印所有权限 -> 用户自动获得组的权限
+    print(user.groups.all()) # <QuerySet [<Group: movie_group>, <Group: test_group>]>
+  ```
+
+### 4.2.3 用户的权限校验
+
+- 通过上面的介绍。我知道了如何对用户与用户组的权限进行操作
+
+- 接下来，我们还要明白权限授予后，我们还要对其进行校验，校验成功的用户方可执行某项权限规定的操作
+
+- 用户的校验可以使用 User 实例的 has_perm 或 has_perms 方法，han_perm 判断当前用户是否有某一项权限，而后者则表示用户是否同时拥有多个权限。格式如下，has_perm 中传递的权限格式为
+
+  ```python
+  has_perm('appname.codename(权限编码)')
+  
+  # 而 has_perms 在校验多个权限时，需要将 n 个权限放入列表中，如下所示：
+  has_perms(["add_movie","change_movie"]) # 全部都验证成功才返回True
+  ```
+
+- 代码
+
+  ```python
+  # 注意：此时的用户中没有权限，而是用户组之中的权限(和上面的例子同数据)
+  def permission_judge():
+    user = User.objects.get(username='test_user')  # 获取用户
+    print(user.has_perm('auth_test.add_movie'))  # True
+    print(user.has_perms(["auth_test.add_movie", "auth_test.change_movie", "auth_test.make_movie"])) # False
+    print(user.has_perms(["auth_test.add_movie", "auth_test.change_movie"])) # True
+  ```
+
+# 五、Django自定义认证后端实现多种登录方式验证
+
+## 5.1 Django自带系统认证
+
+- Django自带用户的认证需要通过 authenticate 方法实现，而该方法就是使用 Django 默认认证后端 ModeBackend 进行用户验证的，但这种验证只是**简单地比对数据库中存储的用户名和密码是否匹配一致**，这样就会导致在很多情况下不能满足实际的业务的需求。这个时候我们就可以自定义一个认证后端，来实现某些需求
+
+- 从Django自带认证后端分析验证思路
+  - **首先如何想要实现用户的认证必须先要获得用户对象**
+  - **然后调用 authenticate 方法实现认证**
+  - 所以可想而知，认证后端是实现了 get_user(获取用户) 和 authenticate(验证方法) 这两个方法的 Python 类。其中 authenticate 将用户身份凭据作为关键字参数
+  - 所以实现自定义认证也需要实现这两个方法(get_user,authenticate)
+
+## 5.2 简单的认证后端过程
+
+### 5.2.1 代码实现
+
+- 在auth_test 应用下新建 backends.py 文件，将其作为单独模块出来，定义如下代码：
+
+  ```python
+  # 使用邮箱和密码进行认证
+  from django.contrib.auth.models import User
+  class EmailBackend(object):
+  
+    # 验证模块
+    def authenticate(self, request, **credentials):
+      # 获取邮箱的认证信息即邮箱账号实例
+      email = credentials.get('email', credentials.get('username'))
+      try:
+        user = User.objects.get(email=email) # 根据email 获取用户
+      except Exception as error:
+        print(error)
+      else:
+        # 检查用户密码
+        if user.check_password(credentials["password"]): # 验证密码是否正确
+          return user
+  
+    # 获取用户模块
+    def get_user(self, user_id):
+      try:
+        return User.objects.get(pk=user_id) # 根据用户id，返回用户
+      except Exception as e:
+        print(e)
+        return None
+  ```
+
+- 在setting配置文件中添加如下内容
+
+  ```python
+  AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'auth_test.backends.EmailBackend', # 自定义认证后端
+  ]
+  ```
+
+  - 在验证的时候，会从上往下依次进行认证
+  - 如果认证成功，则返回对应的后端
+
+- 验证程序
+
+  ```python
+  def backends_test():
+  
+    user = authenticate(username='test_user',password='123456')  # 如果验证成功则获取test_user 用户
+    print(user.backend) # django.contrib.auth.backends.ModelBackend，验证成功，返回django默认后端
+  
+    user = authenticate(email="123@163.com", password="123456") # 如果验证成功则获取test_user 用户
+    print(user.backend) # auth_test.backends.EmailBackend，验证成功，返回自定义后端
+  ```
+
+- 源码分析
+
+  ```python
+  def _get_backends(return_tuples=False):
+      backends = []
+      for backend_path in settings.AUTHENTICATION_BACKENDS: # 从配置中获取后端
+          backend = load_backend(backend_path)
+          backends.append((backend, backend_path) if return_tuples else backend)
+      if not backends:
+          raise ImproperlyConfigured(
+              'No authentication backends have been defined. Does '
+              'AUTHENTICATION_BACKENDS contain anything?'
+          )
+      return backends
+    
+  def authenticate(request=None, **credentials):
+  	
+    # for循环验证后端中的配置文件
+      for backend, backend_path in _get_backends(return_tuples=True): # 获取验证后端
+          try:
+              user = _authenticate_with_backend(backend, backend_path, request, credentials) # 进行验证
+          except PermissionDenied:
+              break
+          if user is None:
+              continue #  当前验证失败，继续循环验证
+        
+  ```
+
+  
+
+# 五、问题
+
+- get_all_permissions() 获取权限落后

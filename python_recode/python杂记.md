@@ -298,6 +298,14 @@
   - 使用dict字典类型时，如果引用的key不存在，就会抛出KeyError。如果希望Key不存在时，返回一个默认值，就可以用defaultdict
   - [参考链接](https://www.cnblogs.com/pypypy/p/12093944.html)
 
+- collections.namedtuple
+  
+  - 返回的是一个名为 `typename` 的[元组](https://so.csdn.net/so/search?q=元组&spm=1001.2101.3001.7020)子类
+
+  - 这个返回的[子类](https://so.csdn.net/so/search?q=子类&spm=1001.2101.3001.7020)用于创建类似元组的对象，这些对象具有可通过属性查找访问的字段以及可索引和可迭代的字段
+  
+  - [参考链接](https://blog.csdn.net/m0_37586991/article/details/103713691?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165414255016780366537882%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165414255016780366537882&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-103713691-null-null.142^v11^pc_search_result_control_group,157^v12^control&utm_term=collections.namedtuple&spm=1018.2226.3001.4187)
+  
 - [字符串编码问题](https://wenku.baidu.com/view/edcec5d90ba1284ac850ad02de80d4d8d15a0166.html)
 
 - 格式化 f -string
@@ -385,3 +393,7 @@
     - 只限制`import *` 全部导入时
     - 如果all中设置了，但是模块中没有定义会报错
 
+- abstractmethod
+  - [抽象函数](https://blog.csdn.net/jiang_huixin/article/details/109900067?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165407805916781818787496%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165407805916781818787496&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-109900067-null-null.142^v11^pc_search_result_control_group,157^v12^control&utm_term=abstractmethod&spm=1018.2226.3001.4187)
+
+- [dict 的遍历](https://blog.csdn.net/qdPython/article/details/121142688?ops_request_misc=&request_id=&biz_id=102&utm_term=python%20%E4%B8%AD%E6%80%8E%E4%B9%88%E9%81%8D%E5%8E%86dict&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-121142688.142^v11^pc_search_result_control_group,157^v13^control&spm=1018.2226.3001.4187)
