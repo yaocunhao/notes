@@ -28,3 +28,7 @@
 # 三、文件压缩操作(tarfile)
 
 - [参考链接](https://blog.csdn.net/zhongbeida_xue/article/details/71124568?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165456983416782390585819%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165456983416782390585819&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-71124568-null-null.142^v11^pc_search_result_control_group,157^v13^control&utm_term=tarfile.open&spm=1018.2226.3001.4187)
+
+# 四、创建临时文件
+
+- [参考链接](https://blog.csdn.net/qq_32617703/article/details/101267426?ops_request_misc=%25257B%252522request%25255Fid%252522%25253A%252522165468941016780366524472%252522%25252C%252522scm%252522%25253A%25252220140713.130102334..%252522%25257D&request_id=165468941016780366524472&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-101267426-null-null.142%5Ev11%5Epc_search_result_control_group,157%5Ev13%5Econtrol&utm_term=+tempfile.TemporaryDirectory&spm=1018.2226.3001.4187)

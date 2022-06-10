@@ -14,29 +14,41 @@
 
 - server 需要接受来自客户端的请求，然后根据wsgi协议定义调用应用程序（application），应用程序处理请求并返回结果给 server，最终响应给客户端
 
-- Django 框架同时实现了 WSGI 的 server 和 application。其中内置的 WSGI 服务器是基于 Python 的内置模块 wsgiref 实现的，主要是添加了一些异常处理和错误记录，**但是没有考虑到运行效率，故不适合在生产环境中使用**
+- Django 框架同时实现了 WSGI 的 server 和 application。其中内置的 WSGI 服务器是**基于 Python 的内置模块 wsgiref** 实现的，主要是添加了一些异常处理和错误记录，**但是没有考虑到运行效率，故不适合在生产环境中使用**
 
 - 实例演示
 
   - 在manage.py 同级目录之下新建一个web.py文件，编写如下代码
 
   ```python
-  from wsgiref.simple_server import make_server
+  from wsgiref.simple_server import make_server # 使用的是Django内部实现的WSGI服务器
   
-  #定义服务器调用对象application
+  # 定义服务器调用对象application
+  # application必须使用start_response(status，headers)，并且返回值是一个可迭的代序列，序列中的每个对象将标准输出
+  # WSGI environ是一些键值对，要么是提供给server，要么提供给middleware
+  
+  # 方法 application由 web服务器调用，参数env，start_response 由 web服务器实现并传入
+  # 其中，env是一个字典，包含了类似 HTTP_HOST，HOST_USER_AGENT，SERVER_PROTOCO 等环境变量。
+  # start_response则是一个方法，该方法接受两个参数，分别是status，response_headers。
+  # application方法的主要作用是，设置 http 响应的状态码和 Content-Type 等头部信息，并返回响应的具体结果。
+  
   def application(environ,start_response): 
       """
       :param environ:  #包含所有客户端的请求信息即上下文请求，application从这个参数中获取客户端请求意图
       :param start_response: 一个可调用对象，用于发送http请求状态
       :return: [b'Hello World!\n'] #返回可迭代对象 且必须是字节流，Http是面向字节流协议
        """
+      print('environ:',environ)
+  
+      #  构建http响应
       status='200 OK'
       response_headers=[('Conteny-type','text/plain')] #响应头是一个列表
       start_response(status,response_headers) #返回给server之前调用 start_response
+  
       return [b"Hello World!\n"]
   
   #创建WSGI服务器，指定调用application,这里的调用对象也可以是一个类或者实例
-  httpeserver=make_server('127.0.0.1',8000,application)
+  httpeserver=make_server('127.0.0.1',8000,application) 
   #处理请求后退出
   httpeserver.handle_request()
   ```

@@ -38,13 +38,13 @@
   mongo
   ```
 
-- 配置文件启动
+- **配置文件启动**
 
   ```python
   ./mongod -f /path/mongod.conf  
   ```
 
-- 配置文件关闭
+- **配置文件关闭**
 
   ```
   mongod -f /path/mongod.conf  --shutdown

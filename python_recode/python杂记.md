@@ -397,3 +397,45 @@
   - [抽象函数](https://blog.csdn.net/jiang_huixin/article/details/109900067?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165407805916781818787496%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165407805916781818787496&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-109900067-null-null.142^v11^pc_search_result_control_group,157^v12^control&utm_term=abstractmethod&spm=1018.2226.3001.4187)
 
 - [dict 的遍历](https://blog.csdn.net/qdPython/article/details/121142688?ops_request_misc=&request_id=&biz_id=102&utm_term=python%20%E4%B8%AD%E6%80%8E%E4%B9%88%E9%81%8D%E5%8E%86dict&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-121142688.142^v11^pc_search_result_control_group,157^v13^control&spm=1018.2226.3001.4187)
+
+- [库参考文档 ](https://docs.python.org/zh-cn/3/library/index.html)
+
+- [namedtuple](https://blog.csdn.net/qq_30159015/article/details/80356226?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165474390416782388040720%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165474390416782388040720&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-80356226-null-null.142^v11^pc_search_result_control_group,157^v13^control&utm_term=namedtuple&spm=1018.2226.3001.4187)
+
+  - [参考链接2](https://blog.csdn.net/yelitoudu/article/details/116114816?ops_request_misc=&request_id=&biz_id=102&utm_term=namedtuple&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-116114816.nonecase&spm=1018.2226.3001.4187)
+  - namedtuple是继承自tuple的子类。namedtuple创建一个和tuple类似的对象，而且对象拥有可访问的属性
+
+  ```python
+  from collections import namedtuple
+   
+  # 定义一个namedtuple类型User，并包含name，sex和age属性。其实就是一个类
+  User = namedtuple('User', ['name', 'sex', 'age'])
+   
+  # 创建一个User对象
+  user = User(name='kongxx', sex='male', age=21)
+   
+  # 也可以通过一个list来创建一个User对象，这里注意需要使用"_make"方法
+  user = User._make(['kongxx', 'male', 21])
+   
+  
+  print(user) # User(name='kongxx', sex='male', age=21)
+  
+  # 获取用户属性
+  print(user.name,user.sex,user.age) # kongxx male 21
+   
+  # 修改对象属性，注意要使用"_replace"方法
+  user = user._replace(age=22) # 
+  print(user) # User(name='kongxx', sex='male', age=22)
+   
+  # 将User对象转换成字典，注意要使用"_asdict"
+  print(user._asdict()) # OrderedDict([('name', 'kongxx'), ('sex', 'male'), ('age', 22)])
+  ```
+
+- [得到核的数量](https://blog.csdn.net/weixin_39914499/article/details/112990871?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165482746316782248554866%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=165482746316782248554866&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-112990871-null-null.article_score_rank_blog&utm_term=python+%E6%80%8E%E4%B9%88%E5%BE%97%E5%88%B0%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84CPU%E6%A0%B8%E6%95%B0%E9%87%8F&spm=1018.2226.3001.4450)
+
+  ```python
+  from multiprocessing import cpu_count
+  print(cpu_count())
+  ```
+
+  

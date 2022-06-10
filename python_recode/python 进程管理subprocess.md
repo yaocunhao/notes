@@ -47,7 +47,6 @@
         subprocess.run(['ls', '-la'], stdout=file, text=True)
     ```
   
-  - 
   - 返回值
     - ret.returncode=0，则表示执行成功
     - ret.stdout 标准输出
