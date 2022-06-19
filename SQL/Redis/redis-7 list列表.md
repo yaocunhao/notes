@@ -18,7 +18,7 @@
 
 - 快速链表quicklist
   - 当数据量较大时，Redis 列表就会是用 quicklist（快速链表）存储元素
-  - Redis 之所以采用两种方法相结合的方式来存储元素。这是因为单独使用普通链表存储元素时，所需的空间较大，会造成存储空间的浪费。因此采用了链表和压缩列表相结合的方式，也就是 quicklist + ziplist，结构如下图![image-20220506165924500](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/202205061659241.png)
+  - Redis 之所以采用两种方法相结合的方式来存储元素。这是因为单独使用普通链表存储元素时，所需的空间较大，会造成存储空间的浪费。因此采用了链表和压缩列表相结合的方式，也就是 quicklist + ziplist，结构如下图![image-20220619231101172](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192311230.png)
     - 将多个压缩列表用双向指针连接起来，既满足快速插入和删除的特性，又节省了一部分存储空间
 
 # 二、list命令

@@ -6,7 +6,7 @@
 
   
 
-  ![位数组](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/1333395108-0.gif)
+  ![image-20220619231123896](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192311953.png)
 
 # 二、位图应用原理
 
@@ -28,7 +28,7 @@
 
   - 如下图所示，两个字符组成的比特’数组‘的下标就叫做偏置位
 
-    ![image-20220420000023162](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220420000023162.png)
+    ![image-20220619231140193](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192311235.png)
 
   ```python
   >>> bin(ord("h")) # h的比特位

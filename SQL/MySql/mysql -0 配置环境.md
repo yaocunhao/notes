@@ -1,7 +1,7 @@
 # 一、下载资源寻找
 
 - 从[mysql官网](https://dev.mysql.com/downloads/mysql/5.7.html#downloads)找到对应的版本，wget 拉取下来
-- `wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.38-linux-glibc2.12-x86_64.tar.gz`![image-20220524211229345](../../../../Library/Application Support/typora-user-images/image-20220524211229345.png)
+- `wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-5.7.38-linux-glibc2.12-x86_64.tar.gz`![image-20220524211229345](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192310124.png)
 
 - 解压之后得到文件夹，这里面就是对应的mysql程序
 

@@ -52,7 +52,7 @@
   
   ```
 
-  ![image-20220405172605911](../../图片记录/image-20220405172605911.png)
+  ![image-20220405172605911](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192309496.png)
 
 - 迭代器可以被for循环，循环。因为迭代器再取迭代器也是本身
 

@@ -23,7 +23,7 @@
   - 注册命令
 
     - admin.site.register([Book,Author,UserInfo]) 方法实现多个模型类的注册
-    - admin.site.register(Book) 实现单个模型类的注册![image-20220320225437581](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220320225437581.png)
+    - admin.site.register(Book) 实现单个模型类的注册![image-20220619230306056](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192303106.png)
 
 - 进入管理界面
 
@@ -52,7 +52,7 @@
   # ip:port/admi 查看界面效果
   ```
 
-  ![image-20220423161035483](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220423161035483.png)
+  ![image-20220619231221206](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192312268.png)
 
 # 四、django_admin_log数据表
 

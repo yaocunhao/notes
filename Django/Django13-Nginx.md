@@ -32,7 +32,7 @@
 
 - 在项目部署中，Nginx在项目中起着关键作用，Nginx接收客户端的请求（一个Nginx服务器能够同一时刻支撑 5 万的并发量），并且将请求分为动态请求和静态请求
 - uWSGI则将Nginx接收到的请求转变为Django Web框架可以识别的形式，并且发送给Django
-- Django处理请求之后，将响应放回给uWSGI，最终由Nginx返回给客户端响应![image-20220525164048599](../../../Library/Application Support/typora-user-images/image-20220525164048599.png)
+- Django处理请求之后，将响应放回给uWSGI，最终由Nginx返回给客户端响应![image-20220525164048599](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192304073.png)
 
 ## 3.2 nginx 安装
 
@@ -107,7 +107,7 @@
 
   - 收集静态文件                   
 
-    ![image-20220525174804263](../../../Library/Application Support/typora-user-images/image-20220525174804263.png)
+    ![image-20220525174804263](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192304808.png)
 
   - 修改在nginx配置下添加静态资源路径
   - 在setting下添加STATIC_ROOT

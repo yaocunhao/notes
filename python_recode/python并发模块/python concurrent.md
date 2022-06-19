@@ -2,7 +2,7 @@
 
 - concurrent是一个包，这个包里面提供了一个futures模块。模块提供了两个类，分别为进程池和线程池
 - **这两个池子类继承了Executor抽象类，因此也继承了Executor的接口**
-- 也就是说，**实现继承的接口，就是实现异步调用的方法**![image-20220609184121184](../../../../Library/Application Support/typora-user-images/image-20220609184121184.png)
+- 也就是说，**实现继承的接口，就是实现异步调用的方法**![image-20220609184121184](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192307524.png)
 
 # 二、Executor 类
 

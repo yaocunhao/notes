@@ -11,7 +11,7 @@
 
 - auth 模块定义了一张名叫 auth_user 的数据表，该表是 auth 模块的内建用户表，开发者调用 auth 模块的相应接口生成此表，auth_user 表的字段以及字段类型，如下所示
 
-  ![image-20220520175800414](../../../Library/Application Support/typora-user-images/image-20220520175800414.png)
+  ![image-20220520175800414](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192305380.png)
 
   - is_superuser：布尔值，默认值是 False。标识是否是超级用户，代表用户拥有所有权限
 
@@ -501,7 +501,7 @@ def run():
 
 - 下图展示数据库中权限表添加权限前后的差别
 
-  ![image-20220525235543104](../../../Library/Application Support/typora-user-images/image-20220525235543104.png)
+  ![image-20220525235543104](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192305461.png)
 
 ### 4.1.2 通过代码添加权限
 
@@ -527,11 +527,11 @@ def run():
   
   ```
 
-- 配置好url，然后通过游览器访问，效果如下![image-20220526001222653](../../../Library/Application Support/typora-user-images/image-20220526001222653.png)
+- 配置好url，然后通过游览器访问，效果如下![image-20220526001222653](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192305574.png)
 
 ## 4.2 授权与验证
 
-- 当前auth_user下面的权限![image-20220526001906432](../../../Library/Application Support/typora-user-images/image-20220526001906432.png)
+- 当前auth_user下面的权限![image-20220526001906432](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192305993.png)
 
 - ych是超级用户不需要授予权限，因此用test_user 来测试
 

@@ -2,7 +2,7 @@
 
 - `django-admin startproject BookStore`
   - 需要注意的是 第一个BookStore是命令创建出来的，也就是所谓的项目根目录
-  - 而生成的这些配置所在目录的名称是可以进行更改的![image-20220320160013211](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220320160013211.png)
+  - 而生成的这些配置所在目录的名称是可以进行更改的![image-20220619230135009](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192301090.png)
 
 - 配置文件详解
   - manage.py文件
@@ -17,7 +17,7 @@
 
 # 二、配置Pycharm
 
-![截屏2022-03-20 下午7.51.47](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/%E6%88%AA%E5%B1%8F2022-03-20%20%E4%B8%8B%E5%8D%887.51.47.png)
+![image-20220619230201234](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192302289.png)
 
 # 三、创建应用
 
@@ -27,7 +27,7 @@
   - 比如 auth、admin，它们都属于 APP
   - 一个 App 就是一个 Python 包，通常一个 App 可以包含模型、视图、模板和 URL 配置文件，可以被应用到多个 Django 项目中，因为它们的本质就是可被重用的 Python 软件包
 
-- 创建命令`python manage.py startapp index`![image-20220320185135871](../../Library/Application Support/typora-user-images/image-20220320185135871.png)
+- 创建命令`python manage.py startapp index`
 
 - startapp 同样也属于 manage.py 的子命令，用来创建 Django 的应用。执行这个命令不会在 CMD 命令行看到任何输出，但是，可以在 manage.py 的同级目录下看到多出了一个 index 目录。**目录下各文件作用如下**
 

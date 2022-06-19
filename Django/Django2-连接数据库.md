@@ -25,7 +25,7 @@
   - `python manage.py migrate`
   - “迁移”就是把 Django 默认自带应用的数据表迁移到我们自己的创建的数据库里，有点像搬家的意思，migrate 这个单词的含义就是“迁移”
   - migrate 是 manage.py 的子命令，它主要用来将应用的数据表同步到数据库中。执行后，它会检查 I**NSTALLED_APPS 里配置**的应用列表，**依次为每个应用创建所需要的数据表**
-  - 可以根据需要设置，如果项目本身用不到，进行注释即可![image-20220315112642428](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220315112642428.png)
+  - 可以根据需要设置，如果项目本身用不到，进行注释即可![image-20220619230232787](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192302887.png)
 
 - makemigrations命令
 
@@ -51,7 +51,7 @@
   - 对象关系映射，它是一种基于关系型数据库的程序技术。ORM 允许你使用类和对象对数据库进行操作，这大大提高了对数据库的控制，避免了直接使用 SQL 语句对数据库进行操作。这种程序技术的底层主要是通过映射机制实现的
 - 作用
 
-  - Web 开发中对数据库的操作是必不可少的，然而每种数据库的操作方式以及用法不尽相同。由于 Django 中 ORM 的存在，为我们操作不同种类的数据库提供了统一的方法，ORM 适配了多种常用的关系型数据库，例如 PostgreSQL、MySQL、Oracle等等![image-20220315113408480](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220315113408480.png)
+  - Web 开发中对数据库的操作是必不可少的，然而每种数据库的操作方式以及用法不尽相同。由于 Django 中 ORM 的存在，为我们操作不同种类的数据库提供了统一的方法，ORM 适配了多种常用的关系型数据库，例如 PostgreSQL、MySQL、Oracle等等![image-20220619231316364](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192313497.png)
   - 如图1是 ORM 与数据库的映射关系图。ORM 把类映射成数据库中的表，把类的一个实例对象映射成数据库中的数据行，把类的属性映射成表中的字段，通过对象的操作对应到数据库表的操作，实现了对象到 SQL、SQL 到对象转换过程
 - Django 把表模型定义为 Model，他需要继承自`django.db.models`中的 Model 类，只要是与数据表相关的操作，都需要继承这个类。同时ORM 对于数据库的的增删改查，也提供了一些简单的 API，例如 F 查询、Q 查询
 - 针对数据库中的字段类型，Django ORM 都有对应的 “xxxField” 来表述
@@ -161,7 +161,7 @@
     .....
     ```
 
-  - `python manage.py migrate` 完成迁移，也就是在数据库之中执行上述的命令，即实现了将**index 应用的模型类（models）转换成数据库中的数据表**![image-20220320192927598](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220320192927598.png)
+  - `python manage.py migrate` 完成迁移，也就是在数据库之中执行上述的命令，即实现了将**index 应用的模型类（models）转换成数据库中的数据表**![image-20220619231341005](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192313135.png)
 
 - `__str__ `
 
@@ -336,7 +336,7 @@ class UserInfo(models.Model):
   
   ```
 
-  ![image-20220417222124424](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220417222124424.png)
+  ![image-20220619231404418](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192314546.png)
 
 - 修改
 
@@ -418,7 +418,7 @@ class UserInfo(models.Model):
 
 - 在数据库层面，实际上Django为这种多对多的关系建立起了一个中间表，这个中间表分别定义了两个外键，引用到book和tag两张表的主键
 
-  ![image-20220417232553625](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220417232553625.png)
+  ![image-20220619231421197](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192314328.png)
 
 - 插入
 
@@ -436,7 +436,7 @@ class UserInfo(models.Model):
     book.tags.add(tag) # 多对多，需要创建完成之后再添加
   ```
 
-  ![image-20220417235851483](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220417235851483.png)
+  ![image-20220417235851483](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192314157.png)
 
 - 查找
 

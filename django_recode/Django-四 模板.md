@@ -228,7 +228,7 @@
     <p> 类实例化对象：{{obj.func}} </p>
     ```
 
-    ![image-20220321094352767](https://raw.githubusercontent.com/yaocunhao/picture/main/image-20220321094352767.png)
+    ![image-20220321094352767](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192305018.png)
 
 
 

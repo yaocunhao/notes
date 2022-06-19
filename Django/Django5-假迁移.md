@@ -85,7 +85,7 @@
   - 两个项目使用的字段都是ploy_id，但是项目一中实际上对其重命名为 `m_ploy_id`
   - 虽然操作的时候采用的字段相同，但是在数据库中是不同的
 
-![image-20220424182852654](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220424182852654.png)
+![image-20220619230326425](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192303491.png)
 
 ### 2.3.2  数据的查询
 

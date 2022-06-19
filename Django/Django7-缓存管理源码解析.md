@@ -1,6 +1,6 @@
 # 一、缓存系统使用流程
 
-![image-20220507105118703](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/202205071052204.png)
+![image-20220619230352230](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192303289.png)
 
 # 二、源码分析
 
@@ -206,4 +206,4 @@
 - 两种方法的区别
   - 第一种方法，由于是django自身进行了包装，因此是更加高级的接口，所以在读取settings文件时，能够利用到更多的参数
   - 第二种方法更加的接近底层，因此读取setting之中的文件配置更少
-  - 如下图所示，这是第一种方法，因为多了一层包装，所以在set的时候会进行key的构造，**然后调用get_client**获取客户端，比直接获取客户端多了一层![image-20220507144307280](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/202205071443572.png)
+  - 如下图所示，这是第一种方法，因为多了一层包装，所以在set的时候会进行key的构造，**然后调用get_client**获取客户端，比直接获取客户端多了一层![image-20220619230410472](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192304574.png)![image-20220507144307280]()

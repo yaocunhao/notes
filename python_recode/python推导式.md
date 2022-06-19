@@ -23,7 +23,7 @@
   # ['000', 4]
   ```
 
-  ![image-20220405164942363](../../图片记录/image-20220405164942363.png)
+  ![image-20220405164942363](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192309152.png)
 
 - for 循环推导模式
 

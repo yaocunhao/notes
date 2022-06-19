@@ -18,7 +18,7 @@
        char buf[];
   ```
 
-- 示意图![image-20220419094125554](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/image-20220419094125554.png)
+- 示意图![image-20220619231501086](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192315163.png)
 
   -  buf 数组存储的字符串仍然以 C语言字符格式的“\0”结尾的，这样做的目的是为了能够重用 C语言库 <string.h> 中的部分函数
   - 在 C语言中，字符串类型的结尾以空字符串 ‘\0’来标识的。但在某些情况下，字符串可能会包含具有实际意义的“空字符”，此时 C语言就无法正确的存取这个字符了，而 Redis 通过 len 来标识字符串的总长度，从而保证了数据的二进制安全特性	

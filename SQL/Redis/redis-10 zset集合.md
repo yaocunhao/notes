@@ -12,7 +12,7 @@
 
 - 压缩列表由以下五个部分组成
 
-  ![image-20220506221529177](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/202205062215311.png)
+  ![image-20220619231237689](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192312736.png)
 
   - zlbytes 是一个无符号整数，表示**当前 ziplist 占用的总字节数**
   - zltail 指的是压缩列表尾**部元素相对于压缩列表起始元素的偏移量**
@@ -32,7 +32,7 @@
 
   
 
-  ![压缩列表结构](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/202205062218331.gif)
+  ![image-20220619231250173](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192312226.png)
 
   - 当 zset 使用压缩列表保存数据时，entry 的第一个节点保存 member，第二个节点保存 score。依次类推，**集合中的所有成员最终会按照 score 从小到大排列**
 
@@ -116,4 +116,3 @@
   - 计算成员之间的成员数量时,参数 min 和 max 的位置也计算在内。
 
   - min 和 max 参数的含义与 zrangebylex 命令中所描述的相同
-    

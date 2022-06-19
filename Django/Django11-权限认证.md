@@ -160,6 +160,6 @@
 
 - auth 模块定义了一张名叫 auth_user 的数据表，该表是 auth 模块的内建用户表，开发者调用 auth 模块的相应接口生成此表，auth_user 表的字段以及字段类型，如下所示
 
-  ![image-20220520175800414](../../../Library/Application Support/typora-user-images/image-20220520175800414.png)
+  ![image-20220520175800414](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192315679.png)
 
 ## 

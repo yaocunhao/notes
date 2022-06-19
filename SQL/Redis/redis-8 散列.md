@@ -12,7 +12,7 @@
 
   - 一个key可以对应多条记录，**相当于一个key可以存储一个对象的所有变量**
 
-    ![image-20220506194745511](https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/202205061947601.png)
+    ![image-20220619231156539](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192311626.png)
 
     ```python
     # 以 id+序号为 key、name+名称为value
