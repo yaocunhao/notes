@@ -44,6 +44,14 @@
 
 - `map`(*func*, **iterables*, *timeout=None*, *chunksize=1*)
 
+  - func:第一个参数为线/进程函数
+
+  - iterables:第二个参数为一个可迭代对象
+
+  - timeout:设置每次异步操作的超时时间。但由于 map 是返回线程执行的结果，如果 timeout 小于线程执行时间会抛异常 TimeoutErro
+
+  - **返回值：**返回一个 map()迭代器，在这个迭代器中，回调执行完成后所返回的结果是有序的
+
   - 取代for循环submit的操作
 
     ```python
@@ -180,6 +188,8 @@
 
 ## 5.1 基本概念
 
+- 起到返回值值收集的作用
+
 - 位置：**`concurrent.futures.Futur`**
 
 - Future类，表示可能已经完成或尚未完成的延迟计算
@@ -274,7 +284,9 @@
 
   - 任何在 as_completed() 调用之前就已经完成的 Future 实例会被最先生成
 
-  - 看源码发现，实际上这是一个用到了 yield from 的生成器函数，所以调用返回一个生成器
+  - 看源码发现，实际上这是一个用到了 yield from 的生成器函数，**所以调用返回一个生成器**
+
+  - **除非设置了timeout，否则一直阻塞在哪里进行等待**
 
     ```python
     import concurrent.futures

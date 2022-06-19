@@ -1,10 +1,10 @@
 - ## isinstance() 函数
-  
+
   - 判断一个对象是否是一个已知的类型，类似 type()
   - 语法：`isinstance(object, classinfo)`
     - object -- 实例对象
     - classinfo -- 可以是直接或间接类名、基本类型或者由它们组成的元组
-  
+
 - 调用函数时
   - 不带括号，调用的是函数本身，是整个函数，是一个函数对象，不等该函数执行完成
   - 带括号，调用的是函数的执行结果，需要等待函数执行完成
@@ -299,13 +299,13 @@
   - [参考链接](https://www.cnblogs.com/pypypy/p/12093944.html)
 
 - collections.namedtuple
-  
+
   - 返回的是一个名为 `typename` 的[元组](https://so.csdn.net/so/search?q=元组&spm=1001.2101.3001.7020)子类
 
   - 这个返回的[子类](https://so.csdn.net/so/search?q=子类&spm=1001.2101.3001.7020)用于创建类似元组的对象，这些对象具有可通过属性查找访问的字段以及可索引和可迭代的字段
-  
+
   - [参考链接](https://blog.csdn.net/m0_37586991/article/details/103713691?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165414255016780366537882%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165414255016780366537882&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-103713691-null-null.142^v11^pc_search_result_control_group,157^v12^control&utm_term=collections.namedtuple&spm=1018.2226.3001.4187)
-  
+
 - [字符串编码问题](https://wenku.baidu.com/view/edcec5d90ba1284ac850ad02de80d4d8d15a0166.html)
 
 - 格式化 f -string
@@ -439,3 +439,35 @@
   ```
 
   
+
+- math 函数
+
+  ```python
+  # math.floor() 向上取整
+  
+  # math.cil() 向下取整
+  ```
+
+- import_string
+
+  ```python
+  from werkzeug.utils import import_string
+  
+  ret = import_string("other.test:Base")
+  print(ret)
+  obj = ret()
+  
+  for k in dir(ret):
+  	if k.isupper():
+  		print(getattr(obj,k))
+  ```
+
+  
+
+# 运行脚本时找不到路径
+
+- pycharm会自动添加路径，Shell命令行不会，因此手动进行添加
+- 首先设定工作目录 `export PYTHONPATH=$PYTHONPATH:/Users/didi/onepiece/robotaDxi/onepiece/src`
+- 这样在工作目录下，用相对路径运行脚本即可
+- 如果在脚本之中还调用了其它脚本，同样会出现问题
+  - 这是使用子进程run调用时，可以将子进程目录cwd设置为工作目录，然后运行子进程的命令也改成从相对路径进行运行

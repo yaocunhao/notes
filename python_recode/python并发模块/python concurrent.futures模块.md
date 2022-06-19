@@ -14,6 +14,8 @@
 
 [比较有意思的参考文档](https://blog.csdn.net/tianyi19/article/details/112867831?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165484545916781685370859%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165484545916781685370859&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-5-112867831-null-null.142^v13^pc_search_result_control_group,157^v13^control&utm_term=python+concurrent.futures+%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%90%97&spm=1018.2226.3001.4187)
 
+[参考文章](https://blog.csdn.net/freeking101/article/details/97395745?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165485078616781483781858%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165485078616781483781858&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-4-97395745-null-null.142^v13^pc_search_result_control_group,157^v14^control&utm_term=python+futures%E6%A8%A1%E5%9D%97%E8%87%AA%E5%B8%A6%E9%94%81%E5%90%97&spm=1018.2226.3001.4187)
+
 ## 1.1 基本概念
 
 - concurrent.futures 是 3.2 中引入的新模块，它为异步执行可调用对象提供了高层接口。可以使用 ThreadPoolExecutor 来进行多线程编程，ProcessPoolExecutor 进行多进程编程，两者实现了同样的接口，**这些接口由抽象类 Executor 定义**
