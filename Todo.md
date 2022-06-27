@@ -63,21 +63,29 @@
 
 # 自我提升
 
-| 项目                           | 优先级 | 完成时间 |
-| ------------------------------ | ------ | -------- |
-| docker 容器部署                |        |          |
-| Nginx                          | 高     |          |
-| uwsig                          |        |          |
-| python日志功能                 | 高     |          |
-| SSO 功能                       |        |          |
-| python 多进程、多线程          | 高     |          |
-| python 库的学习、内置函数      | 高     |          |
-| python类学习(一些类自带的函数) | 高     |          |
-| 异常的使用                     | 高     |          |
-| Shell脚本 命令的学习           |        |          |
-| Http 的请求和响应              |        |          |
-
-
+| 项目                              | 优先级                                                       | 完成时间  |
+| --------------------------------- | ------------------------------------------------------------ | --------- |
+| docker 容器部署                   |                                                              |           |
+| Nginx                             | 高                                                           | 2022.6.21 |
+| uwsig                             |                                                              |           |
+| python日志功能                    | 高                                                           |           |
+| SSO 功能                          |                                                              |           |
+| python 多进程、多线程             | 高                                                           |           |
+| python 库的学习、内置函数         | 高                                                           |           |
+| python类学习(一些类自带的函数)    | 高                                                           |           |
+| 异常的使用                        | 高                                                           |           |
+| Shell脚本 命令的学习              |                                                              |           |
+| Http 的请求和响应                 |                                                              |           |
+| 多线程读取redis，是否是线程安全的 |                                                              |           |
+| 携程                              |                                                              |           |
+| 学习资源                          | [学习路径](https://blog.csdn.net/cumei1658/article/details/107360798/?ops_request_misc=&request_id=&biz_id=102&utm_term=python%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%E9%87%8C%E9%9D%A2%E7%9A%84%E7%BA%BF%E7%A8%8B%E5%86%8D%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-107360798.142^v20^pc_rank_34,157^v15^new_3&spm=1018.2226.3001.4187) |           |
+| 线程里面再创建线程                |                                                              | 2022.6.23 |
+| 线程池容量                        |                                                              |           |
+| Djangp 回调机制                   |                                                              |           |
+| Pipi 包的加载                     |                                                              |           |
+| Curl 的多种使用                   |                                                              |           |
+| Django 主从数据库                 |                                                              |           |
+| **设置模式**                      | **重度优先**                                                 |           |
 
 # 工作提升
 
@@ -86,4 +94,21 @@
 - 自动更新功能(进一步完善)
 
 
+
+
+
+
+
+```
+curl --location --request POST 'http://10.190.9.216:6003/map_editor/api/v2/release_task/add_for_mail' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "region": "beijing_yizhuang",
+    "cr_revision_id": 228981,
+    "cp_revision_id": 229035,
+    "cp_branch_name": "operation_20220614",
+    "version": 42,
+    "mail_type": "cp"
+}'
+```
 

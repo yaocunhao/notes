@@ -18,7 +18,7 @@
     }
     ```
 
-  - **在项目允许前，登录数据库手动创建对应的数据库名称**
+  - **在项目启动前，登录数据库手动创建对应的数据库名称**
 
 - 数据库迁移
 
@@ -200,27 +200,28 @@
 
 ### 3.2.1 字段类型
 
-| 字段            | 说明                                                         | 字段属性                                                     |
-| --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| AutoFiled       | 默然自增主键（Primary_key=Ture），Django 默认建立id字段为主键。 |                                                              |
-| CharFiled       | 字符类型                                                     | Max_length=32，字符长度需要明确                              |
-| IntgerFiled     | 整型 int                                                     |                                                              |
-| BooleanFiled    | 布尔字段，对应数据库 tinyint 类型数据长度只有1位。           | 值为True或False                                              |
-| NullBooleanFied | 支持Null、True或False三种值                                  |                                                              |
-| TimeFied        | 时间，同DateFiled                                            |                                                              |
-| DateFiled       | 年月日时间类型                                               | auto_now=True，数据被更新就会更新时间 ；auto_now_add=True，数据第一次参数时产生。 |
-| DateTimeFiled   | 年月日小时分钟秒时间类型                                     | auto_now=True，数据被更新就会更新时间； auto_now_add=True，数据第一次参数时产生。 |
-| DecimalFiled    | 混合精度的小数类型                                           | max_digits=3，限定数字的最大位数(包含小数位)；decimal_places=2，限制小数的最大位数。 |
-| TextFiled       | 用于大文本                                                   |                                                              |
-| FileField       | 上传文件字段                                                 |                                                              |
-| imageField      | 继承FileField，对上传内容进行校验，确保是有效图片            |                                                              |
+| 字段            | 说明                                                        | 字段属性                                                     |
+| --------------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
+| AutoFiled       | 自增主键（Primary_key=Ture），Django 默认建立id字段为主键。 |                                                              |
+| CharFiled       | 字符类型                                                    | Max_length=32，字符长度需要明确                              |
+| IntgerFiled     | 整型 int                                                    |                                                              |
+| BigIntegerField | 长整形                                                      |                                                              |
+| BooleanFiled    | 布尔字段，对应数据库 tinyint 类型数据长度只有1位。          | 值为True或False                                              |
+| NullBooleanFied | 支持Null、True或False三种值                                 |                                                              |
+| TimeFied        | 时间，同DateFiled                                           |                                                              |
+| DateFiled       | 年月日时间类型                                              | auto_now=True，数据被更新就会更新时间 ；auto_now_add=True，数据第一次参数时产生。 |
+| DateTimeFiled   | 年月日小时分钟秒时间类型                                    | auto_now=True，数据被更新就会更新时间； auto_now_add=True，数据第一次参数时产生。 |
+| DecimalFiled    | 混合精度的小数类型                                          | max_digits=3，限定数字的最大位数(包含小数位)；decimal_places=2，限制小数的最大位数。 |
+| TextFiled       | 用于大文本                                                  |                                                              |
+| FileField       | 上传文件字段                                                |                                                              |
+| imageField      | 继承FileField，对上传内容进行校验，确保是有效图片           |                                                              |
 
 ### 3.2.2 字段约束
 
 | 选项         | 说明                                                         |
 | ------------ | ------------------------------------------------------------ |
 | null         | 如果为Ture，允许为空，默认为False。日期型、时间型以及数字型字段不接受空字符串。所以当设置 IntegerField，DateTimeField 型字段可以为空时，需要将 blank 与 null 均设为 True 才可以。 |
-| blank        | 如果为True，运行为空，默认为False。如果是字符型字段 CharField 和 TextField，它们是用空字符串来存储空值的 |
+| blank        | 如果为True，允许为空，默认为False。如果是字符型字段 CharField 和 TextField，它们是用空字符串来存储空值的 |
 | db_column    | 字段的名称，如果未指定，则使用属性的名称                     |
 | db_index     | 是否创建索引，默认False                                      |
 | default      | 默认值                                                       |

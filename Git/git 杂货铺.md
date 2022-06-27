@@ -2,7 +2,11 @@
 
 - 想要分支之间互不干扰，有两种方式
   - git add、git commit 然后进行切换
-  -  `git stash`隐藏当前工作现场，这个时候用 git status 查看工作区是干净的，所以就可以放心地去其他分支了。用 `git stash list`可以查看隐藏起来的工作现场
+  - `git stash`
+    - 隐藏当前工作现场，这个时候用 git status 查看工作区是干净的，所以就可以放心地去其他分支了。用 `git stash list`可以查看隐藏起来的工作现场
+  - 恢复
+    - 用 `git stash apply`恢复，但是恢复后，stash 内容并不删除，需要用 `git stash drop`来删除；
+    - 用 `git stash pop`，恢复的同时把stash内容也删了，这时候用 `git stash list`就看不到任何 stash 内容了
 
 
 

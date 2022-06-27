@@ -1,3 +1,5 @@
+[参考链接](https://www.runoob.com/w3cnote/nginx-install-and-config.html)
+
 # 一、什么是Nginx以及其主要作用
 
 - Nginx (engine x) 是一个高性能的 HTTP 和反向代理 Web 服务器，同时也提供了 IMAP/POP3/SMTP 服务
@@ -136,4 +138,6 @@ http {
 	}
 }
 ```
+
+
 

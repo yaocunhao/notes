@@ -471,3 +471,7 @@
 - 这样在工作目录下，用相对路径运行脚本即可
 - 如果在脚本之中还调用了其它脚本，同样会出现问题
   - 这是使用子进程run调用时，可以将子进程目录cwd设置为工作目录，然后运行子进程的命令也改成从相对路径进行运行
+
+
+
+- [动态查询参数](https://blog.csdn.net/alun550/article/details/107647154?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165570286516782391860554%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=165570286516782391860554&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-4-107647154-null-null.article_score_rank_blog&utm_term=inspect.signature+%E7%9A%84%E5%90%AB%E4%B9%89&spm=1018.2226.3001.4450)

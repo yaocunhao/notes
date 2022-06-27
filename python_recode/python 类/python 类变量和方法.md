@@ -1,3 +1,5 @@
+[参考链接](https://blog.csdn.net/Allenalex/article/details/54097319?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165569307016782248521539%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165569307016782248521539&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~hot_rank-5-54097319-null-null.142^v17^pc_search_result_control_group,157^v15^new_3&utm_term=python+%E6%8F%8F%E8%BF%B0%E7%AC%A6&spm=1018.2226.3001.4187)
+
 # 一、动态增加变量和方法
 
 - Python 可以动态地为类和对象添加类变量
@@ -152,3 +154,46 @@
 
 [参考链接](https://blog.csdn.net/qq_44940689/article/details/123918379?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165517113016781683993485%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165517113016781683993485&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-2-123918379-null-null.142^v14^pc_search_result_control_group,157^v14^control&utm_term=%E6%B5%85%E8%B0%88Python%E7%B1%BB%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4&spm=1018.2226.3001.4187)
 
+- 对象属性的访问顺序
+  - 实例属性
+  - 类属性
+  - 父类属性
+  - getattr() 方法(描述符)
+
+
+
+# 五、slots限制类实例动态添加方法
+
+## 5.1 背景介绍
+
+- Python 语言允许为类动态地添加这 3 种方法；但对于**实例对象，则只允许动态地添加实例方法**，不能添加类方法和静态方法
+- 为单个实例对象添加方法，不会影响该类的其它实例对象；而如果为类动态地添加方法，则所有的实例对象都可以使用
+
+## 5.2 作用
+
+- 动态给类或者实例对象添加属性或方法，是非常灵活的。但与此同时，如果胡乱地使用，也会给程序带来一定的隐患，即程序中已经定义好的类，如果不做任何限制，是可以做动态的修改的
+
+- __slots__ **只能**限制**为实例对象动态添加属性和方法**，而无法限制动态地为类添加属性和方法
+
+- __slots__ 属性值其实就是一个元组，只有其中指定的元素，才可以作为动态添加的属性或者方法的名称
+
+  - ` __slots__ = ('name1','name2','name2')`
+
+- 如果为子类也设置有 __slots__ 属性，那么子类实例对象允许动态添加的属性和方法，是子类中 __slots__ 属性和父类 __slots__ 属性的和
+
+  ```python
+  class A:
+      __slots__ = ('name', 'age')
+      pass
+  
+  a = A()
+  a.name = 'jim'
+  a.age = 100
+  A.weight = "100kg"
+  
+  print(A.weight)  # 100kg -> slots不能限制为类添加
+  a.weight = "60kg"  # error: 'A' object has no attribute 'weight'
+  
+  ```
+
+# 

@@ -357,7 +357,7 @@
 
 # 总结
 
-- 也就是说Exce类提供了方法，future类提供了资源的收集
+- **也就是说Exce类提供了方法，future类提供了资源的收集**
 
 - [多进程模块](https://blog.csdn.net/wohu1104/article/details/120098436?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165485492416780366551781%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165485492416780366551781&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-120098436-null-null.142^v13^pc_search_result_control_group,157^v14^control&utm_term=python+futures%E7%9A%84%E8%BF%9B%E7%A8%8B%E6%B1%A0%E8%AE%BF%E9%97%AE%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%87%BA%E9%94%99&spm=1018.2226.3001.4187)
 

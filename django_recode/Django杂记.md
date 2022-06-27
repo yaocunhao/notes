@@ -349,3 +349,6 @@ urlpatterns = [
 
 
 
+# 八、创建models文件夹、删除迁移文件目录后再修改
+
+[参考链接](https://blog.csdn.net/weixin_30389003/article/details/97545000?ops_request_misc=&request_id=&biz_id=102&utm_term=%E5%B0%86Django%E9%A1%B9%E7%9B%AE%E4%B8%8B%E7%9A%84models%E6%96%87%E4%BB%B6%E6%94%B9%E6%88%90%E6%96%87%E4%BB%B6%E5%A4%B9&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-97545000.142^v21^pc_rank_34,157^v15^new_3&spm=1018.2226.3001.4187)

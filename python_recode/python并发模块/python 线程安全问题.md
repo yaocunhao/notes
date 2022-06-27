@@ -1,3 +1,9 @@
+[真正的参考链接](https://blog.csdn.net/weixin_43988680/article/details/124258173?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165577685916782246462680%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165577685916782246462680&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-124258173-null-null.142^v18^pc_search_result_control_group,157^v15^new_3&utm_term=GIL%E9%94%81&spm=1018.2226.3001.4187)
+
+[线程安全示例](https://blog.csdn.net/qq_30816923/article/details/105016536?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165583060916782425172206%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165583060916782425172206&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~pc_rank_34-8-105016536-null-null.142^v20^pc_rank_34,157^v15^new_3&utm_term=python+%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%80%8E%E4%B9%88%E5%8A%A0%E9%94%81&spm=1018.2226.3001.4187)
+
+[值得一读](https://blog.csdn.net/jqsfjqsf/article/details/113790347?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165585937216782391821168%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165585937216782391821168&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~pc_rank_34-2-113790347-null-null.142^v20^pc_rank_34,157^v15^new_3&utm_term=python+%E4%BA%92%E6%96%A5%E9%94%81%E5%AF%B9%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%80%A7%E8%83%BD%E5%BD%B1%E5%93%8D&spm=1018.2226.3001.4187)
+
 # 一、全局解释器锁(GIL)
 
 - [参考链接](https://blog.csdn.net/allway2/article/details/118055423?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165485120416782388049397%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165485120416782388049397&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-118055423-null-null.142^v13^pc_search_result_control_group,157^v14^control&utm_term=+%E5%85%A8%E5%B1%80%E8%A7%A3%E9%87%8A%E5%99%A8%E9%94%81&spm=1018.2226.3001.4187)
@@ -53,7 +59,13 @@
 
 - 在创建多个进程之后，再在每个进程之中创建线程，此时线程也可以并行了，因此可以会导致线程安全问题的发生？
   - 猜想：进程是独立的，一个进程创建出来的线程之间是共享的，但是和其它进程创建的线程之间却是独立的，因此也是线程安全的
+- **线程安全是相对的，如果进行了IO操作就会释放GIL锁**
+  - 因此修改临界资源之后再进行IO操作，是线程安全的。在修改临界资源之前进行IO操作，不是线程安全的
+  
 
 # 五、待验证
 
 - 不使用线程池而是使用普通创建的方法
+
+- **GIL 锁的释放时间**
+  - IO操作会进行释放，如果不是IO呢，时间片到了会不会释放？？？
