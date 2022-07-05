@@ -301,8 +301,11 @@ mysql> show databases;
     分别用-v挂载配置文件和数据目录
     docker run -itd --name mysql8 -p 主机端口:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=密码 镜像id
     
+    
+    docker run -idt -p 3434:4444 -v /home/didi/docker2/config/mysql.conf:/etc/mysql/conf.d/mysql.cnf  \
+    -v /home/didi/docker2/data_dir/mysql:/var/lib/mysql -v /home/didi/docker2/data_dir/mysql:/var/log/mysql \ -e MYSQL_ROOT_PASSWORD=didi1234 8d8c5f97accd
     ```
-
+  
   - ```
     数据卷挂载的时候，可以指定主机目录，也可以不指定目录，有三种方式
     
@@ -312,7 +315,7 @@ mysql> show databases;
     
     那么2和3会挂载到主机哪里呢？会挂载到主机 /var/lib/docker/volumes/xxxx 这里
     ```
-
+  
     
 
 
@@ -334,3 +337,9 @@ docker run -itd --name sq_test -p 8888:3306 -v /home/didi/docker_test:/etc/mysql
 
 - 查看日志
   - https://blog.csdn.net/sunyanchun/article/details/123640865
+
+- 常见命令
+  - [参考链接](https://blog.csdn.net/lvjianzhaoa/article/details/103859619?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165691856816782389425875%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165691856816782389425875&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-103859619-null-null.142^v30^pc_rank_34,185^v2^control&utm_term=docker-compose+volumes%E8%AF%A6%E8%A7%A3&spm=1018.2226.3001.4187)
+
+- ssh链接不上mysql时
+  - --ssl-mode=DISABLED

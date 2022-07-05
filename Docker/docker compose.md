@@ -30,12 +30,16 @@
         
         MYSQL_USER: ych # 创建用户
         MYSQL_PASSWORD: didi1234
+        
+        # 也就是说，在创建的时候，root是可以进入的，但是创建出来的用户是没有权限的，是无法进入的
+        # 因此需要手动给新创建的用户赋予权限（不一定创建了，进行mysql容器中手动创建）
   
-  
+  			# mysql> select User,Host,authentication_string from mysql.user; 查看mysql用户信息
+      
   
   ```
 
-- 注意：**需要手动给mysql新创建的用户赋予权限**
+- 注意：**需要手动给mysql新创建的用户赋予权限** [操作链接](https://blog.csdn.net/ych9527/article/details/119938198?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165690019916781818737799%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=165690019916781818737799&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-1-119938198-null-null.185^v2^control&utm_term=mysql&spm=1018.2226.3001.4450)
 
 - 执行：docker-compose up -d 
 
@@ -243,4 +247,20 @@ processManagement:
    #entrypoint: bash -c "chown -R mysql:mysql /var/log/mysql && exec /entrypoint.sh mysqld"
   ```
 
-  
+- [权限问题参考链接](https://github.com/docker-library/mysql/issues/688)
+
+
+
+# 操作指令
+
+- 容器启动失败
+  - docker logs  {容器id} 查看容器启动日志
+  - docker-compose up -d 批量后台启动
+  - docker-compose ps 批量查看
+
+# 其它问题
+
+- 挂载目录出现目录错误[参考链接](https://blog.csdn.net/weixin_55554304/article/details/119733763?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-119733763-blog-106680762.pc_relevant_aa&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-119733763-blog-106680762.pc_relevant_aa&utm_relevant_index=1)，修改my.cnf 在[mysqld]内加入secure_file_priv=/var/lib/mysql
+
+- [环境变量的使用](https://blog.csdn.net/weixin_34279184/article/details/86021328?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-86021328-blog-122867820.pc_relevant_aa2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-86021328-blog-122867820.pc_relevant_aa2&utm_relevant_index=2)
+

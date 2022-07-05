@@ -71,7 +71,7 @@
 
     
 
-- setattr()
+- 1()
 
   - 用于设置属性值，该属性不一定是存在的
     - 属性存在则赋值，属性不存在则创建一个属性
@@ -475,3 +475,30 @@
 
 
 - [动态查询参数](https://blog.csdn.net/alun550/article/details/107647154?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165570286516782391860554%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=165570286516782391860554&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_ecpm_v1~rank_v31_ecpm-4-107647154-null-null.article_score_rank_blog&utm_term=inspect.signature+%E7%9A%84%E5%90%AB%E4%B9%89&spm=1018.2226.3001.4450)
+
+
+
+- getfullargspec
+
+  - 获取函数参数的名称、默认值
+
+    ```python
+    from inspect import getfullargspec
+    
+    def func(name='tom', age=123):
+      pass
+    
+    ret = getfullargspec(func)
+    
+    print(ret)
+    # FullArgSpec(args=['name', 'age'],
+    #             varargs=None,
+    #             varkw=None,
+    #             defaults=('tom', 123),
+    #             kwonlyargs=[],
+    #             kwonlydefaults=None,
+    #             annotations={})
+    
+    ```
+
+    

@@ -14,3 +14,12 @@
   - `git merge --abort`
 - 删除分支
   - `git branch --delete dev`
+
+- 版本回退
+
+  - ```
+    git reset --hard HEAD^
+    ```
+
+- 只克隆最近一次的commit，而不克隆所有的提交记录
+  - git  clone --depyh=1

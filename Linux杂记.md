@@ -1,5 +1,8 @@
 - 环境变量顺序
-  - bash_profile、在里面填写更新.bashrc
+  - 个人机器下
+    - bash_profile、在里面填写更新.bashrc
+  - 全局下
+    - [参考链接](https://blog.csdn.net/weixin_31688465/article/details/116559948?ops_request_misc=&request_id=&biz_id=102&utm_term=root%20%E8%AF%BB%E5%8F%96%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AF%BB%E5%8F%96%E7%9A%84%E6%98%AF%E9%82%A3%E4%B8%AA%E6%96%87%E4%BB%B6&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-116559948.142^v30^pc_rank_34,185^v2^control&spm=1018.2226.3001.4187)
+    - /etc/bashrc:为每一个运行bash shell的用户执行此文
 - trace 跟踪错误
-
 - yum安装时，yum list 软件名* 查看对应的扩展

@@ -41,4 +41,45 @@
 
 [官网参考链接](https://blog.csdn.net/weixin_34297704/article/details/86467702?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165113717716781483781284%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165113717716781483781284&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-86467702.142^v9^control,157^v4^control&utm_term=conda%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B&spm=1018.2226.3001.4187)
 
-[参考链接](https://blog.csdn.net/weixin_43216928/article/details/117079124?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165110436216781432973397%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165110436216781432973397&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-5-117079124.142^v9^control,157^v4^control&utm_term=Anaconda&spm=1018.2226.3001.4187)
+[安装教程](https://blog.csdn.net/qq_15192373/article/details/81091098?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165694749016782248518643%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165694749016782248518643&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~hot_rank-1-81091098-null-null.142^v30^pc_rank_34,185^v2^control&utm_term=ubuntu18+%E5%AE%89%E8%A3%85conda&spm=1018.2226.3001.4187)
+
+- 使用方法
+
+  - 与环境相关指令
+
+    ```python
+    # 创建环境
+    conda create -n forfun python=3.6
+    
+    # 列出所有环境
+    conda env list
+    
+    # 删除环境
+    conda env remove -n forfun
+    
+    # 激活环境
+    source activate forfun
+    
+    # 退出环境
+    source deactivate
+    ```
+
+  - 在某个具体环境下可以执行的包管理命令
+
+    ```python
+    # 检索可以下载的包
+    conda search numpy  
+    
+    # 下载包
+    conda install numpy  
+    
+    # 移除包
+    conda remove numpy  
+    
+    # 列出所有安装包
+    conda list
+    ```
+
+    
+
+  

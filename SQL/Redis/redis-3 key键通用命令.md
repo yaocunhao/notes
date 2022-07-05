@@ -161,3 +161,13 @@
 
 - 所有的键的数量
   - dbsize
+
+```
+http://10.85.128.137/onepiece/semantic/get?region=beijing_yizhuang&utm_x_start=5700.0&utm_y_start=11900.0&utm_x_end=11299.9&utm_y_end=17299.9&zone=50s
+
+
+
+
+http://10.85.128.137/onepiece/semantic/get?region=beijing_yizhuang&utm_x_start=5700.0&utm_y_start=11900.0&utm_x_end=11299.9&utm_y_end=17299.9&zone=50S
+```
+

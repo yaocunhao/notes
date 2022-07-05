@@ -206,4 +206,78 @@
 - 两种方法的区别
   - 第一种方法，由于是django自身进行了包装，因此是更加高级的接口，所以在读取settings文件时，能够利用到更多的参数
   - 第二种方法更加的接近底层，因此读取setting之中的文件配置更少
-  - 如下图所示，这是第一种方法，因为多了一层包装，所以在set的时候会进行key的构造，**然后调用get_client**获取客户端，比直接获取客户端多了一层![image-20220619230410472](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192304574.png)![image-20220507144307280]()
+  - 如下图所示，这是第一种方法，因为多了一层包装，所以在set的时候会进行key的构造，**然后调用get_client**获取客户端，比直接获取客户端多了一层![image-20220619230410472](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192304574.png)
+
+
+
+# 五、使用实例
+
+```python
+# 配置文件
+REDIS_LOCATION = "redis://127.0.0.1:6379/0"  #redis的ip、端口、和第几个库
+CACHES = {
+    "default": {
+        "BACKEND":
+            "django_redis.cache.RedisCache",  # 后端redis引擎模块(django中redis缓存模块所在)
+        "LOCATION": REDIS_LOCATION,  # 连接的服务器位置
+        "OPTIONS": {
+            "CLIENT_CLASS":
+                "django_redis.client.DefaultClient",  ##使用什么来连接redis数据库
+            "PASSWORD":8888
+        },
+        # 这里的VERSION和KEY_PREFIX 都只是构成key的一部分.这两个参数保存在父类之中
+        # eg:m:version:tb:sk(tb是后来添加的前缀)
+        # 也就是说在django之中只需要使用tb:sk 即可以进行数据的访问，前缀和版本会自动添加上
+        # 注意这种方式不适用于直接获取底层版本
+        "VERSION": "version",
+        "KEY_PREFIX": "m"
+    }
+}
+
+
+
+from django.core.cache import cache # 导入缓存对象
+
+class Data:
+  name = 123
+  age = 456 
+  sex = 789
+
+
+def test_redis():
+  redi_c = cache # 获取缓存对象
+  d = Data()
+  redi_c.set('my_cache',d,100)
+
+def get_redis():
+  re = cache
+  ret =  re.get('my_cache')
+  print('type:',type(ret))
+  print(ret)
+
+def run():
+  test_redis()
+  get_redis()
+  
+  # type: <class 'my_app1.scripts.test.Data'>
+  # <my_app1.scripts.test.Data object at 0x7f9259075320>
+  
+  # 由此可见，Django缓存可以对对象直接进行缓存
+
+  
+  
+
+# 直接使用redis是不能直接缓存对象的
+
+class Data:
+ name = 'tom'
+d = Data()
+
+import redis
+# 本地连接，创建数据库连接对象
+r = redis.Redis(host='127.0.0.1', port=6379, db=0)
+
+r.set('my_test', d, 123)  #  Convert to a bytes, string, int or float first.
+
+```
+

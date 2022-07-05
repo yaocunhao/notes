@@ -17,6 +17,8 @@
 
 ## 1.3 [语法规则](https://blog.csdn.net/buknow/article/details/113894118?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164860452016780271924385%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164860452016780271924385&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-4-113894118.142^v5^pc_search_result_control_group,143^v6^control&utm_term=protubuf&spm=1018.2226.3001.4187)
 
+- [字段的使用方式](https://blog.csdn.net/weixin_44534197/article/details/108757270?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165646687316782388072415%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165646687316782388072415&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-2-108757270-null-null.142^v24^huaweicloudv2,157^v15^new_3&utm_term=protoc+%E6%80%8E%E4%B9%88%E7%BB%99repeated%E5%AD%97%E6%AE%B5%E8%B5%8B%E5%80%BCH&spm=1018.2226.3001.4187)
+
 - 标识符
   - message 标识一条消息
   - enum 标识一个枚举类型
@@ -27,6 +29,7 @@
   - optional：**表示该段为可选值，可以不进行设置**。如果不设置，会设置一个默认值。可以设置一个默认值，否则使用系统默认值，数字类型默认为0；字符串类型默认为空字符串；逻辑类型默认为false；内部自定义的message，默认值通常是message的实例或原型(**proto3不可以设置默认值，并且改名为singular**)
   - repeated：表示该字段可以重复，**可等同于动态数组**
     - 注意：使用required字段一定要小心，因为该字段是永久性的。如果以后因为某种原因，想不用该字段，或者要将该字段改成optional或者repeated，那么使用旧接口读取新的协议时，如果发现没有该字段，他们会认为该字段是不完整的，会拒接接收该消息，或者直接丢弃
+  - **简而言之：proto3中，只有repeated字段可以进行设置了**
   
 - 字段类型
 
@@ -185,7 +188,7 @@
   - 您*可以*删除可选或重复的字段(optional)
 
   - 您*可以*添加新的可选字段或重复字段，但您必须使用新的标签号（即，从未在此协议缓冲区中使用过的标签号，即使已删除的字段也不使用）。（这些规则有[一些例外](https://developers.google.com/protocol-buffers/docs/proto#updating)，但很少使用）
-  - 如果您遵循这些规则，旧代码将愉快地阅读新消息并忽略任何新字段。对于旧代码，已删除的可选字段将仅具有其默认值，而删除的重复字段将为空。新代码也将透明地读取旧消息。但是，请记住，旧消息中不会出现新的可选字段，因此您需要明确检查它们是否设置为，或者在文件`has_`中提供一个合理的默认值`.proto``[default = value]`标签号之后。如果未为可选元素指定默认值，则使用特定于类型的默认值：对于字符串，默认值为空字符串。对于布尔值，默认值为 false。对于数字类型，默认值为零。另请注意，如果您添加了一个新的重复字段，您的新代码将无法判断它是留空（通过新代码）还是根本没有设置（通过旧代码），因为它没有`has_`标志。
+  - 如果您遵循这些规则，旧代码将愉快地阅读新消息并忽略任何新字段。对于旧代码，已删除的可选字段将仅具有其默认值，而删除的重复字段将为空。新代码也将透明地读取旧消息。但是，请记住，旧消息中不会出现新的可选字段，因此您需要明确检查它们是否设置为，或者在文件`has_`中提供一个合理的默认值`.proto``[default = value]`标签号之后。如果未为可选元素指定默认值，则使用特定于类型的默认值：对于字符串，默认值为空字符串。对于布尔值，默认值为 false。对于数字类型，默认值为零。另请注意，如果您添加了一个新的重复字段，您的新代码将无法判断它是留空（通过新代码）还是根本没有设置（通过旧代码），因为它没有`has_`标志
 
 
 
@@ -207,7 +210,7 @@
 - [package](https://blog.csdn.net/u010900754/article/details/105984161/?ops_request_misc=&request_id=&biz_id=102&utm_term=protobuf%20%E6%96%87%E4%BB%B6%E4%B8%ADpackage%E7%9A%84%E4%BD%9C%E7%94%A8&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-105984161.142^v11^pc_search_result_control_group,157^v13^control&spm=1018.2226.3001.4187)
   - 一个包的标识
 
-- [变量后面的位置](https://blog.csdn.net/weixin_39862716/article/details/111774831?ops_request_misc=&request_id=&biz_id=102&utm_term=protobuf%20%E5%8F%98%E9%87%8F%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-3-111774831.142^v11^pc_search_result_control_group,157^v13^control&spm=1018.2226.3001.4187)
+- [变量后面的数字](https://blog.csdn.net/weixin_39862716/article/details/111774831?ops_request_misc=&request_id=&biz_id=102&utm_term=protobuf%20%E5%8F%98%E9%87%8F%E5%90%8E%E9%9D%A2%E7%9A%84%E6%95%B0%E5%AD%97&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-3-111774831.142^v11^pc_search_result_control_group,157^v13^control&spm=1018.2226.3001.4187)
   - 作用仅仅是标识位置而已
 - [中文参考](https://blog.csdn.net/wuxintdrh/article/details/113623777?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165444563416782391859180%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165444563416782391859180&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-3-113623777-null-null.142^v11^pc_search_result_control_group,157^v13^control&utm_term=repeated+%E5%AD%97%E6%AE%B5%E8%A2%AB%E7%A7%BB%E9%99%A4%E4%BA%86%EF%BC%9F&spm=1018.2226.3001.4187)
 - [文档翻译](https://zingzheng.github.io/post/protocol-buffers-python-generated-code/)
@@ -230,7 +233,7 @@
     file_content_raw = b''
     for pb_data in pb_list: # 遍历数据列表
       if byte_prefix:
-        serialized_pb_str_size = _VarintBytes(pb_data.ByteSize()) # 进行序列化，同时记录序列化的大小即可
+        serialized_pb_str_size = _VarintBytes(pb_data.ByteSize()) # 将整形转换成字节变量
         file_content_raw += (
             bytes(serialized_pb_str_size) + pb_data.SerializeToString()) # 将协议消息序列化为二进制字符串
       else:
@@ -267,4 +270,107 @@ from importlib import import_module
       print(zone)
 
 ```
+
+
+
+# 四、消息类方法
+
+- [官方文档连接](https://googleapis.dev/python/protobuf/latest/google/protobuf/message.html)
+
+## 4.1 异常模块
+
+- 反序列化
+
+  ```
+   google.protobuf.message.DecodeError
+  ```
+
+- 序列化
+
+  ```
+  google.protobuf.message.EncodeError
+  ```
+
+- 基本错误类型
+
+  ```python
+  google.protobuf.message.Error
+  ```
+
+  
+
+## 4.2 序列化模块
+
+- `class google.protobuf.message Message`是根据protoc协议编译生成的类，该类的子类拥有以下方法，也就是说根据protoc文件生成的python文件中的对象(`根据message标识符生成的类`)也拥有这些方法
+
+- ByteSize()
+
+  - 返回序列化消息的大小
+
+- Clear()
+
+  - 清除在消息中设置的所有数据，即将当前对象设置的消息全部去除
+
+- `ClearField`(*field_name*)
+
+  - 将指定消息的内容复制到当前消息中**。  该方法清除当前消息，然后使用MergeFrom合并指定的消息**
+
+    ```python
+    user_info.ClearField('name') # 清除给定字段的内容
+    ```
+
+- `CopyFrom`(*other_msg*)
+
+  - 将指定消息拷贝到当前消息之中
+
+    ```python
+    user_info.CopyFrom(user_info2) # 进行内容拷贝,传入的参数也必须是message类型的对象
+    ```
+
+- `IsInitialized`()
+
+  - 检查消息是否初始化完成，**即是否给对象成员进行赋值完成**
+
+- `ListFields`()
+
+  - 返回当前字段内容的元组列表
+
+    ```python
+    user_info = demo_pb2.UserInfo()
+    user_info.name = 'tom'
+    user_info.age = 11
+    print(user_info.ListFields())
+    
+    # result  [(<google.protobuf.pyext._message.FieldDescriptor object at 0x7fa764190160>, 'tom'), (<google.protobuf.pyext._message.FieldDescriptor object at 0x7fa764190278>, 11)]
+    ```
+
+- `MergeFrom`(*other_msg*)
+
+  - 将指定消息的内容合并到当前消息中。  此方法将指定消息的内容合并到当前消息中。在指定消息中设置的单一字段将覆盖当前消息中的相应字段。重复字段被追加。递归合并单个子消息和组
+
+- `MergeFromString`(*serialized*)
+
+  - 将序列化的协议缓冲区数据合并到此消息中。  当我们发现序列化中已经存在的字段时:  如果它是一个“重复”字段，则将其追加到列表的末尾。  否则，如果它是一个标量，我们覆盖我们的字段。  否则，(它是非重复组合)，我们递归地合并到现有的组合中
+
+- `ParseFromString`(*serialized*)
+
+  - 反序列化，类似于MergeFromString()，只不过我们先清除对象
+
+  - 参数：可以传入从文件读取的参数
+
+    ```python
+    # Read the existing address book.
+    f = open("./address.txt", "rb") # 打开文件
+    address_book.ParseFromString(f.read()) # 读取文件，并且进行反序列化，反序列化后得到的是一个字典
+    f.close()
+    ```
+
+    
+
+- `SerializeToString`(***kwargs*)
+
+  - 序列化消息
+
+- `SerializePartialToString`(***kwargs*)
+  - 将协议消息序列化为二进制字符串。  此方法类似于SerializeToString，但不检查消息是否已初始化
 
