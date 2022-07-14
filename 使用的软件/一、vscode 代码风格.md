@@ -4,3 +4,9 @@
 
 - [参考文章](<img src="https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/202204261735909.png"/>)
 
+
+
+# 二、vscode安装的插件
+
+- [找不到定义插件](https://github.com/microsoft/vscode/issues/96754)
+

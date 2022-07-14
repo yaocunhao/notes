@@ -9,3 +9,9 @@
   - **--tag, -t，镜像的名字及tag**
 
 - [查看docker的用户信息](https://www.cnblogs.com/yinguohai/p/13520005.html)
+
+- 将主机文件复制到docker
+  - docker cp `主机文件路径` `容器id:容器内路径 `
+- 从docker容器内复制文件到主机
+
+  - docker cp `容器id:容器内文件路径` `主机路径`

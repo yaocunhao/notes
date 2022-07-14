@@ -2,6 +2,8 @@
 
 [最佳链接](https://blog.csdn.net/weixin_34332998/article/details/123568505?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165337799216781483786111%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165337799216781483786111&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-123568505-null-null.142^v10^pc_search_result_control_group,157^v8^control&utm_term=linux%E4%B8%8B%E5%AE%89%E8%A3%85redis&spm=1018.2226.3001.4187)
 
+[mac下关闭redis](https://blog.csdn.net/NickDeCodes/article/details/124342834?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165712054716782391863984%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165712054716782391863984&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~pc_rank_34-19-124342834-null-null.142^v31^pc_rank_34,185^v2^control&utm_term=%E6%80%8E%E4%B9%88%E5%85%B3%E9%97%ADmac%E7%9A%84redis&spm=1018.2226.3001.4187)
+
 - 服务启动：`redis-server /usr/local/etc/redis.conf`
 
   - 本质就是用redis的bin下面的redis-server 来运行配置文件，进行服务的启动

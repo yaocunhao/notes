@@ -12,6 +12,7 @@
 
 - 合并冲突时，取消合并
   - `git merge --abort`
+  
 - 删除分支
   - `git branch --delete dev`
 
@@ -23,3 +24,11 @@
 
 - 只克隆最近一次的commit，而不克隆所有的提交记录
   - git  clone --depyh=1
+  
+- 查看修改记录
+  
+  - 尚未commit: `git diff`
+  - 已经commit：`git log -p`
+  
+- 查看commit历史版本记录 `git log`
+

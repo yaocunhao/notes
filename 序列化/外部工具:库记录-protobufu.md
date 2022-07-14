@@ -226,7 +226,6 @@
 - 读取的时候，定义对象，打开文件，读取内容进行反序列化即可
 
 ```python
-
 # 进行写入
   def build_pb_raw(cls, pb_list, byte_prefix=True): # pb_list dict数据列表
     """Construct road protocol buffer raw content."""
@@ -257,7 +256,7 @@
 from importlib import import_module
   mod = import_module("voy_foundation_protos.hdmap_protos.zone_pb2")
   zone = getattr(mod, 'Zone')()
-  from google.protobuf.internal.decoder import _DecodeVarint32
+  from google.protobuf.internal.decoder import _DecodeVarint32 # 源码中的方法，读取一个元素的值，并且返回长度
   with open(output_file,'rb') as f:
     buf = f.read()
     n = 0

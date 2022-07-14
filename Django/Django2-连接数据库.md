@@ -742,7 +742,7 @@ class UserInfo(models.Model):
         # <class 'django.db.models.query.QuerySet'>
       ```
 
-  - Q对象
+  - Q对象(**多个条件**)
 
     - 多个过滤器逐个调用，同SQL之中where部分的and关键字
 

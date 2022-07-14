@@ -55,10 +55,10 @@
 
 - 设置值
 
-  | hmset key field1 value1[field2 value2] | 在哈希表中同时设置多个 field-value(字段-值）                 |
-  | -------------------------------------- | ------------------------------------------------------------ |
-  | hset key field value                   | 用于设置指定 key 的哈希表字段和值（field/value），**重复的则覆盖** |
-  | hsetnx key field value                 | 仅当字段 field 不存在时，设置哈希表字段的值                  |
+  | hmset key field1 value1[field2 value2] | 在哈希表中同时设置多个 field-value(字段-值）   |
+  | -------------------------------------- | ---------------------------------------------- |
+  | hset key field value                   | src/map_release/scripts/auto_import_pb_data.py |
+  | hsetnx key field value                 | 仅当字段 field 不存在时，设置哈希表字段的值    |
 
 - 获取值
 

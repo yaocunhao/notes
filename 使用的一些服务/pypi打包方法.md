@@ -42,7 +42,7 @@
 
 - 打包 `python setup.py bdist_wheel`
 
-- 从本地安装包(打包后的dist文件之中就是当前的包)  `pip install dist/fisrtApp-0.0.1-py3-none-any.whl`
+- **从本地安装包**(打包后的dist文件之中就是当前的包)  `pip install dist/fisrtApp-0.0.1-py3-none-any.whl`
 
 - 使用
 

@@ -300,11 +300,9 @@
 
 - collections.namedtuple
 
-  - 返回的是一个名为 `typename` 的[元组](https://so.csdn.net/so/search?q=元组&spm=1001.2101.3001.7020)子类
-
-  - 这个返回的[子类](https://so.csdn.net/so/search?q=子类&spm=1001.2101.3001.7020)用于创建类似元组的对象，这些对象具有可通过属性查找访问的字段以及可索引和可迭代的字段
-
-  - [参考链接](https://blog.csdn.net/m0_37586991/article/details/103713691?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165414255016780366537882%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165414255016780366537882&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-103713691-null-null.142^v11^pc_search_result_control_group,157^v12^control&utm_term=collections.namedtuple&spm=1018.2226.3001.4187)
+  - 命名元组，传统元组只可以通过下标访问
+- 命名元组则是在给每个下标取一个名字，不仅仅兼容了原来的用法，还可以通过对应的名称来访问
+  - [参考链接](https://blog.csdn.net/liboshi123/article/details/110550681?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165709315716781683995062%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165709315716781683995062&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-110550681-null-null.142^v31^pc_rank_34,185^v2^control&utm_term=python+namedtuple&spm=1018.2226.3001.4187)
 
 - [字符串编码问题](https://wenku.baidu.com/view/edcec5d90ba1284ac850ad02de80d4d8d15a0166.html)
 
@@ -498,6 +496,27 @@
     #             kwonlyargs=[],
     #             kwonlydefaults=None,
     #             annotations={})
+    
+    ```
+
+    
+
+- `__missing__`
+
+  - dict调用出错时，调用的函数
+
+    ```python
+    def func(self, key):
+      print('i ma Errot!!')
+    
+    
+    class Dict(dict):
+      def __missing__(self, key): # 自定义missing函数
+        print("i am here!!")
+    
+    
+    d = Dict()
+    d['1234']  # i am here!!
     
     ```
 
