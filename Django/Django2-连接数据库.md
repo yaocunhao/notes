@@ -419,9 +419,13 @@ class UserInfo(models.Model):
 
 - 在数据库层面，实际上Django为这种多对多的关系建立起了一个中间表，这个中间表分别定义了两个外键，引用到book和tag两张表的主键
 
+  - throutgh 可以指定多对多的中间关键表名称
+
+
   ![image-20220619231421197](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192314328.png)
 
-- 插入
+  - 插入
+
 
   ```python
   def many():

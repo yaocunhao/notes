@@ -44,3 +44,11 @@ db.createUser({
 # 三、角色权限
 
 [临时参考1](https://blog.csdn.net/qq_40530622/article/details/112208549?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165771220916782391859419%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165771220916782391859419&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~hot_rank-7-112208549-null-null.142^v32^pc_rank_34,185^v2^control&utm_term=mongo%20%E6%9D%83%E9%99%90%E6%9C%BA%E5%88%B6&spm=1018.2226.3001.4187)
+
+
+
+
+
+[参考权限](https://blog.csdn.net/weixin_30407099/article/details/98896355?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165779688416780357256038%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165779688416780357256038&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-98896355-null-null.142^v32^pc_rank_34,185^v2^control&utm_term=mongo%20%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE&spm=1018.2226.3001.4187)
+
+![image-20220714204502508](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202207142045313.png)

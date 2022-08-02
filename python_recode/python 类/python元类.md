@@ -25,11 +25,11 @@
     
     # ----------------------- 
     
-    class MyType(type): #继承type
-      pass
+      class MyType(type): #继承type
+        pass
     
-    class Foo(object,metaclass=MyType):
-      pass
+      class Foo(object,metaclass=MyType):
+        pass
     
     # Foo类由MyType创建
     
@@ -76,3 +76,4 @@
 # 三、单例模式应用
 
 - 代码从上至下，类只创建一次  
+

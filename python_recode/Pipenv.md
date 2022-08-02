@@ -101,6 +101,12 @@ pipenv install --dev
 pipenv install --skip-lock
 ```
 
+## 13.临时更换下载源
+
+```
+pipenv install 下载内容 -i 源
+```
+
 
 
 ## 12.在真实环境中使用虚拟环境中包并运行

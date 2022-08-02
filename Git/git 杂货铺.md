@@ -32,3 +32,6 @@
   
 - 查看commit历史版本记录 `git log`
 
+- 将本地分支同步到远端
+  - git push --set-upstream origin dev      // 将本地新建的dev分支推送到远程，并且建立跟踪关系 
+

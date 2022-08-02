@@ -15,3 +15,10 @@
 - 从docker容器内复制文件到主机
 
   - docker cp `容器id:容器内文件路径` `主机路径`
+
+- docker 拷贝打包镜像
+  - docker save 镜像名称:镜像版本、镜像名称2:镜像版本2  |  gzip >  `name.tgz`
+- docker 导入镜像
+  - docker load -i name  
+- docker 脚本重启
+  - uwsgi --reload /dev/shm/uwsgi.pid 

@@ -1,3 +1,5 @@
+[docker镜像使用官方文档](https://hub.docker.com/_/mysql)
+
 [参考链接](https://blog.csdn.net/kingsleyhe/article/details/116779451?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165097003416781818723334%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165097003416781818723334&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-116779451.142^v9^control,157^v4^control&utm_term=docker+%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B&spm=1018.2226.3001.4187)
 
 [todo链接](https://blog.csdn.net/liang19890820/article/details/120500266?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0.pc_relevant_default&spm=1001.2101.3001.4242.1&utm_relevant_index=3)
@@ -207,10 +209,8 @@
 
 - 创建一个容器，然后用这个容器部署一个镜像，再在远端连接这个镜像
 
-  ```python
   
-  ```
-
+  
   
 
 

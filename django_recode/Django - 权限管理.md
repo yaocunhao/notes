@@ -738,3 +738,8 @@ def run():
 # 五、问题
 
 - get_all_permissions() 获取权限落后
+  - 这里使用了缓存，猜想是使用了原子性接口，因此不能立即进行内容的获取
+
+# 六、待完成
+
+- [自定义权限管理系统](https://blog.csdn.net/sdgihshdv/article/details/76100438?ops_request_misc=&request_id=&biz_id=102&utm_term=Django%20%E4%B8%ADusing=self._db&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-76100438.142^v33^new_blog_pos_by_title,185^v2^control&spm=1018.2226.3001.4187)

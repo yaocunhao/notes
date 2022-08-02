@@ -521,3 +521,13 @@
     ```
 
     
+
+- python如何与C进行关联
+
+  - [参考链接1](https://blog.csdn.net/theonegis/article/details/82490549?ops_request_misc=&request_id=&biz_id=102&utm_term=python%20%E5%8F%AF%E4%BB%A5%E6%93%8D%E6%8E%A7C++%E4%BB%A3%E7%A0%81%E4%B9%88&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-82490549.142^v32^pc_rank_34,185^v2^control&spm=1018.2226.3001.4187)
+  - [参考链接2](https://blog.csdn.net/theonegis/article/details/82490549?ops_request_misc=&request_id=&biz_id=102&utm_term=python%20%E5%8F%AF%E4%BB%A5%E6%93%8D%E6%8E%A7C++%E4%BB%A3%E7%A0%81%E4%B9%88&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-82490549.142^v32^pc_rank_34,185^v2^control&spm=1018.2226.3001.4187)
+
+
+- euler2mat
+- [numpy.array](https://blog.csdn.net/fu6543210/article/details/83240024?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165824967116782184629730%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165824967116782184629730&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-83240024-null-null.142^v32^pc_rank_34,185^v2^control&utm_term=%20numpy.array&spm=1018.2226.3001.4187)
+  - 提高效率的数组

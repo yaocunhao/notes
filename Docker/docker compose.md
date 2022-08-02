@@ -264,3 +264,9 @@ processManagement:
 
 - [环境变量的使用](https://blog.csdn.net/weixin_34279184/article/details/86021328?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-86021328-blog-122867820.pc_relevant_aa2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-86021328-blog-122867820.pc_relevant_aa2&utm_relevant_index=2)
 
+
+
+# docker-compose 中的变量
+
+- depends_on 
+  - **依赖的服务**，比如A服务在启动的时候，B服务必须已经启动了，因此就可以在A 服务的depends_on 下面写上B服务
