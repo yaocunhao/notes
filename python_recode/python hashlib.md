@@ -18,3 +18,20 @@
 # 三、使用
 
 [参考链接](https://blog.csdn.net/dreaming_coder/article/details/108247249) 
+
+```python
+"""验证MD5"""
+import hashlib
+from unittest import result
+
+obj = hashlib.md5()  # 构造一个hashlib的对象
+obj.update("123456".encode('utf-8'))  # update对指定字符串进行加密,在加密前必须对其进行编码
+
+ret = obj.hexdigest()  # 获取加密的结果
+print(ret)
+
+
+
+# e10adc3949ba59abbe56e057f20f883e
+```
+

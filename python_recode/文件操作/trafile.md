@@ -26,3 +26,4 @@
 | w:bz2    | 打开以进行bzip2压缩写入                                      |
 | w:xz     | 为lzma压缩写打开。该模块定义了TarFile类。代替open()函数，可以通过调用构造函数实例化TarFile对象 |
 
+ 

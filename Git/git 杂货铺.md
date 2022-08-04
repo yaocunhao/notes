@@ -34,4 +34,13 @@
 
 - 将本地分支同步到远端
   - git push --set-upstream origin dev      // 将本地新建的dev分支推送到远程，并且建立跟踪关系 
-
+  
+- 取消合并
+  
+  - git merge --abort
+  
+- 创建并且切换分支
+  
+  - git checkout -b 
+  
+- 
