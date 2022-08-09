@@ -79,3 +79,9 @@
   | hincrbyfloat key field increment | 给 key 关联的哈希字段做浮点数增量运算 。              |
   | hscan key cursor                 | 迭代哈希表中的所有键值对，cursor 表示游标，默认为 0。 |
 
+
+
+# 三、过期时间的设置
+
+- 只可以采用通用命令进行过期时间的设置，不支持单个`fkey`设置
+

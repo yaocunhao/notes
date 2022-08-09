@@ -13,7 +13,14 @@
   r1 = os.path.dirname(__file__) # 获取当前的路径 /Users/didi/PycharmProjects/pythonProject
   r2 = os.path.join(r1,"../../") # 进行路径合成   /Users/didi/PycharmProjects/pythonProject/../../
   r3 = os.path.abspath(r2) # 返回绝对路径
-  print(r3) # /Users/didi
+  
+  os.path.getsize('file_name'):判断文件的大小
+  os.remove('file_name'): 删除文件
+  os.listdir('dir_path')：返回指定目录路径中存在的文件和目录的列表。
+  os.walk('dir_path')：递归获取目录和子目录中所有文件的列表。
+  os.scandir('path')：返回目录条目以及文件属性信息。
+  glob.glob('pattern'): glob 模块列出名称遵循特定模式的文件和文件夹。
+  
   ```
 
 - [pathlib 模块](https://blog.csdn.net/looker53/article/details/106064166?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_aa&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_aa&utm_relevant_index=1)

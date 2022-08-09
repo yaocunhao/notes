@@ -60,3 +60,7 @@
     ```
 
     
+
+## 1.3 model 参数
+
+![image-20220804204602368](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202208042046727.png)

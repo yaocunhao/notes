@@ -51,7 +51,10 @@ def index():
 def upload_file():
   if request.method == 'POST':
     f = request.files['file']
-    f.save(os.path.join(app.config['UPLOAD_FOLDER'],secure_filename(f.filename)))  # secure_filename 获取文件名，
+    
+    # 进行文件的保存
+    f.save(os.path.join(app.config['UPLOAD_FOLDER'],secure_filename(f.filename)))  # secure_filename 获取文件名，此文件名可以自定义
+    
     return 'file uploaded successfully'
 
 

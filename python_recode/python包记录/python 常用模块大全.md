@@ -6,3 +6,6 @@
 
 - [typing](https://blog.csdn.net/fengbingchun/article/details/122288737?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165952069316782391818952%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165952069316782391818952&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-122288737-null-null.142^v39^pc_rank_34_2&utm_term=typing&spm=1018.2226.3001.4187)
   - **此模块为类型提示****(Type Hints)****提供运行时支持**(This module provides runtime support for type hints)。从python 3.5版本开始将Typing作为标准库引入
+
+[标准库大全](https://zhuanlan.zhihu.com/p/386379860)
+
