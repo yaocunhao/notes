@@ -104,7 +104,7 @@ pipenv install --skip-lock
 ## 13.临时更换下载源
 
 ```
-pipenv install 下载内容 -i 源
+pipenv install 下载内容 -i 源 "https://pypi.org/simple"
 ```
 
 

@@ -22,3 +22,5 @@
   - docker load -i name  
 - docker 脚本重启
   - uwsgi --reload /dev/shm/uwsgi.pid 
+
+- [批量删除](https://blog.csdn.net/WuLex/article/details/120257730?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166019016016781683955094%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166019016016781683955094&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-120257730-null-null.142^v40^pc_rank_34_2,185^v2^control&utm_term=docker%20%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E5%AE%B9%E5%99%A8&spm=1018.2226.3001.4187)
