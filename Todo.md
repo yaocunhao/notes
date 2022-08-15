@@ -97,36 +97,7 @@
 | 各种压缩/解压模式                                            |                                                              |           |
 | 代码风格                                                     |                                                              |           |
 
-# 工作提升
-
-- map_release  前端代码同步
-- 权限功能
-- 自动更新功能(进一步完善)
-
-
-
-
-
-
-
-```
-curl --location --request POST 'http://10.190.9.216:6003/map_editor/api/v2/release_task/add_for_mail' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "region": "beijing_yizhuang",
-    "cr_revision_id": 228981,
-    "cp_revision_id": 229035,
-    "cp_branch_name": "operation_20220614",
-    "version": 42,
-    "mail_type": "cp"
-}'
-```
-
-
-
-
-
-# 联系项目
+# 练习项目
 
 | 项目名称    | 项目开始时间 | 项目结束时间 |      |      |
 | ----------- | ------------ | ------------ | ---- | ---- |
