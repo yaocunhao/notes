@@ -13,8 +13,6 @@
 
 [内置函数使用链接](https://docs.python.org/zh-cn/3/library/functions.html)
 
-
-
 ## 类型
 
 - python是弱类型的脚本语言

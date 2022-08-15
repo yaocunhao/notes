@@ -6,7 +6,8 @@
     - -p 为密码，-p和密码之间**不可有空格**
 - 远程连接
   - mysql -h -P -u -p
-
+    - -P为端口，-p为密码
+  
 - 文件的存储
   - [文件存储位置解释链接](https://blog.csdn.net/weixin_43395911/article/details/122634903?ops_request_misc=&request_id=&biz_id=102&utm_term=mysql%20%E7%9A%84%E6%95%B0%E6%8D%AE%E5%AD%98%E5%9C%A8%E5%93%AA%E9%87%8C&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-122634903.142^v10^control,157^v4^control&spm=1018.2226.3001.4187)
 
@@ -16,7 +17,7 @@
   - 开启：service mysql start
 
 - ubuntu中配置文件的位置
-  - /etc/mysql/mysql.conf.d
+  - /etc/mysql/mysql.conf.
 
 
 

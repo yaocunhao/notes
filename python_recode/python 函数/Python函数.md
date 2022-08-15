@@ -472,3 +472,33 @@
 
 - max(列表，key),最大值。不建议使用key
 - min(),最小值
+
+- type() 函数
+
+  - `type(obj)`：查看类型 
+
+  - `type(name, bases, dict)`:创建类
+
+    - name为类的名称
+
+    - bases为元组，存储该类的父类
+
+    - dict表示一个字典，用于定义类内定义的属性或方法
+
+      ```python
+      def func(self):
+          print("i am here!!")
+      
+      # 使用type创建类
+      Test = type("Test", (object,), dict(name="Tim", func=func))
+      
+      #1、元组只有一个元素时，最后的逗号（,）不能省略
+      #2、使用 type() 函数创建的类，和直接使用 class 定义的类并无差别。事实上，我们在使用 class 定义类时，Python 解释器底层依然是用 type() 来创建这个类
+      
+      
+      t = Test()
+      t.func()
+      
+      ```
+
+      
