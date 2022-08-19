@@ -61,7 +61,7 @@ d:str = "qwert"
 
   - Tuple比较特殊，由于tuple是不可变类型，因此上面c:Tuple[str, int]写法实际表示tuple中只能有两个元素，且第一个元素是str类型，第二个元素是int类型。但是下一行c1:Tuple[Union[int ,str], ...]使用了省略号来表示比较大的元组
 
-  - Optional的含义实际上和Union[X, None]是一致的,表示要么是X类型，要么是None
+  - Optional的含义实际上和Union[X, None]是一致的,表示要么是X类型，**要么是None**
 
 - **在python3.9+的版本上，支持内置类型直接进行注解，无需从typing模块导入，简化了注解方式，在python3.7起可以使用from \**future\** import annotations来支持内置类型直接注解**。如下所示
 
@@ -79,6 +79,7 @@ d:str = "qwert"
   ```python
   Vector_int = List[int]      # python3.9之前支持的写法
   Vector_str = list[str]      # python3.9之后支持的写法
+  
   c:Vector_int = [1,2,3,4]
   d:Vector_str = ['q', 'w', 'e']
   ```

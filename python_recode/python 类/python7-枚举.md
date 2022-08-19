@@ -1,34 +1,4 @@
-# 九、多态
-
-- 满足多态的前提条件
-
-  - 继承：多态一定是发生在子类和父类之间
-  - 重写：子类重写了父类的方法
-
-- 代码演示
-
-  ```python
-  class Father:
-      def func(self):
-          print("i am father!!!")
-  
-  
-  class Child(Father):
-      def func(self):
-          print("i am child")
-  
-  def test_func(self):
-      self.func()
-  
-  
-  #同一个接口，传入不同的对象，调用的函数不一样，这就是多态
-  test_func(Father())
-  test_func(Child())
-  #i am father!!!
-  #i am child
-  ```
-
-# 十、枚举
+# 枚举
 
 - 语法
 

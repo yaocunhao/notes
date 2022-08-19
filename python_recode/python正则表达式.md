@@ -79,6 +79,8 @@
 
 - [环视参考链接](https://blog.csdn.net/xichanjuan6481/article/details/89434402?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164943666616780274195477%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164943666616780274195477&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-89434402.142^v7^control,157^v4^control&utm_term=%28%3Apattern%29&spm=1018.2226.3001.4187)
 
+- 默认情况下，正则用的都是贪婪模式，如果要使用非贪婪模式，需要在量词后面直接加上一个问号"?"
+
 # 运算符优先级
 
 - 正则表达式从左到右进行计算，并遵循优先级顺序，这与算术表达式非常类似

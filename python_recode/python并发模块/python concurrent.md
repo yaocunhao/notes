@@ -207,9 +207,9 @@
   - 如果调用正在执行而且不能被取消那么返回 `True`
 - **done**
   - 如果调用已被取消或正常结束那么返回 `True`
-
 - **result(*timeout=None*)**
   - 返回调用返回的值,**也就是线程函数的返回值**
+  - **如果调用了这个函数，主线程会阻塞在这里等待返回的结果**
   - 如果调用还没完成那么这个方法将等待 *timeout* 秒。如果在 *timeout* 秒内没有执行完成，[`concurrent.futures.TimeoutError`](https://docs.python.org/zh-cn/3/library/concurrent.futures.html#concurrent.futures.TimeoutError) 将会被触发。*timeout* 可以是整数或浮点数
   - 如果 *timeout* 没有指定或为 `None`，那么等待时间就没有限制
   - 如果 futrue 在完成前被取消则 [`CancelledError`](https://docs.python.org/zh-cn/3/library/concurrent.futures.html#concurrent.futures.CancelledError) 将被触发
@@ -218,7 +218,6 @@
   - 返回由调用引发的异常。如果调用还没完成那么这个方法将等待 *timeout* 秒。如果在 *timeout* 秒内没有执行完成，[`concurrent.futures.TimeoutError`](https://docs.python.org/zh-cn/3/library/concurrent.futures.html#concurrent.futures.TimeoutError) 将会被触发。*timeout* 可以是整数或浮点数
   - 如果 *timeout* 没有指定或为 `None`，那么等待时间就没有限制
   - 如果 futrue 在完成前被取消则 [`CancelledError`](https://docs.python.org/zh-cn/3/library/concurrent.futures.html#concurrent.futures.CancelledError) 将被触发。如果调用正常完成那么返回 `None`
-
 - **add_done_callback(fn）**
   - 附加可调用 *fn* 到 future 对象
   - 当 future 对象被取消或完成运行时，将会调用 *fn*，而这个 future 对象将作为它唯一的参数(**也是一定存在的参数**)
@@ -251,7 +250,7 @@
 
       ```python
       ret = futures.wait(fs) # fs为list，里面是future对象
-      print(ret)
+      print(ret) # 打印结果
       
       DoneAndNotDoneFutures(
         # 已完成的
@@ -351,9 +350,15 @@
 # 八、线程数量的设置
 
 - cpu密集型的是n+1个线程, 或者n*2
-- IO密集型，一般n*5
+- IO密集型，一般n*2
 
 
+
+
+
+# 九、创建一个线程池多处复用
+
+- 一个线程池多处复用，需要注意的前提是，使用完毕后关闭
 
 # 总结
 

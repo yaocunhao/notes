@@ -4,6 +4,8 @@
 
 [值得一读](https://blog.csdn.net/jqsfjqsf/article/details/113790347?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165585937216782391821168%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165585937216782391821168&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~pc_rank_34-2-113790347-null-null.142^v20^pc_rank_34,157^v15^new_3&utm_term=python+%E4%BA%92%E6%96%A5%E9%94%81%E5%AF%B9%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%80%A7%E8%83%BD%E5%BD%B1%E5%93%8D&spm=1018.2226.3001.4187)
 
+[GIL](https://blog.csdn.net/qq_50840738/article/details/123861602?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166087445116781685386869%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166087445116781685386869&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-123861602-null-null.142^v42^pc_rank_34,185^v2^control&utm_term=%E4%BB%80%E4%B9%88%E6%98%AFGIL%E9%94%81&spm=1018.2226.3001.4187)
+
 # 一、全局解释器锁(GIL)
 
 - [参考链接](https://blog.csdn.net/allway2/article/details/118055423?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165485120416782388049397%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165485120416782388049397&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-118055423-null-null.142^v13^pc_search_result_control_group,157^v14^control&utm_term=+%E5%85%A8%E5%B1%80%E8%A7%A3%E9%87%8A%E5%99%A8%E9%94%81&spm=1018.2226.3001.4187)
@@ -69,3 +71,79 @@
 
 - **GIL 锁的释放时间**
   - IO操作会进行释放，如果不是IO呢，时间片到了会不会释放？？？
+
+
+
+# 六、不是线程安全的
+
+- 在操控线程对临界资源进行修改的时候，需要注意临界资源的安全性。由下代码可以python并不是线程安全的
+
+  ```python
+  import concurrent.futures
+  import threading
+  from time import sleep
+  
+  value = 0
+  
+  def task():
+    global value
+    if value < 9:
+      sleep(0.1)
+      value = value + 1
+  
+  
+  with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+    for i in range(100):
+      executor.submit(task)
+  
+  print('main')
+  print(value) # 100
+  
+  ```
+
+- GIL 锁对于线程安全的作用
+
+  - 上述代码中，出现线程安全的问题是：在进行判断的时候拿到的值是一样的，因此所有线程都进入到了循环，因此会出现线程安全的问题
+
+  - GIL锁的作用是，同一个时间，全局变量只能被一个线程操作，因此，当**没有循环判断时，是不会出现线程安全的**，因此最终得到的value总值是正确的，因为同一时刻，只有一个线程可以操控value
+
+    ```c++
+    #include <iostream>
+    #include <pthread.h>
+    #include <stdio.h>
+    using namespace std;
+    
+    int value = 0;
+    
+    void *task(void *args)
+    {
+      value += 1;
+    }
+    
+    int main()
+    {
+      pthread_t tid;
+    
+      for (int i = 0; i < 10; i++)
+      {
+        pthread_create(&tid, NULL, task, (void *)"thread_1");
+      }
+    
+      printf("%d\n",value);
+      return 0;
+    }
+    
+    //测试结果
+    6
+    (ds) didi@DIDI-FVFDHCREP3XY C++ % ./a.out
+    9
+    (ds) didi@DIDI-FVFDHCREP3XY C++ % ./a.out
+    5
+    (ds) didi@DIDI-FVFDHCREP3XY C++ % ./a.out
+    8
+      
+    // 结论
+      a、C++之中没有全局锁，因此在操作全局变量的时候不是原子性的
+    ```
+
+    

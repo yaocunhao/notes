@@ -41,6 +41,7 @@
   - 取代for循环submit的操作
 - `shutdown(wait=True) `
   - 相当于进程池的pool.close()+pool.join()操作wait=True，等待池内所有任务执行完毕回收完资源后才继续wait=False，立即返回，并不会等待池内的任务执行完毕。但不管wait参数为何值，整个程序都会等到所有任务执行完毕，submit和map必须在shutdown之前
+  - 也就是说主线程主阻塞在该接口的调用处，等待线程完成任务，回收资源才会继续运行
 - `add_done_callback(fn)`
   - 回调函数
 

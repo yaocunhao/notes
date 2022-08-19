@@ -1,5 +1,7 @@
 # 一、是什么
 
+[参考链接](https://mayanan.blog.csdn.net/article/details/116831590?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-116831590-blog-106062948.t5_searchtargeting_download_v1&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-116831590-blog-106062948.t5_searchtargeting_download_v1&utm_relevant_index=1)
+
 - 是本地线程存储变量
 
 -  为每个线程开辟一快独立的空间出来，这样空间与空间之间的数据是隔离的
