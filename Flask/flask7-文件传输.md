@@ -2,6 +2,8 @@
 
 [参考链接2](https://www.w3cschool.cn/flask/flask_url_building.html)
 
+# 一、文件的上传
+
 # 一、Flask 是如何处理文件上传的
 
 - 如果上传的文件很小，那么会把它们储存 在内存中。否则就会把它们保存到一个临时的位置（通过 [`tempfile.gettempdir()`](https://docs.python.org/3/library/tempfile.html#tempfile.gettempdir) 可以得到这个位置）
@@ -69,4 +71,8 @@ if __name__ == '__main__':
   app.run(debug=True)
 
 ```
+
+
+
+# 二、文件的返回
 
