@@ -20,6 +20,7 @@
   os.walk('dir_path')：递归获取目录和子目录中所有文件的列表。
   os.scandir('path')：返回目录条目以及文件属性信息。
   glob.glob('pattern'): glob 模块列出名称遵循特定模式的文件和文件夹。
+  os.path.exists()：判断当前文件是否存在
   
   ```
 

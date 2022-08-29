@@ -16,3 +16,6 @@
 
 - [参考链接](https://blog.csdn.net/reachzh1/article/details/120413575?ops_request_misc=&request_id=&biz_id=102&utm_term=mac%20vscode%E9%85%8D%E7%BD%AEc++%E7%8E%AF%E5%A2%83&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-120413575.142^v41^pc_rank_34_1,185^v2^control&spm=1018.2226.3001.4187)
 
+
+
+# 四、vscode 配置
