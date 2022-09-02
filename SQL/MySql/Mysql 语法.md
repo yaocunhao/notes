@@ -27,3 +27,7 @@
 
 - 删除唯一键的时候找不到键名，是因为使用的是别名
   - 删除语法 alter table ` t_name` drop index `key_name`
+
+- 自增长
+  - 查看自增长：show create table xxxx
+  - 修改自增长：`alter table xxx AUTO_INCREMENT=100000`

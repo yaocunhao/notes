@@ -1,8 +1,8 @@
 # 一、介绍
 
-- 在Django 之中使用mongo，和平常使用MySql 很多类似的地方，不过额外的提供了，使用python_mongo 的方法
+- 在Django 之中使用mongo，和平常使用MySql 很多类似的地方，不过**额外的提供了，使用python_mongo 的方法**
 
-- 在定义的类中的管理器对象继承DjongoManager 即可
+- 在定义的类中的管理器对象继承DjongoManager 即可使用额外的方法
 
 - 源码分析
 

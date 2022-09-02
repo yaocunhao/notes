@@ -1,12 +1,12 @@
 # 一、WSGI协议概念
 
-## 1.1 wsgi是什么
+## 1.1 WSGI是什么
 
 - Django 是 Python 语言编写的 Web 框架，而我们使用 Django 编写的项目称为 Web 应用，而一个 Web 项目的运行离不开 Web 服务器，所以就需要一种规范或者协议来定义 Web 应用如何与 Web 服务器之间实现交互以及请求的接受与响应的返回，这就引出了 WSGI 协议
 
 - WSGI（Web Server Gateway Interface）即 Web 服务器网关接口，它是属于一种规范协议，它定义了 Python Web 应用程序与 Web 服务器通信的接口
 
-- 简而言之，wsgi是一种协议，是一种web应用和web服务器之间实现交互的协议
+- 简而言之，**WSGI是一种协议，是一种web应用和web服务器之间实现交互的协议**
 
 ## 1.2 Django 内置wsgi服务器
 
@@ -147,3 +147,8 @@
     ```
 
   - ​	启动之后，就可在游览器通过url可以正常进行访问了
+
+## 2.3 uwsgi
+
+- uWSGI为web服务器，是web server 和 web application 沟通的桥梁
+- 通信则需要标准，这个标准就是协议，uWSGI  服务器有很多种协议，而常用的协议就是uwsgi

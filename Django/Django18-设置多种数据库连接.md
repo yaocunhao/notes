@@ -31,14 +31,15 @@
 
 - 设置路由方式
 
+  - [gd](https://docs.djangoproject.com/en/2.0/topics/db/multi-db/)
   - trail 可以是任意一个app模块，可以在其中找到对应的文件就行
-
+  
   ```python
   DATABASE_ROUTERS = ['trail.database_router.DatabaseAppsRouter']
   ```
-
+  
   - 在对应的模块下创建文件`database_router.py`，拷贝下面的路由代码
-
+  
     ```python
     from django.conf import settings
     DATABASE_MAPPING = settings.DATABASE_APPS_MAPPING
@@ -100,5 +101,6 @@
           return False
         return None
     ```
-
+  
     
+  

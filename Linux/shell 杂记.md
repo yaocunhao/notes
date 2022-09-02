@@ -20,3 +20,11 @@
     - **su只能获得root的执行权限，不能获得环境变量，而su - 是切换到root并获得root的环境变量及执行权限**
   - su -c命令的含义为
     - 变更账号为USER的使用者，并执行指令（command）后再变回原来使用者
+
+- 批量删除进程
+
+  ```bash
+  ps -aux | grep "uwsgi" | awk '{print kill -9 $2}'
+  ```
+
+  

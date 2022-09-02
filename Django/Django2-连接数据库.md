@@ -1,3 +1,5 @@
+- [gd](https://docs.djangoproject.com/en/2.0/ref/models/)
+
 #  一、数据库配置
 
 - 数据库配置
@@ -197,6 +199,13 @@
 - 可以通过bd_table 指明数据库表名
 
 ## 3.2 字段
+
+- [gd](https://docs.djangoproject.com/en/2.0/ref/models/fields/)
+  - 字段分为
+    - 字段的类型
+      - 普通字段
+      - 文件字段
+    - 字段的约束(属性)
 
 ### 3.2.1 字段类型
 

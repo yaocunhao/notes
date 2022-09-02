@@ -1,14 +1,20 @@
 - DATABASE_APPS_MAPPING
   - 设置app使用的数据库
+  
 - DATABASE_ROUTERS 
+
 - DATABASE
   - 设置数据库信息
+  
 - CACHES
   - 设置缓存信息
+  
 - INSTALLED_APPS
   - app信息
+  
 - MIDDLEWARE
   - 中间件信息
+  
 - TEMPLATES
   - 模板信息
 
@@ -16,17 +22,16 @@
 
   - [参考链接](https://blog.csdn.net/wangctes/article/details/89055771?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165692435016780366592153%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165692435016780366592153&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-89055771-null-null.142^v30^pc_rank_34,185^v2^control&utm_term=STATIC_URL+STATIC_ROOT+STATICFILES_DIRS&spm=1018.2226.3001.4187)
   - [参考链接2](https://blog.csdn.net/cuisidong1997/article/details/117836447?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-1-117836447-blog-102022093.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-1-117836447-blog-102022093.pc_relevant_default&utm_relevant_index=2)
-  - **STATIC_URL**
-
-    - 静态资源路径，**当前私有路径**
-
-    - 它指的是静态资源的存放位置，静态资源包括 CSS、JS、Images。比如我们要在项目中添加一些图片，通常这些静态图片被存放在新建的 static 目录下，这样就实现了通过 STATIC_URL= '/static/' 路径对静态资源的访问
-
-  - **STATICFLES_DIRS**
-    - 静态文件公有目录，如果私有目录找到了就不会来这里找(惰性查找)，如果没有找到就来这里找
-
-  - **STATIC_HOST**
-    - 静态资源主机路径
+  - STATIC_URL
+    - 作用是通过url直接访问在项目中的静态文件,不需要像函数访问一样设置url
+  - STATIC_ROOT
+    - STATIC_ROOT 是在部署静态文件时，所有的静态文静聚合的目录
+    - `python manage.py collectstatic`， [django](https://so.csdn.net/so/search?q=django&spm=1001.2101.3001.7020)会把所有的app下面的static文件都复制到STATIC_ROOT文件夹下
+  - STATICFILES_DIRS
+    - 公共资源文件夹
+  - 资源的查找方式
+    - 首先到STATICFILES_DIRS里面寻找静态文件,其次再到各个app的static文件夹里面找
+    - django查找静态文件是惰性查找,查找到第一个,就停止查找了
 
 - BASE_DIR
 
