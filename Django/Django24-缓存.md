@@ -1,0 +1,1 @@
+- [缓存插件的使用方式](https://github.com/jazzband/django-redis)

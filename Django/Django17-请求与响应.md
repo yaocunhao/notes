@@ -49,4 +49,8 @@
           super().__init__(content=data, **kwargs)
   ```
 
-  
+
+## 2.3 使用介绍
+
+- [gd](https://docs.djangoproject.com/en/2.0/ref/request-response/#django.http.HttpResponse)
+

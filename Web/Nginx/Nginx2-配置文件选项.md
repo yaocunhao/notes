@@ -46,3 +46,9 @@
 - upstream：配置后端服务器具体地址，负载均衡配置不可或缺的部分
 
   - 如果没有写 upstream， 则可以可以更换写法为： uwsgi_pass unix:///dev/shm/map_apollo.sock (这里是uWSGI里面的socket通信套接字)![image-20220831103548693](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202208311035760.png)
+
+
+
+# 二、全局配置文件
+
+[参考文档](https://blog.csdn.net/weixin_34313182/article/details/93578965?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166246449116782390578078%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166246449116782390578078&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-93578965-null-null.142^v46^pc_rank_34_default_2&utm_term=access_log%20%20logs%2Faccess.log%20%20main%3B&spm=1018.2226.3001.4187)

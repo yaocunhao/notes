@@ -24,7 +24,8 @@
 - 批量删除进程
 
   ```bash
-  ps -aux | grep "uwsgi" | awk '{print kill -9 $2}'
+   kill -9 `ps -aux | grep uwsgi | awk '{print $2}'`
   ```
 
   
+

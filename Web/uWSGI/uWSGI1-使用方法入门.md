@@ -32,6 +32,8 @@
 
 - http 自己会产生一个http进程(可以认为与[nginx](https://so.csdn.net/so/search?q=nginx&spm=1001.2101.3001.7020)同一层)负责路由http请求给worker, http进程和worker之间使用的是uwsgi协议
 
+- **这种方式可以直接在外部进行访问**
+
 ### 2.2.2 --http-socket
 
 - 使用HTTP协议绑定到指定的UNIX/TCP套接字
@@ -85,6 +87,8 @@
   uwsgi_pass 127.0.0.1:8000;
   include uwsgi_params;
   ```
+
+- **这种方式必须再在外面套一层服务器(比如nginx)，否则是无法访问服务的**
 
 ## 2.2 性能提升
 
