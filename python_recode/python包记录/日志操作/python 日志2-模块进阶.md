@@ -67,6 +67,27 @@
 
 - 子记录器将消息传播到与其父级记录器关联的处理器。因此，不必为应用程序使用的所有记录器定义和配置处理器
 - 一般**为顶级记录器配置处理器，**再根据需要创建子记录器就足够了。（但是，你可以通过将记录器的 *propagate* 属性设置为 `False` 来关闭传播）
+- **也就是说通过给父级记录器设置处理器和等级子集记录器也会进行继承，并且子记录器可以对其进行重写**
+
+  ```python
+  # ---------------------------进行重写-------------------
+  import logging
+  
+  # 父处理器
+  logger = logging.getLogger('test')
+  logger.setLevel(logging.DEBUG)
+  default_handler = logging.StreamHandler()
+  logger.addHandler(default_handler)
+  
+  # 子处理器
+  logger_child = logging.getLogger('test.child')
+  logger_child.setLevel(logging.ERROR)
+  
+  # 输出消息： 不会输出，因为子处理器定义的等级为 ERROR
+  logger_child.log(logging.ERROR, 'test_meassage')
+  ```
+
+  
 
 # 三、处理器
 
@@ -82,7 +103,7 @@
 
   - `addFilter()`和 `removeFilter()`分别在处理器上配置和取消配置过滤器对象。
 
-- 应用程序代码不应直接实例化并使用 `Handler`的实例。 相反， `Handler`类是一个基类，它定义了所有处理器应该具有的接口，并建立了子类可以使用（或覆盖）的一些默认行为。
+- 应用程序代码**不应直接实例化并使用 `Handler`的实例**。 相反， `Handler`类是一个基类，它定义了所有处理器应该具有的接口，并建立了子类可以使用（或覆盖）的一些默认行为。
 
 # 四、格式器
 
@@ -116,6 +137,16 @@
   - 创建配置信息字典并将其传递给 [`dictConfig()`](https://docs.python.org/zh-cn/3/library/logging.config.html#logging.config.dictConfig) 函数
 
 - 代码显示的创建
+
+  - 创建记录器`Logger`
+
+  - 定义处理器
+    - 通过`setLevel`指定该处理器应该处理的等级
+
+    - 通过`setFormatter` 设置日志格式
+
+  - `Logger`添加处理器对象
+
 
   ```python
   import logging
@@ -240,3 +271,8 @@
   ```
 
   
+
+# 流程图
+
+- [流程图链接](https://boardmix.cn/app/editor/fIKoI3bZV5-JewrIgYx-Vg)
+

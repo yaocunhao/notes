@@ -37,6 +37,8 @@
   - uwsgi_param
     - [uwsgi_param 官方文档](http://nginx.org/en/docs/http/ngx_http_uwsgi_module.html#uwsgi_param)
     - 设置一个应该传递给uwsgi服务器的参数。该值可以包含文本、变量和它们的组合,当且仅当，当前级别没有定义uwsgi_param指令时，这些指令从上一个配置级别继承
+    - **这个值在Django之中会在HTTP的head之中传入**
+      - [HttpRequest.META](https://docs.djangoproject.com/en/2.0/ref/request-response/#django.http.HttpRequest.META)获取请求头dict列表，通过uwsgi_param 设置的参数就在该列表之中
     - uwsig通用配置加载链接： https://github.com/nginx/nginx/blob/master/conf/uwsgi_params
   - uwsgi_pass： 表示要代理的 uWSGI服务器
     - sock文件或者设置的 upstream 

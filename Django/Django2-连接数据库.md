@@ -209,12 +209,13 @@
 
 ### 3.2.1 字段类型
 
-| 字段            | 说明                                                        | 字段属性                                                     |
+| 字段            | 说明                                                        | 约束选项                                                     |
 | --------------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
 | AutoFiled       | 自增主键（Primary_key=Ture），Django 默认建立id字段为主键。 |                                                              |
+| BigAutoField    | 64位自增主键                                                |                                                              |
 | CharFiled       | 字符类型                                                    | Max_length=32，字符长度需要明确                              |
-| IntgerFiled     | 整型 int                                                    |                                                              |
-| BigIntegerField | 长整形                                                      |                                                              |
+| IntgerFiled     | 32位整型 int                                                |                                                              |
+| BigIntegerField | 64位 长整形                                                 |                                                              |
 | BooleanFiled    | 布尔字段，对应数据库 tinyint 类型数据长度只有1位。          | 值为True或False                                              |
 | NullBooleanFied | 支持Null、True或False三种值                                 |                                                              |
 | TimeFied        | 时间，同DateFiled                                           |                                                              |
@@ -224,6 +225,7 @@
 | TextFiled       | 用于大文本                                                  |                                                              |
 | FileField       | 上传文件字段                                                |                                                              |
 | imageField      | 继承FileField，对上传内容进行校验，确保是有效图片           |                                                              |
+| BinaryField     | 二进制数据存储(尽量不要使用)                                |                                                              |
 
 ### 3.2.2 字段约束
 
@@ -238,6 +240,7 @@
 | unique       | 唯一键，默认False                                            |
 | choices      | 用于给字段设置选择的值，是一个可迭代的对象(list/tupple)，其实就是SQL之中的set/enum |
 | verbose_name | 在admin后台管理系统上显示的名称，如果没有设置这个字段，Django将会直接展示字段名并且将字段中的下划线转变为空格 |
+| JSONField    |                                                              |
 
 ```python
 # 创建表

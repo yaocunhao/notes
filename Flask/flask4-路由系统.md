@@ -283,4 +283,4 @@
   @app.route('/flask/')
   ```
 
-  
+  - 当使用POST方法时，遇到过必须要`/`的情况，因此在设置的时候，添加关键字 `strict_slashes=False`[参考链接](https://zhuanlan.zhihu.com/p/107383595)
