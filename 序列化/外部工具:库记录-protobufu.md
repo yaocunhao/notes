@@ -113,6 +113,9 @@
 
 - 编译proto协议文件
 
+  - **编译命令：protoc -I=$SRC_DIR --python_out=$DST_DIR $SRC_DIR/addressbook.prot**
+
+
   ```c++
   //protoc -I=$SRC_DIR --python_out=$DST_DIR $SRC_DIR/addressbook.proto
   //SRC_DIR 指定源目录，不指定则是当前目录

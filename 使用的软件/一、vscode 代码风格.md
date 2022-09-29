@@ -18,14 +18,17 @@
 
 
 
-# 四、vscode 配置
+# 四、vscode 配置文件的作用
+
+- `lanuch.json` 运行任务设置
+- `tasks.json`编译的文件夹
 
 
 
-# 五、预设变量
+# 五、Vscode 编译器预设变量
 
 ```python
-${workspaceFolder} - VS Code 中打开的文件夹目录 （通常是项目的位置）
+${workspaceFolder} - VS Code 中打开的文件夹目录(也就是项目的根目录)
 ${workspaceFolderBasename} - 没有任何斜杠 (/)的 VS Code 中打开的文件夹目录
 ${file} - 目前打开文件的绝对位置
 ${relativeFile} - 目前打开文件相对于 workspaceFolder 的相对位置

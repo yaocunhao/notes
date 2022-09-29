@@ -80,6 +80,6 @@
     conda list
     ```
 
-    
+  - [加载包](https://blog.csdn.net/weixin_39620679/article/details/111782762?ops_request_misc=&request_id=&biz_id=102&utm_term=conda%20%E5%8F%AF%E4%BB%A5%E6%8C%87%E5%AE%9A%E5%8A%A0%E8%BD%BD%E6%BA%90%E4%B9%88&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-111782762.142^v49^pc_rank_34_1,201^v3^control_1&spm=1018.2226.3001.4187)
 
   

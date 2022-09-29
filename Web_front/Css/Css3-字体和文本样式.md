@@ -91,7 +91,7 @@
 
   - 注意点
 
-    - 如果需要让以上元素水平居中，text-align：center 需要给以上元素的父元素设置
+    - **如果需要让以上元素水平居中，text-align：center 需要给以上元素的父元素设置**
 
       ![image-20220917231206313](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202209172312373.png)
 
@@ -112,3 +112,46 @@
 
 # 三、line-height 行高
 
+- 控制不同行字体之间的间隔高度
+- 可以在大小后面`/`后面连接行高
+
+![image-20220917233531024](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202209172335118.png)
+
+```css
+    * {
+      /*像素写法*/
+      line-height: 10px;
+      /*倍数写法*/
+      line-height: 1;
+    }
+```
+
+# 四、颜色取值
+
+![image-20220917234728688](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202209172347773.png)
+
+# 五、标签水平居中
+
+- 如何让div、p、h（大盒子）水平居中
+  - 可以通过margin:0 auto 实现
+- 注意
+  - 如果需要让div、p、h(大盒子)水平居中，直接给当前元素本身设置即可
+  - margin 一般针对固定宽度的盒子，如果大盒子没有设置宽度，此时会默认占满父元素的宽度
+
+```css
+  <style>
+    p {
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <p></p>
+```
+
+![image-20220917235646950](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202209172356052.png)

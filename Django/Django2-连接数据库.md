@@ -926,6 +926,10 @@ class UserInfo(models.Model):
 - 对查询集进行切片后返回一个新的查询集，不会立即执行查询
 - 如果获取一个对象，直接使用[0]，等同于[0:1].get()，但是如果没有数据，[0]引发IndexError异常，[0:1].get()如果没有数据引发DoesNotExist异常
 
+### 5.2.4 多条件查询代码写法
+
+- [字典筛选](https://blog.csdn.net/Sean_TS_Wang/article/details/118497884?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166446753416800182186028%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=166446753416800182186028&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~pc_rank_v39-1-118497884-null-null.142^v51^pc_rank_34_2,201^v3^control_1&utm_term=Django%20%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E6%80%8E%E4%B9%88%E5%86%99%E4%BB%A3%E7%A0%81&spm=1018.2226.3001.4187)
+
 # 六、管理器Manager
 
 ## 6.1 是什么

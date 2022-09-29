@@ -9,6 +9,7 @@
 # 二、响应
 
 - [图绘链接](https://boardmix.cn/app/editor/Q7qiXZBDJiDN0dpsJiQ04g)
+- [gd](https://docs.djangoproject.com/en/2.0/ref/request-response/#django.http.HttpResponse)
 
 ## 2.1 整体逻辑
 
@@ -17,7 +18,7 @@
 
 ![image-20220810200509950](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202208102005414.png)
 
-## 2.2 JsonResponse 分析
+## 2.2 子类-JsonResponse 分析
 
 - 作用
   - 将传入的`dict`数据序列化成`Json`格式
@@ -49,8 +50,7 @@
           super().__init__(content=data, **kwargs)
   ```
 
+## 2.3 子类-StreamingHttpResponse 分析
 
-## 2.3 使用介绍
-
-- [gd](https://docs.djangoproject.com/en/2.0/ref/request-response/#django.http.HttpResponse)
-
+- 作用
+  - 以`数据流`的形式返回一个http响应，它的内容是一个迭代器

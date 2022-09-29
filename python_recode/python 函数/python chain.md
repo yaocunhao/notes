@@ -7,7 +7,7 @@
 - 可以使代码更加的优雅，避免多个相同的循环逻辑
 
   ```python
-  from itertools import chain
+  from itertools import c
   
   l = [1,2,3]
   d = {'name':'tom','age':18}
