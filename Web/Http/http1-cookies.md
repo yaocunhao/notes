@@ -1,13 +1,13 @@
 - [参考链接](https://blog.csdn.net/zhangquan_zone/article/details/77627899?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-77627899-blog-124009940.t5_download_50w&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-77627899-blog-124009940.t5_download_50w&utm_relevant_index=2)
 - [参考链接2](https://blog.csdn.net/Oh_Python/article/details/123756400?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166357861916782425178502%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166357861916782425178502&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-123756400-null-null.142^v47^pc_rank_34_1,201^v3^add_ask&utm_term=Django%20%E8%AE%BE%E7%BD%AEcookies&spm=1018.2226.3001.4187)
 
-# 基本介绍
+# 一、基本介绍
 
 - cookies 是服务器返回给游览器的，游览器将其进行了存储。**游览器自动进行存储，在 下次请求的时候自动发送**
 - cookies 之中包含了几个比较重要的字段信息
   - 比如什么时候删除、发送给那个域名、设置的过期时间
 
-# 参数介绍
+# 二、参数介绍
 
 ## 参数列表
 
@@ -33,3 +33,11 @@
 - max_age 和 expires 同时存在的情况
   - 当expires的时间格式为非datetime时，使用的是max_age的值
   - 当expires的时间格式为datetime时，使用的是expires的值
+
+# 三、和Session、token的区别
+
+- [参考链接1](https://blog.csdn.net/chen13333336677/article/details/100939030?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166530512116782248528646%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166530512116782248528646&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-100939030-null-null.142^v52^pc_rank_34_2,201^v3^control_1&utm_term=cookie%E4%B8%8Esession%E5%8C%BA%E5%88%AB&spm=1018.2226.3001.4187)
+
+- [参考链接2](https://blog.csdn.net/weixin_42099386/article/details/122963118?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166530530616781432966649%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166530530616781432966649&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-122963118-null-null.142^v52^pc_rank_34_2,201^v3^control_1&utm_term=cookie%E4%B8%8Esession%E5%8C%BA%E5%88%AB%20token&spm=1018.2226.3001.4187)
+
+- token 保存在服务器中，是开发定义的，所以可以跨域

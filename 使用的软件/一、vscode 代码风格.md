@@ -1,10 +1,22 @@
 # 一、vscode 代码风格
 
-- 使用yapf格式化插件，然后自定义风格![image-20220619231519718](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192315789.png)
+- 使用yapf格式化插件，然后自定义风格
 
-- [参考文章](<img src="https://gitee.com/yao-cunhao/ssh_picture/raw/master/pict/202204261735909.png"/>)
+- `yapf  --style-help   `导出配置文件内容至`.style.yapf`。然后进行settings.json 之中进行如下配置即可
 
+  ```python
+  {
+    "python.defaultInterpreterPath": "/home/didi/anaconda3/envs/my_python/bin/python",
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfArgs": [
+      "--style",
+      "/home/didi/test/.style.yapf" # 设置代码风格
+    ],
+    "json.schemas": []
+  }
+  ```
 
+  
 
 # 二、vscode安装的插件
 

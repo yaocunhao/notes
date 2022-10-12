@@ -343,3 +343,11 @@ docker run -itd --name sq_test -p 8888:3306 -v /home/didi/docker_test:/etc/mysql
 
 - ssh链接不上mysql时
   - --ssl-mode=DISABLED
+
+```
+$ sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) \
+  stable"
+```
+
