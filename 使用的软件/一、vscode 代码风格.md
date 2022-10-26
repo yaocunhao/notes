@@ -39,6 +39,8 @@
 
 # 五、Vscode 编译器预设变量
 
+- [官网](https://code.visualstudio.com/docs/editor/variables-reference)
+
 ```python
 ${workspaceFolder} - VS Code 中打开的文件夹目录(也就是项目的根目录)
 ${workspaceFolderBasename} - 没有任何斜杠 (/)的 VS Code 中打开的文件夹目录

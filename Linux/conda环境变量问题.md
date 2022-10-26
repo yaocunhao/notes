@@ -1,0 +1,1 @@
+[修改conda sudo](https://www.cnblogs.com/MemoryOfStars/p/11309625.html)

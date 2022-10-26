@@ -977,6 +977,38 @@ class UserInfo(models.Model):
   Demo.objects.all() # AttributeError: type object 'Demo' has no attribute 'objects'
   ```
 
+
+
+# 七、QuerySet Api接口
+
+- [参考链接](https://blog.csdn.net/weixin_41924879/article/details/109162317?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166667626116782388054259%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=166667626116782388054259&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~pc_rank_34-1-109162317-null-null.142^v59^pc_new_rank,201^v3^control_1&utm_term=Django%20%E5%A6%82%E4%BD%95%E5%AE%9A%E4%B9%89QuerySet&spm=1018.2226.3001.4187)
+- 接口分为链式和非链式，也就是得到的结果是queryset和model对象
+- 常用接口有
+  - `exists`判断数据是否存在
+  - last 获取集合之中的最后一个对象
+
+
+
+
+
+# 八、QuerySet 拼接
+
+- QuerySet 拼接有两种方式
+
+- 第一种是自带的方法，这种方法得到的还是queryset结果
+
+  - 两个queryset进行`|`运算得到并集，自动去重
+  - 两个queryset进行`&`计算得到交集
+
+  ```python
+  a1 = User.objects.filter(id__gt=8)
+  a2 = User.objects.filter(id__lt=4)
+  a3 = a1 | a2   
+  a4 = a1 & a2
+  ```
+
+  
+
 # 参考链接
 
 [增删查改参考链接](https://blog.csdn.net/yanpenggong/article/details/82316514?ops_request_misc=&request_id=&biz_id=102&utm_term=Django%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-82316514.nonecase&spm=1018.2226.3001.4187)
