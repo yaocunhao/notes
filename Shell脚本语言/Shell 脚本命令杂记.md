@@ -46,7 +46,7 @@
   - 如果 getopts 期待一个参数，但无法解析一个，它会打印一个错误。**如果它不期望一个，*OPTARG*将被初始化为“”（一个空字符串）**
 - name
   - name 参数用于保存解析后的选项名
-  - 每调用一次 getopts 命令，它只解析一个选项，并把解析的值存入 name 变量中
+  - 每调用一次 getopts 命令，它只解析一个选项，并把解析的选项名称存入 name 变量中
   - 解析后的值不包含 - 字符,例如解析 -h 选项后，name 变量的值是字符 h.该变量的名称不要求只能是 name 字符串，也可以是其他合法的变量名，例如 opt、arg 等等。
   - 如果要解析多个选项时，需要在 while 或者 for 循环中多次执行 getopts 命令，来逐个解析参数选项，直到解析完毕为止.解析完毕，getopts 命令会返回 false，从而退出循环
   - 如果提供的选项不在 optstring 指定的列表里面，name 的值会被设成问号 ?.但是 getopts 命令还是返回true，不会报错
@@ -56,3 +56,8 @@
   - 例如有一个 testgetopts.sh 脚本，那么执行 ./testgetopts.sh -a -b 命令，getopts 会解析 -a、-b 选项.如果是在函数内执行 getopts 命令，它解析的选项参数是调用函数时提供的参数
   - 例如有一个 test_getopts 函数，该函数内调用 getopts 命令，那么执行 test_getopts -a -b 语句，getopts 命令会解析 -a、-b 选项
   - 如果提供了 args 参数，getopts 命令改成解析 args 参数包含的选项.例如执行 args="-a -b"; getopts "ab" opt $args 语句，getopts 命令解析的是 args 变量指定的 "-a -b" 字符串
+
+- 系统变量
+  - Name 是存储当解析的那个字符
+  - OPTARG 系统变量存储的是当前解析的值
+  - **OPTIND** 存储的是当前的索引

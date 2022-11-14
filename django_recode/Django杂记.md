@@ -347,6 +347,8 @@ urlpatterns = [
 
 - 脚本可以放在项目或者App的script目录之下
 - **如果寻找不到，则说明路径太深，则需要带上路径**
+- 需要install django-extensions   
+- 需要在`INSTALLED_APPS`之中配置`django_extensions`
 
 
 

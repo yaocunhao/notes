@@ -1,0 +1,7 @@
+- [参考链接1](https://blog.csdn.net/qdPython/article/details/125187735?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-125187735-blog-122458512.pc_relevant_3mothn_strategy_recovery&spm=1001.2101.3001.4242.1&utm_relevant_index=3)
+- [参考2](https://hllyzms.blog.csdn.net/article/details/79473706?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-79473706-blog-83477607.pc_relevant_3mothn_strategy_and_data_recovery&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-2-79473706-blog-83477607.pc_relevant_3mothn_strategy_and_data_recovery&utm_relevant_index=5)
+- [参考 3](https://blog.csdn.net/craftsman2020/article/details/111145393?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166736749216782395360200%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166736749216782395360200&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-111145393-null-null.142^v62^pc_rank_34_queryrelevant25,201^v3^control_1,213^v1^control&utm_term=python%20decimal%E4%BB%8B%E7%BB%8D&spm=1018.2226.3001.4187)
+
+# 注意事项
+
+- 可以给Decimal 传入整形或者字符串参数，不能传递浮点数据，因为浮点数本身就不正确

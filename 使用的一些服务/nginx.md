@@ -100,13 +100,15 @@
   				root /data/www; # 根目录下的某个路径
   			}
   			
-  			location /images/ {
+      	# 比如此时访问网址为 ip:80/images/index
+        # 就会被路由到 /data/images/index
+  			location /images/ { 
   					root /data;
   			}
   	}
   }
   ```
-
+  
   
 
 ## 4.5 代理服务器设置

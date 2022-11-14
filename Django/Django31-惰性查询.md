@@ -1,0 +1,3 @@
+- [参考链接](https://blog.csdn.net/weixin_44685869/article/details/105402339?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166753162516782390563560%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166753162516782390563560&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-105402339-null-null.142^v63^wechat,201^v3^control_1,213^v1^control&utm_term=Django%20%E6%83%B0%E6%80%A7%E6%9F%A5%E8%AF%A2&spm=1018.2226.3001.4187)
+- Django 的查询集和过滤并不会进行数据库的搜索。只有当进行**读取动作时**才会进行数据库的查找
+- 常见的读取动作有：循环，判断，读取某一个属性，跳跃式切片(arrat[:3:10])

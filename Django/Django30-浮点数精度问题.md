@@ -1,0 +1,2 @@
+- [参考链接](https://stackoverflow.com/questions/26016752/django-queryset-isn-t-it-possible-to-filter-on-a-floatfield)
+- 使用decimal即可
