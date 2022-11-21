@@ -4,4 +4,66 @@
 
 # 注意事项
 
-- 可以给Decimal 传入整形或者字符串参数，不能传递浮点数据，因为浮点数本身就不正确
+- 可以给Decimal 传入整形或者字符串参数，**不能直接传递浮点数据**，因为浮点数本身就不正确
+
+
+
+# 测试代码记录
+
+```python
+"""测试精度类型decimal"""
+
+from decimal import *
+
+def test3():
+  """decimal  和 float 进行计算"""
+  """
+    结论：
+    decimal 不支持和float进行计算
+  """
+  num = 0.2
+  v1 = Decimal(0.1) + 0.2
+  v2 = Decimal(0.1) + num
+  print(v1)
+  print(v2)
+
+
+def until_float_to_dcl(num):
+  """将浮点数，字符串转换成decimal"""
+  return Decimal(num).quantize(Decimal('0.0'))
+
+
+def test4():
+  """float 转换成 decimal"""
+  v = 1111.1231
+  a = until_float_to_dcl(v)
+  b = until_float_to_dcl(0.1)
+  print(a + b)
+
+
+def test5():
+  """小数字符串转换成int类型"""
+  """
+  结论： 无法转化，出现异常
+  """
+  str = "0.1"
+  print(int(str))
+
+
+def test6():
+  """判断0是不是为false"""
+  """
+  结论： 0 是false
+  """
+
+  v = Decimal(0)
+  print(type(v))
+  if v:
+    print('True')
+  else:
+    print('False')
+
+
+print(until_float_to_dcl(9.9) + until_float_to_dcl(0.1))
+```
+

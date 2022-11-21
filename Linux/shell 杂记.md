@@ -27,5 +27,9 @@
    kill -9 `ps -aux | grep uwsgi | awk '{print $2}'`
   ```
 
-  
+
+- dirname
+  - 去除掉最后的`/`，得到真正的目录
+- local
+  - 声明变量，一般在函数之中使用，表示这个作用域是处于函数之中 
 

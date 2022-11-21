@@ -11,6 +11,8 @@
 
 - db.collection_name.insert(document)
 
+  - 这个接口**已经弃用**
+
   - 如果插入的主键存在(**也就是id如果存在**)，那么提示异常，并且不保存数据
 
   - insert **可以插入多个数据(即可以插入数组)**
@@ -81,9 +83,9 @@
   - findOne() 方法仅能返回一个查询到的文档
 
   ```python
-  > db.table.find({name:"tom11"}).pretty() # find查找不报错
+  > db.table.find({name:"tom11"}).pretty() # find查找为空时不显示
   
-  > db.table.findOne({name:"tom11"}).pretty() # findOne 查找是报错的
+  > db.table.findOne({name:"tom11"}).pretty() # findOne 为空时会显示出来
   uncaught exception: TypeError: db.table.findOne(...) is null :
   ```
 

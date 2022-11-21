@@ -1,0 +1,1 @@
+- [参考链接](https://blog.csdn.net/y472360651/article/details/116545273?ops_request_misc=&request_id=&biz_id=102&utm_term=flask%20app.extensions%5B%22socketio&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-116545273.142^v63^wechat,201^v3^control_1,213^v2^t3_esquery_v2&spm=1018.2226.3001.4187)

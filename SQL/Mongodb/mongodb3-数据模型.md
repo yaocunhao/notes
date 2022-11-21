@@ -47,15 +47,25 @@
 
 - 在规范化数据模型中，您可以通过**引用来将原始文档与子文档关联起来**，例如您可以将上面的文档信息以规范化数据模型重写为以下几个文档
 
-  - Employee
+  - 语法
 
+    ```shell
+    db.mt.insert({old:"637484f61c3a08a2e69d075a",name:123,sex:"girl",age:31231})
+    
+    old:这个字段的名称是随意取的
+    ```
+  
+    
+  
+  - Employee
+  
     ```
     {
         _id: ObjectId("601f4be6e646844cd045c8a4"),
         Emp_ID: "10025AE336"
     }
     ```
-
+  
   - Personal_details
 
     ```sql
@@ -67,9 +77,9 @@
         Date_Of_Birth: "1995-09-26"
     }
     ```
-
+  
   - Contact
-
+  
     ```
     {
         _id: ObjectId("601f50bae646844cd045c8a6"),
@@ -78,9 +88,9 @@
         phone: "9848022338"
     }
     ```
-
+  
   - Address
-
+  
     ```
     {
         _id: ObjectId("601f50bae646844cd045c8a7"),

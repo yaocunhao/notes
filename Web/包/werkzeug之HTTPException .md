@@ -4,8 +4,6 @@
 
 - Werkzeug是一个[WSGI](https://so.csdn.net/so/search?q=WSGI&spm=1001.2101.3001.7020)工具包，他可以作为一个Web框架的底层库。这里稍微说一下， werkzeug 不是一个web服务器，也不是一个web框架，而是一个工具包，官方的介绍说是一个 WSGI 工具包，它可以作为一个 Web 框架的底层库，因为它封装好了很多 Web 框架的东西，例如 Request，Response 等等
 
-
-
 # 二、应用
 
 ## 2.1 使用介绍

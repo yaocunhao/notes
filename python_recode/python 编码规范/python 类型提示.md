@@ -202,5 +202,8 @@ d:str = "qwert"
   res:Union[NoReturn, str] = raise_exception(False)
   ```
 
-  
+
+## 3.3 Type类型
+
+- 用来注释类型
 
