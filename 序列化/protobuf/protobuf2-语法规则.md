@@ -11,9 +11,9 @@
 - [字段类型的使用方式](https://blog.csdn.net/weixin_44534197/article/details/108757270?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165646687316782388072415%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=165646687316782388072415&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-2-108757270-null-null.142^v24^huaweicloudv2,157^v15^new_3&utm_term=protoc+%E6%80%8E%E4%B9%88%E7%BB%99repeated%E5%AD%97%E6%AE%B5%E8%B5%8B%E5%80%BCH&spm=1018.2226.3001.4187)
 - **proto3中，只有repeated字段可以进行设置，也就是说该字段可以出现多次**
 
-- required
+- required(已经移除)
   - **表示该字段必须有值，不能为空**，否则message被认为是未初始化的。如果试图build一个未初始化的message将会抛出RuntimeException。解析未初始化的message会抛出IOException(**proto3 已经移除**)
-- optional
+- optional(已经移除)
   - **表示该段为可选值，可以不进行设置**。如果不设置，会设置一个默认值。可以设置一个默认值，否则使用系统默认值，数字类型默认为0；字符串类型默认为空字符串；逻辑类型默认为false；内部自定义的message，默认值通常是message的实例或原型(**proto3不可以设置默认值，并且改名为singular**)
 - repeated
   - 表示该字段可以重复，**可等同于动态数组**

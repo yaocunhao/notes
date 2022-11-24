@@ -6,8 +6,8 @@
 
   ```shell
   { $ref : value, $id : value, $db : value }
-  $ref：集合；
-  $id：文档id；
+  $ref：嵌入的集合；
+  $id：嵌入的文档id；
   $db：可选字段，集合所在数据库名称；
   value：表示各个字段所对应的值。
   ```

@@ -1,1 +1,0 @@
-- [参考链接](https://blog.csdn.net/IT_LanTian/article/details/123229717?ops_request_misc=&request_id=&biz_id=102&utm_term=python%20BaseModel&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-123229717.142^v65^pc_rank_34_queryrelevant25,201^v3^control_1,213^v2^t3_esquery_v2&spm=1018.2226.3001.4187)

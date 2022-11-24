@@ -1,21 +1,31 @@
+# 注意事项
+
+- 查询风格变幻
+  - filter的查询风格是和django一样的
+  - `__raw__`的查询风格是和mongo shell 一样的
+
 # 一、常用接口
 
 - `delete`**(write_concern=None**,_from_doc_delete=False**,** *cascade_refs=None*)
 
   - 删除接口，返回已删除的数量
 
-- `filter(q_objs, query)`
+- `def filter(self, *q_objs, **query)`
+
+  - q_objs：class Q 对象
+
+  - query： django风格的查询关键字参数
+
+  - **默认使用`,`进行 `&` 查询， 或查询请使用Q对象**
+
 
   ```python
   def test5():
     """验证查询函数，验证成功"""
-    data = Base.objects.filter(age__lte=2)
+    data = Base.objects.filter(age__gte=4,name__exact="123")
     for d in data:
       print(d.age)
-  
   ```
-
-  
 
 - `get`**(****q_objs***,** ***query***)**
 
@@ -93,4 +103,3 @@
   - 批量插入文档
   - doc_or_docs:要插入的文档或文档列表
   - load_bulk: 如果True返回文档实例的列表。默认情况下返回文档实例，将load_bulk设置为False只返回objectid
-

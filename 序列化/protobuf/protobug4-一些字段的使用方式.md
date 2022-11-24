@@ -1,10 +1,10 @@
 
 
-# 四、字段的使用方式
+# 一、嵌套类型和重复类型
 
-- 当message 嵌套写入数据时，使用add
+- 当message 嵌套写入数据时，**使用add**
 
-- *repeated 字段类型,查看转义源码 default_value=[] 可知为 list 类型，可使用 append()添加字段*
+- *repeated 字段类型,查看转义源码 default_value=[] 可知为 list 类型，可使用 **append()添加字段***
 
   - 如果是嵌入类型则使用add()
 
@@ -35,11 +35,12 @@
     }
     ```
 
-    
+
+# 二、Any 和 enum类型
 
 - *Any 字段类型类似于泛型，使用 .Pack() 进行添加，使用 .Unpack() 类型进行解析*
 
-- *enum 字段类型，使用 .Name(<int>)类型进行查看*
+- *enum 字段类型，使用 .Name(<int>)**类型进行查看***
 
   ```properties
   syntax = "proto3";
@@ -73,34 +74,37 @@
 
   ```python
   import user_pb2
-  # 创建user实例
-  user = user_pb2.User()
-  # 填入user信息
-  user.index = 1
-  user.name = "User1"
+  def test1():
+    # 创建user实例
+    user = user_pb2.User()
+    # 填入user信息
+    user.index = 1
+    user.name = "User1"
   
-  # 1、当 message 嵌套写入数据时，使用 add(),因为此时content的字段为repeated
-  phone = user.content.add()
+    # 1、当 message 嵌套写入数据时，使用 add(),因为此时content的字段为repeated
+    phone = user.content.add()
   
-  pt = user_pb2.PhoneType  # enum
-  phone.phoneType = pt.Name(0)  #  pt.Name(0):Telephone， 从enum中取出元素
-  phone.number = 10000
-  # user.content.append(phone) # 多添加一份
-  print(user)
+    pt = user_pb2.PhoneType  # enum
+    phone.phoneType = pt.Name(0)  #  pt.Name(0):Telephone， 从enum中取出元素
+    phone.number = 10000
+    # user.content.append(phone) # 多添加一份
+    print(user)
   
-  # 给模板赋值
-  info = user_pb2.Remark()
-  info.note = "1234"
-  mark = user.Value
-  mark.Pack(info)
-  print(info)
+    # 给模板赋值
+    info = user_pb2.Remark()
+    info.note = "1234"
+    mark = user.Value
+    mark.Pack(info)
+    print(info)
   
-  out_b = user.SerializeToString()  # 序列化
-  print(out_b)
+    out_b = user.SerializeToString()  # 序列化
+    print(out_b)
+  
+  def test2():
+    """测试enum"""
+    en = PhoneType
+    print(en.Name(1)) # Home
   ```
-
-  
-
 
 
 # Any

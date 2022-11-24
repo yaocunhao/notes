@@ -11,7 +11,7 @@
   
   app = Flask(__name__)  # __name__ 当前文件的名称
   
-  @app.route('/test') # 路由必须以/开始
+  @app.route('/test') # 路由必须以/开始， 需要注意的是这样默认只允许get请求
   def test():
     return 'hello word!!!!'
   ```
