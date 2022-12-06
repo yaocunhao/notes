@@ -532,19 +532,6 @@
 - [numpy.array](https://blog.csdn.net/fu6543210/article/details/83240024?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165824967116782184629730%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165824967116782184629730&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-83240024-null-null.142^v32^pc_rank_34,185^v2^control&utm_term=%20numpy.array&spm=1018.2226.3001.4187)
   - 提高效率的数组
 
-
-
-
-
-```
-cat /etc/apt/sources.list
-deb http://mirrors.aliyun.com/ubuntu bionic main multiverse restricted universe
-deb http://mirrors.aliyun.com/ubuntu bionic-updates main multiverse restricted universe
-deb http://mirrors.aliyun.com/ubuntu bionic-security main multiverse restricted universe
-deb http://mirrors.aliyun.com/ubuntu bionic-proposed main multiverse restricted universe
-deb http://mirrors.aliyun.com/ubuntu bionic-backports main multiverse restricted universe
-
-deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
-# deb-src [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
-```
+- 通过globals内置函数动态添加全局变量
+  - globals().update(dic) 可以将一个字典添加到全局变量中
 

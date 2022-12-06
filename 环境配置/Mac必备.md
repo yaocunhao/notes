@@ -1,0 +1,8 @@
+- 鼠标轮盘修改： Scroll Reverser
+- 截图： ishot
+- 分屏：rectangle
+- 数据库查看：sequel pro
+- mongo查看： vscode 插件即可
+- 画板：board
+- [键盘映射修改](https://www.aranne.me/posts/vermilo-keyboard-with-karabiner-elements/)
+  - 去官网或者github 查看使用教程

@@ -31,6 +31,6 @@
 
 
 
-# 四、内置名称空间
+## 四、内置名称空间
 
 - 何模块都可以访问，它存放在内置的函数(built−infunctionbuilt−infunction)和异常(Built−inExceptionBuilt−inException)![image-20220619230812483](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202206192308557.png)
