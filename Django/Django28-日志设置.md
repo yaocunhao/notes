@@ -5,7 +5,7 @@
 ```python
 LOGGING = {
     # 1、Django自身配置
-    'version': 1,  # 字典配置的八本
+    'version': 1,  # 字典配置的版本
     'disable_existing_loggers': False,  # 是否关闭默认的日志配置器
 
     # 2、处理器

@@ -24,7 +24,7 @@
 - 启动方式二
   - 在1.0版本之后，Flask 调整了开发服务器的启动方式，由代码编写app.run()语句调整为命令flask run启动,**因此程序之中不用再写app.run()**
   - 启动命令
-    - flask run,比如 flask run -h 0.0.0.0 -p 5005
+    - flask run,比如 flask run -h 0.0.0.0 -p 5005 （ python -m flask run --no-debugger -h 0.0.0.0 -p 8000）
     - 可以通过flask run --help 来查看帮助信息
   - 在终端中启动需要设置的环境变量和其含义
     - FLASK_ENV
