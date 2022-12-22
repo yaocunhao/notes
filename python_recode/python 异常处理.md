@@ -504,3 +504,7 @@
   ```
 
   
+
+# 九、raise/from
+
+- [参考链接](https://blog.csdn.net/jpch89/article/details/84315444?ops_request_misc=&request_id=&biz_id=102&utm_term=python%20raise%20xx%20from%20e&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-84315444.142^v68^wechat_v2,201^v4^add_ask,213^v2^t3_esquery_v2&spm=1018.2226.3001.4187)
