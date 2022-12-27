@@ -535,3 +535,5 @@
 - 通过globals内置函数动态添加全局变量
   - globals().update(dic) 可以将一个字典添加到全局变量中
 
+- list删除带来的bug
+  - 当list使用remove时，不能在循环之中进行使用，会导致bug的产生

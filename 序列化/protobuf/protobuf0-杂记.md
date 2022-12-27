@@ -1,5 +1,7 @@
 # 一、一些参考链接
 
+- [0值不会被传递](https://blog.csdn.net/cs10239dn/article/details/125166742?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522167204601416800180625421%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=167204601416800180625421&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-2-125166742-null-null.142^v68^wechat_v2,201^v4^add_ask,213^v2^t3_esquery_v2&utm_term=proto%20%E6%97%A0%E6%B3%95%E8%A7%A3%E6%9E%900%E5%80%BC&spm=1018.2226.3001.4187)
+
 - [_VarintBytes](https://www.jianshu.com/p/79a2d01a32db)
   - 序列化的一种方法
 
