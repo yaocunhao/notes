@@ -1,5 +1,7 @@
 - [参考链接](https://www.cnblogs.com/lili37/p/16044842.html)
 - [gd](https://flask.palletsprojects.com/en/2.2.x/appcontext/#purpose-of-the-context)
+- [ck](https://blog.csdn.net/weixin_42185136/article/details/104496351?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-104496351-blog-88785195.pc_relevant_default&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-104496351-blog-88785195.pc_relevant_default&utm_relevant_index=2)
+- [ck](https://blog.csdn.net/JENREY/article/details/86606653)
 
 # 一、上下文目的
 

@@ -222,8 +222,65 @@
 
 - `logging.getLogger(name=None)`
   - 返回具有指定名字的日志记录器
+  
+- logging.setLoggerClass()
+
+  - 设置实例化记录器时要使用的类，后续该程序之中的日志记录器都会运行到继承类的_log处
+
+  ```python
+  class StructureLogger(logging.Logger):
+      _log_parameters = inspect.signature(logging.Logger._log).parameters
+      def _log(
+          self,
+          level,
+          msg,
+          args,
+          exc_info=None,
+          extra=None,
+          stack_info=False,
+          stacklevel=1,
+          **kwargs,
+      ) -> None:
+          """Add arbitrary kwargs to log methods."""
+          messages = [str(msg)]
+          # Merge other context with msg, replace %(message)s
+          for key, value in kwargs.items():
+              messages.append(f"{key}={value}")
+          msg = "||".join(messages)
+  
+          if "stacklevel" in self._log_parameters:
+              return super()._log(
+                  level,
+                  msg,
+                  args,
+                  exc_info=exc_info,
+                  extra=extra,
+                  stack_info=stack_info,
+                  stacklevel=stacklevel,
+              )
+          else:
+              return super()._log(
+                  level, msg, args, exc_info=exc_info, extra=extra, stack_info=stack_info
+              )
+  
+  # 继承初始化日志类
+  logging.setLoggerClass(StructureLogger)
+  logger = logging.getLogger(__name__)#创建记录器
+  logger.setLevel(logging.DEBUG) # 指定记录器将处理的最低严重性日志消息
+  ch = logging.StreamHandler() # 定义处理器类型对象：实例发送消息到流（类似文件对象）
+  formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s') # 输出格式
+  ch.setFormatter(formatter) # 添加输出格式：使用处理器
+  logger.addHandler(ch) # 添加处理器
+  
+  # 最终在输出的时候，代码会运行到自定义类的_log处
+  logger.debug('123') # 2022-12-28 13:21:18,820 - __main__ - DEBUG - 123
+  ```
+
+  
+
 - `logging.getLoggerClass`()
-  - 
+
+  - 返回实例化记录器时用到的类
 
 # 实例探索
 
@@ -284,5 +341,4 @@
   - 定义格式器
   - 给处理器设置过滤器和格式器
   - 给记录器设置处理器(一对多关系，一个记录器可以设置多个处理器)
-
 
