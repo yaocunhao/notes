@@ -18,6 +18,16 @@
 
   ![image-20220917173435968](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202209171734031.png)
 
+- css 之中去掉前面的点
+
+  ```css
+  ul {
+  list-style:none;
+  }
+  ```
+
+  
+
 # 三、有序列表
 
 - 有序标签，ul替换成ol即可

@@ -33,10 +33,11 @@
     ```css
      * {
           /* front: style weight size 字体*/
+          是否倾斜、字体粗细、字体大小、字体格式    
           font: italic 700 70px 宋体;
         }
     ```
-
+    
     
 
 ![image-20220917225310159](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202209172253234.png)	

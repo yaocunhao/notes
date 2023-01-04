@@ -29,7 +29,7 @@ uk_users = User.objects(country='uk')
 
 ## 3.1 演示
 
-- `__raw__`：提供一个dict查询参数来进行一个原始的查询，所谓的原始查询就是和命令行一样的模式
+- `__raw__`：提供一个dict查询参数来进行一个原始的查询，**所谓的原始查询就是和命令行一样的模式**
 
   ```python
   Page.objects(__raw__={'tags': 'coding'})

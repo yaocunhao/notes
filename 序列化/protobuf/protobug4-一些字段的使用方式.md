@@ -110,3 +110,11 @@
 # Any
 
 - 就是一个泛型模板，不需要在proto文件中确定类型
+
+
+
+# 三、oneof
+
+- oneof 中不能有map和repeated字段
+- oneof 表示只能设置一个值
+- [参考链接](https://developers.google.com/protocol-buffers/docs/proto3#oneof)

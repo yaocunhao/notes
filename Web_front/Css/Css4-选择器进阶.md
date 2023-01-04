@@ -90,6 +90,8 @@
 
 # 五、emmet语法
 
+- 通过简写，快速生成代码
+
 ![image-20220924162351377](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202209241623513.png)
 
 - CSS 提示，写单词的首字母即可
