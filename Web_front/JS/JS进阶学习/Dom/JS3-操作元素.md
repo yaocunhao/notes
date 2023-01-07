@@ -32,5 +32,5 @@
 
 ![image-20230103011419434](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202301030114499.png)
 
-[31集](https://www.bilibili.com/video/BV1k4411w7sV/?p=31&spm_id_from=pageDriver&vd_source=d0e4be6fd02fea51faad92fec15cda81)
+
 

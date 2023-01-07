@@ -71,7 +71,7 @@
 
 - 通过`object` 访问数据
 
-  - 每个继承了`Document`的类都有一个object属性，得到`Queryset`对象，和Django 的ORM一样，这是一个惰性查找集合
+  - 每个继承了`Document`的类都有一个object属性，得到`Queryset`对象，和Django 的ORM一样，这是一个惰性( lazily queries)查找集合
 
   - object 的三种输出方式
 

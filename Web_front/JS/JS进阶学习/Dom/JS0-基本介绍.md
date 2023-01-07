@@ -15,3 +15,5 @@
 ## 2.2 Dom树
 
 ![image-20230103001912829](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202301030021600.png)
+
+- Dom 把以上内容都看做一个对象
