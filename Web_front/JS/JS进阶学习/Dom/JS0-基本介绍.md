@@ -6,6 +6,8 @@
 
 ![image-20230103001658449](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202301030016522.png)
 
+- [API查询网址](https://developer.mozilla.org/zh-CN/docs/Web/API)
+
 # 二、什么是DOM
 
 ## 2.1 基本概念

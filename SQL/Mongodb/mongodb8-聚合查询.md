@@ -43,6 +43,12 @@
   { "_id" : ObjectId("62f9ebccb2d9dc81e744886f"), "name" : "dasdsa", "type" : 3232, "price" : 10 }
   { "_id" : ObjectId("62f9ed55b2d9dc81e7448870"), "name" : 31, "type" : 9999, "price" : 10 }
   
+  # 如果只进行聚合不进行后续操作，则每组返回一个
+  > db.Book.aggregate({$group:{_id:"$type"}})
+  { "_id" : 2 }
+  { "_id" : 9999 }
+  { "_id" : 3232 }
+  
   # 按照名字计算 price总和, _id就是名字
   > db.Book.aggregate({$group : {_id : "$name", price_sum : {$sum : "$price"}}})
   { "_id" : "31", "price_sum" : 1231 }
