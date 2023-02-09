@@ -143,3 +143,6 @@ http {
 
 
 
+# 五、路由重写rewrite
+
+- [参考链接](https://www.cnblogs.com/all-smile/p/16913087.html)

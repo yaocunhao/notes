@@ -1,3 +1,5 @@
+# 一、基本介绍
+
 - [参考链接](https://docs.djangoproject.com/en/4.1/howto/logging/)
 - python 可在配置文件之中设置`LOGGIN` 来配置全局的日志
   - 如果记录器的map映射名称设置为''，则所有的日志(包括内容日志)都会采用该记录器
@@ -55,3 +57,8 @@ LOGGING = {
 }
 ```
 
+
+
+# 二、和uwsig合用时，会导致日志被写入到uwsgi.log之中
+
+- [解决办法](https://stackoverflow.com/questions/8487791/why-all-application-logs-are-written-to-uwsgi-log)
