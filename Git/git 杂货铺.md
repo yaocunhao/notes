@@ -1,12 +1,12 @@
 - [参考链接](https://blog.csdn.net/qq_37140632/article/details/85786089?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-85786089-blog-110071195.pc_relevant_antiscanv3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-85786089-blog-110071195.pc_relevant_antiscanv3&utm_relevant_index=2)
 
 - 初始化仓库
-  
+
   - git init
   - git add 
   - git commit 
   - git remote add origin `git地址`
-  
+
 - 想要分支之间互不干扰，有两种方式
 
   - git add、git commit 然后进行切换
@@ -64,4 +64,8 @@
     - 第二个是：本地代码同步线上最新版本(会覆盖本地所有与远程仓库上同名的文件)
     - 第三个是：再更新一次
 
-    
+- 查看当前的git地址
+
+  - git remote -v
+
+  
