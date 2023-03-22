@@ -1,0 +1,2 @@
+- 如下所示，参数like是一个json对象，如果使用其中的sport字段来进行查询![image-20230320202852136](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202303202028668.png)
+  - [参考链接](https://stackoverflow.com/questions/27472325/finding-json-objects-in-mongodb)

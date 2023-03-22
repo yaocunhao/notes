@@ -134,3 +134,9 @@ pipenv run python xxx.py
 ## 2.2  不要手动修改Pipfile.lock
 
 - 用来规定的基础上，目前在包装Pipfile，应该使用那些特定版本，避免依赖于对方破坏你的项目的依赖关系树自动升级包的风险。该文件用来保证包的完整性。记住，任何情况下不要手动修改该文件		
+
+
+
+##  2.3 关于在Pipfile之中使用环境变量
+
+- [github](https://github.com/pypa/pipfile/pull/105)

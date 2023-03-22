@@ -1,0 +1,3 @@
+- 来自ORM的列表和字典不再是内置的列表和字典，使用obj.dict() 会导致问题的发生
+  - 当前遇到的问题就是从mongo之中取出对象，然后将这个对象初始化成BaseModel的结构，然后转换成dict，发生错误。 这是因为Mongo之中取出的对象的list不再是python的内置list
+  - [解决方法](https://github.com/pydantic/pydantic/issues/2340)
