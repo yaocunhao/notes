@@ -68,4 +68,6 @@
 
   - git remote -v
 
-  
+- 统计代码行数
+
+  -  git ls-files | xargs cat | wc -l

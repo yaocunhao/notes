@@ -88,7 +88,7 @@
 
 - **`shutdown(wait=True)`**
 
-  - 告诉执行器 executor 在当前所有等待的 future 对象运行完毕后，应该释放执行器用到的所有资源。在 shutdown 之后再调用 Executor.submit() 和 Executor.map() 会报运行时错误 RuntimeError
+  - 告诉执行器 executor 在当前所有等待的 future 对象运行完毕后，应该**释放执行器用到的所有资源**。**在 shutdown 之后再调用 Executor.submit() 和 Executor.map() 会报运行时错误 RuntimeError**
 
   - 如果 wait 为 True，那么这个方法会在所有等待的 future 都执行完毕，并且属于执行器 executor 的资源都释放完之后才会返回。如果 wait 为 False，本方法会立即返回。属于执行器的资源会在所有等待的 future 执行完毕之后释放
 

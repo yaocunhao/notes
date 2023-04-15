@@ -2,9 +2,17 @@
 
 # 一、请求
 
+## 1.1 基本概念
+
 - Django会自动创建HttpRequest(wsgi或者asgi创建)对象， HttpResponse则是后端开发人员负责实例化、填充和返回。**每一个视图函数都必须返回一个HttpResponse对象**
 - HttpResponse类位于django.http模块中,Django框架自我构建，并且会捕获一切路由参数
 - 属性、中间件设置见文档[gd](https://docs.djangoproject.com/en/2.0/ref/request-response/)
+
+## 1.2 请求方式的选择
+
+### 1.2.1 字节流选择
+
+- get方法传递字节流时，会被转换成字符串。这里采用的编码格式为
 
 # 二、响应
 

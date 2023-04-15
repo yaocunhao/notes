@@ -1,0 +1,4 @@
+- [官方文档](https://www.esri.com/content/dam/esrisites/sitecore-archive/Files/Pdfs/library/whitepapers/pdfs/shapefile.pdf)
+- [中文文档](https://wenku.baidu.com/view/6d619ad05b0102020740be1e650e52ea5418cec4.html?_wkts_=1681211543357&bdQuery=shapefile+%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3)
+- [可视化工具](https://mapshaper.org/)
+- [解析工具](https://github.com/GeospatialPython/pyshp)

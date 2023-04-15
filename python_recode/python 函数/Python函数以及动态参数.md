@@ -292,6 +292,7 @@
 - sort() 排序，比如list.sort()
 
   - 在原地进行修改
+  - [自定义排序函数](https://blog.csdn.net/qq_43559598/article/details/106039213?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168112680816800182784497%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=168112680816800182784497&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-5-106039213-null-null.142^v82^insert_down1,201^v4^add_ask,239^v2^insert_chatgpt&utm_term=python%20sort%E5%8F%AF%E4%BB%A5%E4%BC%A0%E5%85%A5%E6%AF%94%E8%BE%83%E5%87%BD%E6%95%B0%E5%90%97&spm=1018.2226.3001.4187)
 
 - reverse() 反转，比如list.reverse，在原地修改
 

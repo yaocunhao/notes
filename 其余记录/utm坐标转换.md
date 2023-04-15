@@ -4,7 +4,8 @@
 - [精度问题](https://blog.csdn.net/feinifi/article/details/120547127?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-120547127-blog-121388429.pc_relevant_landingrelevant&spm=1001.2101.3001.4242.1&utm_relevant_index=3)
   - 需要反复迭代多次计算得到一个很小的偏差值，但是过程会非常耗时
 
-
+- [wgs84转utm](https://blog.csdn.net/weixin_32688333/article/details/113640172?ops_request_misc=&request_id=&biz_id=102&utm_term=python%20wgs84%20%E5%8F%AF%E4%BB%A5%E5%92%8C%20utm%E4%BA%92%E7%9B%B8%E8%BD%AC%E6%8D%A2&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-2-113640172.142^v82^insert_down1,201^v4^add_ask,239^v2^insert_chatgpt&spm=1018.2226.3001.4187)
+  - 一些参数可以通过网站进行查询
 
 # 二、基本概念
 
