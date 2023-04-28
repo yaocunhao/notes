@@ -368,3 +368,31 @@
 
 - [闭坑链接](https://blog.csdn.net/weixin_39869378/article/details/110784973?ops_request_misc=&request_id=&biz_id=102&utm_term=python%20futures%E7%9A%84%E8%BF%9B%E7%A8%8B%E6%B1%A0%E8%AE%BF%E9%97%AE%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%87%BA%E9%94%99&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-110784973.142^v13^pc_search_result_control_group,157^v14^control&spm=1018.2226.3001.4187)
   - 进程不可直接通信，因为进程是相互独立的(设置全局变量是否可以直接通信？？？？？)
+
+
+
+# 十、线程池异常捕获
+
+- 和等待线程执行的结果result一样，，通过future对象，调用exception 接口
+
+```python
+def task(i):
+  print(i)
+  return i/i
+
+with futures.ThreadPoolExecutor(max_workers=10) as excutor:
+  rets = []
+  for i in range(10):
+    ret = excutor.submit(task, i)
+    rets.append(ret)
+  
+  for r in rets:
+    print(r.exception())
+    
+
+division by zero # 异常
+None # 没有异常
+```
+
+
+

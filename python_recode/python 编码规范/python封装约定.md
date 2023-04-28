@@ -45,3 +45,7 @@
   ```
 
   
+
+# 六、pylint 校验规范
+
+- [参考链接](https://pylint.readthedocs.io/en/latest/user_guide/messages/error/bidirectional-unicode.html)
