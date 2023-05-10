@@ -1,0 +1,1 @@
+- [参考文档](https://en.wikipedia.org/wiki/HTTP_persistent_connection)

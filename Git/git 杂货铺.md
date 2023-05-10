@@ -71,3 +71,8 @@
 - 统计代码行数
 
   -  git ls-files | xargs cat | wc -l
+  
+- 比较分支的不同
+
+  - ###  git diff branch1 branch2 --stat
+
