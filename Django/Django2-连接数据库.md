@@ -650,10 +650,12 @@ class UserInfo(models.Model):
       # <class 'django.db.models.query.QuerySet'>
     ```
 
+    - __exact 和 = 是等价的[gd](https://docs.djangoproject.com/en/dev/topics/db/queries/)
+
   - 模糊查询
 
     - **contains**：是否包含。*说明：如果要包含%无需转义，直接写即可*，**找不到不会报错，而是返回空的QuerySet**
-
+  
       ```python
       def find():
         obj = Demo.objects.filter(demo_field__contains="asdasdac")
@@ -669,7 +671,7 @@ class UserInfo(models.Model):
   - 空查询
 
     - **snull**：是否为null
-
+  
       ```python
       def find():
         obj = Demo.objects.filter(demo_field__isnull=False)
@@ -683,7 +685,7 @@ class UserInfo(models.Model):
   - 范围查询
 
     - in 是否包含在范围内，比如查询id为1或者3
-
+  
       ```python
       def find():
         obj = Demo.objects.filter(id__in=[1,3])
@@ -695,12 +697,12 @@ class UserInfo(models.Model):
       ```
 
   - 比较查询
-
+  
     - **gt** ：大于 (greater then)
       **gte** ：大于等于 (greater then equal)
       **lt** ：小于 (less then)
       **lte** ：小于等于 (less then equal)
-
+  
       ```python
       def find():
         obj = Demo.objects.filter(id__gt=2)
@@ -716,7 +718,7 @@ class UserInfo(models.Model):
     - **year**、**month**、**day**、**week_day**、**hour**、**minute**、**second**：对日期时间类型的属性进行运算
 
       - 查询创建时间为2022年
-
+  
         ```python
         def find():
           obj = Demo.objects.filter(create_time__year=2022)
@@ -729,7 +731,7 @@ class UserInfo(models.Model):
         ```
 
       - 查询更新时间大于2022年
-
+  
         ```python
         def find():
           obj = Demo.objects.filter(create_time__year__gt=2022)
@@ -747,7 +749,7 @@ class UserInfo(models.Model):
     - 需要导入模块 `from django.db.models import F`
 
       - 比如下方，id和create_time 之间的比较
-
+  
       ```python
       def find():
         obj = Demo.objects.filter(id__lt=F('create_time')) # 查询 id < create_time
@@ -767,7 +769,7 @@ class UserInfo(models.Model):
     - Q对象可以使用&、|连接，&表示逻辑与，|表示逻辑或
 
     - Q对象前可以使用~操作符，表示非not
-
+  
       ```python
       # 查询id>1 && 创建年份=2022,不使用Q对象有下面两种写法
         obj = Demo.objects.filter(id__gt=1).filter(create_time__year=2022)
@@ -877,6 +879,10 @@ class UserInfo(models.Model):
     def run():
       modify()
     ```
+
+- 只修改对象的字段的方法
+  - ` obj.save(update_fields=['book_name'])`
+  - `obj.update(num='11121')` 这里需要使用QuerySet的方法
 
 # 五、查询集
 
@@ -1005,6 +1011,21 @@ class UserInfo(models.Model):
   a2 = User.objects.filter(id__lt=4)
   a3 = a1 | a2   
   a4 = a1 & a2
+  ```
+
+
+
+
+# 九、隔离级别
+
+- Django 默认是读已提交。可通过如下方式设置成可重复读
+
+  ```python
+          'OPTIONS': {
+              "init_command": "SET default_storage_engine=INNODB; SET foreign_key_checks = 0; SET names 'utf8';",
+              "isolation_level": "repeatable read" # 设置为可重复读
+          }
+    }
   ```
 
   

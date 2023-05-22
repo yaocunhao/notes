@@ -10,11 +10,13 @@
 
 # 三、定位的使用步骤
 
-- 静态定位`static`就是没有改变
+- 静态定位`static`就是没有改变( 相当于没有用)
 
 ![image-20230102164839588](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202301021648665.png)
 
 # 三、相对定位
+
+- 相对于原来没有加标签的位置
 
 ![image-20230102164958303](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202301021649383.png)
 

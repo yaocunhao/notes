@@ -739,6 +739,24 @@ def run():
 
 - get_all_permissions() 获取权限落后
   - 这里使用了缓存，猜想是使用了原子性接口，因此不能立即进行内容的获取
+  
+- 自定义使用方法
+
+  - 设置权限中间件，里面调用`authenticate`获取权限对象
+
+    ```python
+      def process_request(self, request):
+        user = authenticate(request) # 获取权限对象
+        if not user:
+          if settings.DEBUG or self._check_ignore_path(request):
+            user = AnonymousUser()
+        request.user = user
+    ```
+
+  - 设置`AUTHENTICATION_BACKENDS`， 当第一步调用authenticate时，会调用自定义权限认证后端之中的`authenticate`接口，如果返回None表示失败，会继续调用后面的自定义后端。如果返回非None，则表示成功。不再调用后面的对象
+
+  -  通过auth接口获取权限认证对象，如果定义了AUTHENTICATION_BACKENDS，则从这其中获取权限认证后端
+
 
 # 六、待完成
 

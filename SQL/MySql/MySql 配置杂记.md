@@ -29,7 +29,7 @@
 
 - 启动命令
 
-  ```
+  ```python
   关闭mysql 
   mysqladmin -uroot -p shutdown 
   启动mysql 
