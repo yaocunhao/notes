@@ -269,6 +269,36 @@
       
       not_done={<Future at 0x7fa4e0485710 state=running>})
       ```
+  
+  - 实例演示
+  
+    ```python
+    """常驻线程池"""
+    
+    from concurrent import futures
+    import time
+    
+    excutor = futures.ThreadPoolExecutor(max_workers=10)
+    
+    
+    def task():
+      raise Exception("1231") # 抛出异常
+      time.sleep(3)
+      print("run task func...")
+    
+    
+    def func():
+      f = excutor.submit(task)
+      data = futures.wait([f], return_when='FIRST_EXCEPTION')
+      for i in data.done:
+        print(i.exception())
+      return 1
+    
+    
+    print(func())
+    ```
+  
+    
 
 ## 6.2 concurrent.futures.as_completed
 
@@ -323,11 +353,31 @@
                 print('%r page is %d bytes' % (url, len(data)))
     ```
 
+- 简单实例
 
+  ```python
+  def task():
+    time.sleep(3)
+    raise Exception("1231")  # 抛出异常
+    print("run task func...")
+  
+  
+  def func():
+    f = excutor.submit(task)
+  
+    for i in futures.as_completed([f]): # 会阻塞等待任务的完成
+      print(i.exception())
+    return 1
+  
+  
+  print(func())
+  ```
+
+  
 
 # 七、异常类
 
-- *exception* `concurrent.futures.CancelledError`[¶](https://docs.python.org/zh-cn/3/library/concurrent.futures.html#concurrent.futures.CancelledError)
+- *FIRST_EXCEPTIONexception* `concurrent.futures.CancelledError`[¶](https://docs.python.org/zh-cn/3/library/concurrent.futures.html#concurrent.futures.CancelledError)
   - future 对象被取消时会触发。
 
 - *exception* `concurrent.futures.TimeoutError`
@@ -394,5 +444,36 @@ division by zero # 异常
 None # 没有异常
 ```
 
+- 实例2
 
+  ```python
+  from concurrent import futures
+  
+  
+  def func():
+    return 1 / 0
+  
+  
+  def cb(future):
+    print("执行完毕后，会立即调用回调函数")
+    print(future.result())  # 返回值
+  
+  
+  future_list = []
+  with futures.ThreadPoolExecutor(max_workers=2) as excutor:
+    futuer = excutor.submit(func)
+    future_list.append(futuer)
+  
+  for f in future_list:
+    f.add_done_callback(cb)
+    print(f.exception())  # 线程池获取异常的方式
+    #f.add_done_callback(cb) 在exception前/后调用，发生异常时都会崩溃
+  
+  print('end')
+  
+  # concurrent 线程池的方式，最终的处理都在future对象之中
+  # 异常： 通过exception获取
+  # 回调函数： 通过add_done_callback 获取， 如果有异常被捕获，会使得崩溃
+  ```
 
+  

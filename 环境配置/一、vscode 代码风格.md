@@ -21,6 +21,8 @@
 # 二、vscode安装的插件
 
 - [找不到定义插件](https://github.com/microsoft/vscode/issues/96754)
+  - vscode-msr
+
 
 
 

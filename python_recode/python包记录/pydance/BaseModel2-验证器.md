@@ -170,7 +170,7 @@ b = User(name=l)
   def check(v):
     if v != "123":
       raise ValueError("name != 123")
-    return v
+    return v # 需要进行返回
   
   class User1(BaseModel):
     name: str
@@ -178,7 +178,7 @@ b = User(name=l)
   
   class User2(BaseModel):
     name: str
-    v = validator('name', allow_reuse=True)(check)
+    v = validator('name', allow_reuse=True)(check) # 在前面需要使用v进行接收
     
   u1 = User1(name="123")
   print(u1)

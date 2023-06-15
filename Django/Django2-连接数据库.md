@@ -1028,6 +1028,22 @@ class UserInfo(models.Model):
     }
   ```
 
+# 十、加行锁
+
+- [gd](https://docs.djangoproject.com/en/3.2/ref/models/querysets/)
+
+- `obj.objects.select_for_update` 对应的是`SELECT...FOR UPDATE`。生成的是X锁
+
+- Django 没有支持S锁，因此需要进行原始查询集
+
+  ```python
+  from django.db import connection
+  
+  query = f"""SELECT  * FROM "appname_modelname" WHERE id={obj_id} FOR SHARE""" 
+  with connection.cursor() as cursor:
+     cursor.execute(query, None)
+  ```
+
   
 
 # 参考链接

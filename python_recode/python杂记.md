@@ -537,3 +537,35 @@
 
 - list删除带来的bug
   - 当list使用remove时，不能在循环之中进行使用，会导致bug的产生
+
+- [python -m](https://blog.csdn.net/chinesehuazhou2/article/details/102996709?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-102996709-blog-110895701.235%5Ev38%5Epc_relevant_default_base3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-102996709-blog-110895701.235%5Ev38%5Epc_relevant_default_base3&utm_relevant_index=2)
+
+  - 直接运行脚本时，相当于给出了脚本的完整路径（不管是绝对路径还是相对路径），解释器根据文件系统的查找机制， 定位到该脚本，然后执行
+
+  - 使用“-m”方式时，解释器需要在不 import 的情况下，在所有模块命名空间 中查找，定位到脚本的路径，然后执行。为了实现这个过程，解释器会借助两个模块：pkgutil 和 runpy ，前者用来获取所有的模块列表，后者根据模块名来定位并执行脚本
+
+  - **已知一个模块的名字，但不知道它的文件路径，那么使用“-m”就意味着交给解释器自行查找，若找到，则当成脚本执行**
+
+    ```python
+    import sys
+    
+    
+    for path in sys.path:
+      print(path)
+    
+    # --------python test.py  
+    #   /Users/didi/django_test/python
+    # /Library/Frameworks/Python.framework/Versions/3.6/lib/python36.zip
+    # /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6
+    # /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/lib-dynload
+    # /Users/didi/.local/share/virtualenvs/map_server-RC1rh6B3/lib/python3.6/site-packages
+    
+    
+    # --------python -m test
+    # /Library/Frameworks/Python.framework/Versions/3.6/lib/python36.zip
+    # /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6
+    # /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/lib-dynload
+    # /Users/didi/.local/share/virtualenvs/map_server-RC1rh6B3/lib/python3.6/site-packages
+    ```
+
+    

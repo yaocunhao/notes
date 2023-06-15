@@ -6,3 +6,5 @@
     - /etc/bashrc:为每一个运行bash shell的用户执行此文
 - trace 跟踪错误
 - yum安装时，yum list 软件名* 查看对应的扩展
+- 寻找大文件 `sudo find / -type f -size +100M`
+- 删除指定文件以外的文件 `ls | grep -v apollo* | xargs rm -rf`

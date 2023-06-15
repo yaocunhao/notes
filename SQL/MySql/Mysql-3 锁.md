@@ -45,6 +45,10 @@
 
 - MySQL是线程安全的，也就是说，多个线程可以同时访问同一个MySQL实例，而不会出现数据混乱或者崩溃的情况。但是，需要注意的是，如果多个线程同时对同一个数据对象进行修改操作，就可能会出现数据竞争的问题，需要使用锁机制来保证数据一致性和安全性。同时，在高并发环境下，还需要注意MySQL的配置和优化，以提高系统的性能和稳定性。
 
+- Mysql 还有一致性非锁读和一致性锁读的问题
+
+  - 如果是一致性非锁读，那么读取的数据不一定是可靠的
+
 # 二、Mysql 在什么情况之下会加锁
 
 - InnoDB 存储引擎在以下情况下会加锁：
@@ -62,12 +66,76 @@
   6. 当使用事务级别为 REPEATABLE READ 时，会对每个查询涉及到的数据加共享锁，直到事务结束。
   7. 当使用事务级别为 READ COMMITTED 时，会对每个查询涉及到的数据加共享锁，但不会持有锁到事务结束
 
-# 三、使用Django验证锁的
+# 三、一致性读取
 
-- 锁住整张表
+## 3.1 一致性非锁读定
 
+- <font color=yellow>一致性非锁定读的目的是为了效率</font>
+
+- 对于多版本并发控制(MVCC)，读取快照数据时，可能数据库已经更新了，但是读取的还是陈旧的数据。当有需求读取数据库中稳定的数据时，可以采用一致性锁定读
+- update操作会添加x锁。读提交、可重复读会使用一致性非锁定读。因此，在可重复读的情况之下，会导致数据库更新了，但是读出来的数据还是老的
+
+## 3.2 一致性锁定读
+
+- `select ... for update`  对读取的记录加一个x锁。 其它的事务连读都不能读了
+
+- `select ... lock in share mode ` 对读取的记录加一个s锁，其它的事务可以继续读，但是不能写
+
+- <font color=yellow>需要注意的是，即使加了这些锁，如果没有采用这种方式的`select ...` 也是可以使用快照读取的 </font>
+
+  
+
+## 3.3 使用Django验证锁的一致性读
+
+- 非一致性读
+
+  ```python
+  def test24(request):
+    with transaction.atomic():
+      data = Book.objects.all()[0]
+      data.num = 9999
+      data.save(update_fields=['num'])
+      time.sleep(2)
+    return HttpResponse('Success!!!')
+  
+  
+  def test26(request):
+    with transaction.atomic():
+      data = Book.objects.all()[0]
+      print('26:', data.num)
+    return HttpResponse('Success!!!')
+  
+  # 先运行24， 再运行26
+  # 24事务的update操作不会导致26阻塞掉
   ```
+
+- 一致性读
+
+  ```python
+  def test24(request):
+    with transaction.atomic():
+      data = Book.objects.select_for_update().filter(id=1)[0]
+      data.num = 9999
+      data.save(update_fields=['num'])
+      time.sleep(2)
+    return HttpResponse('Success!!!')
+  
+  
+  def test26(request):
+    with transaction.atomic():
+      data = Book.objects.select_for_update().all()[0] # 1
+      #data = Book.objects.all()[0]                    # 2
+      print('26:', data.num)
+    return HttpResponse('Success!!!')
+  
+  # 先运行24， 再运行26
+  	# 如果26使用第一行 24事务的update操作会导致26阻塞掉
+    # 如果26使用第二行 24事务的update操作不会导致26阻塞掉(这是因为这里使用的是快照读)
   
   ```
 
   
+
+# 四、Django演示乐观锁
+
+- [乐观锁、悲观锁Django使用参考链接](https://juejin.cn/post/6844903957526282254)
