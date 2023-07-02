@@ -51,3 +51,7 @@
 - 慢查询日志配置
   - slowlog-log-slower-than： 设置超过多少微秒的查询会被记录
   - slowlog-max-len： 表示最多记录多少条日志
+
+# 三、配置相关杂记
+
+- [socket_timeout](https://stackoverflow.com/questions/23930125/how-to-set-the-redis-timeout-waiting-for-the-response-with-pipeline-in-redis-py)

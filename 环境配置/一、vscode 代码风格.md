@@ -63,3 +63,9 @@ ${lineNumber} - 文件中目前被选择的行数
 ${selectedText} - 文件中目前被选择的内容
 ```
 
+
+
+# 六、插件
+
+- [插件](https://hackr.io/blog/best-vscode-extensions)
+  - 正则表达式插件

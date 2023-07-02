@@ -25,7 +25,7 @@ pipenv --version
 pipenv install
 
 # 指定版本创建并初始化虚拟环境（如果你本机装的是3.7版本python，那么你无法创建3.6的虚拟环境，巨坑）
-pipenv install --python 3.6
+  pipenv install --python 3.6
 ```
 
 ### 4.激活虚拟环境

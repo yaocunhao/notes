@@ -1,0 +1,2 @@
+- [参考链接](https://stackoverflow.com/questions/65251016/how-to-speed-up-returning-a-20mb-json-file-from-a-python-flask-application)
+  - dumps 将python 对象序列化成json 太慢了
