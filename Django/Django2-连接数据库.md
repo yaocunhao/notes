@@ -1034,6 +1034,10 @@ class UserInfo(models.Model):
 
 - `obj.objects.select_for_update` 对应的是`SELECT...FOR UPDATE`。生成的是X锁
 
+  - Django 'select_for_update' 不支持参数选择：[link](https://zhuanlan.zhihu.com/p/151767128?utm_id=0)
+
+  - 
+
 - Django 没有支持S锁，因此需要进行原始查询集
 
   ```python

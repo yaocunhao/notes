@@ -1,6 +1,12 @@
 # 一、继承性介绍
 
+- 常见可继承属性
+  - 字体属性：font、font-family、font-size、font-weight、font-style等
+  - 文本属性：color、text-align、line-height、white-space等。
+
 - 需要注意的是，a和h标签本身是有属性的因此不会继承。**也就是说一个标签如果本身是有属性的，那么就不会继承父标签的属性**
+- **如果父元素没有设置font-size属性，那么h标签会使用浏览器的默认字体大小。所以，如果你想改变h标签的字体大小，可以通过设置父元素的font-size属性来实现**
+- [link](https://blog.csdn.net/Huyingxue107/article/details/126068943?ops_request_misc=&request_id=&biz_id=102&utm_term=h%20%E6%A0%87%E7%AD%BE%E7%BB%A7%E6%89%BF%E4%BA%86%E7%88%B6%E6%A0%87%E7%AD%BE%E7%9A%84font-size&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-126068943.142^v91^insertT0,239^v3^insert_chatgpt&spm=1018.2226.3001.4187)
 
 ![image-20221231230805947](../../../../Library/Application Support/typora-user-images/image-20221231230805947.png)
 
@@ -34,6 +40,9 @@
 </body>
 </html>
 ```
+
+- 不可继承的点
+  - CSS中的宽度和高度默认是不可以继承的
 
 # 二、层叠性
 

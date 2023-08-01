@@ -142,6 +142,22 @@
 
 - find_package
 
+  - **CMake 的 find_package 命令用于查找并加载指定的第三方库**。使用 find_package 命令可以在构建项目时自动查找第三方库的安装目录，并将它们加入编译器和链接器的搜索路径中
+
+  - [link](https://wenku.baidu.com/view/342e69a1270c844769eae009581b6bd97f19bcef.html?_wkts_=1690248690798)
+
+
+  ```protobuf
+  
+  CMake 的 find_package 命令用于查找并加载指定的第三方库。使用 find_package 命令可以在构建项目时自动查找第三方库的安装目录，并将它们加入编译器和链接器的搜索路径中。例如：
+  
+  
+  find_package(Boost REQUIRED)
+  include_directories(${Boost_INCLUDE_DIRS})
+  target_link_libraries(myTarget ${Boost_LIBRARIES})
+  find_package 命令需要指定查找的库名称，可选的还有 REQUIRED, QUIET, NO_MODULE等参数。
+  ```
+
   - 共支持两种模式
 
     ```cmake
@@ -184,7 +200,7 @@
     - EXECUTABLE_OUTPUT_PATH ：目标二进制可执行文件的存放位置
     - PROJECT_SOURCE_DIR：工程的根目录,也是库文件的默认输出位置(就是第一个cmakelists 所在的目录)
     - PROJECT_BINARY_DIR:  二进制文件目录(执行cmake时，所在目录)
-  
+
 - execute_process
   - 执行shell脚本
 

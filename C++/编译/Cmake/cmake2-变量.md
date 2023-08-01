@@ -1,5 +1,6 @@
 - [gd](https://cmake.org/cmake/help/latest/manual/cmake-language.7.html#cmake-language-variables)
 - [中文介绍](https://blog.csdn.net/weixin_43708622/article/details/108315184?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166799014016782390580051%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166799014016782390580051&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-108315184-null-null.142^v63^wechat,201^v3^control_1,213^v2^t3_esquery_v2&utm_term=cmake%20Directory%20Scope&spm=1018.2226.3001.4187)
+- [环境变量](https://cmake.org/cmake/help/latest/manual/cmake-variables.7.html)
 
 # 一、基本介绍
 

@@ -1,5 +1,7 @@
 # 一、vscode 代码风格
 
+## 1.1 Yapf
+
 - 使用yapf格式化插件，然后自定义风格
 
 - `yapf  --style-help   `导出配置文件内容至`.style.yapf`。然后进行settings.json 之中进行如下配置即可
@@ -16,7 +18,11 @@
   }
   ```
 
-  
+
+## 1.2 Clang-format
+
+- [link](http://www.5ityx.com/cate100/295771.html)
+- [ubunutu 安装最新版本](https://stackoverflow.com/questions/20756924/how-can-i-install-clang-format-in-ubuntu)
 
 # 二、vscode安装的插件
 
@@ -69,3 +75,30 @@ ${selectedText} - 文件中目前被选择的内容
 
 - [插件](https://hackr.io/blog/best-vscode-extensions)
   - 正则表达式插件
+
+
+
+# 七、句柄用完了
+
+- [gd](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc)
+
+# 八、额外路径设置
+
+```python
+  // 4、额外路径设置
+  "python.autoComplete.extraPaths": [
+    "/home/didi/land/build/devel/lib/python3/dist-packages/",
+  ],
+  "python.analysis.extraPaths": [
+    "/home/didi/land/build/devel/lib/python3/dist-packages/",
+  ]
+```
+
+
+
+# 九、设置左边侧栏缩进
+
+- [link](https://blog.csdn.net/kunkliu/article/details/123904333)
+
+
+
