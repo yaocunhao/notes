@@ -77,7 +77,7 @@
 
 - wait=True，等待**池内所有任务执行完毕回收完资源后**，主线程才继续执行
 
-- wait=False，立即返回，并不会等待池内的任务执行完毕。但不管wait参数为何值，整个程序都会等到所有任务执行完毕，submit和map必须在shutdown之前
+- wait=False，立即返回，并不会等待池内的任务执行完毕。但不管wait参数为何值，**整个程序**都会等到所有任务执行完毕，submit和map必须在shutdown之前
 
 - *在 3.9 版更改:* 增加了 *cancel_futures*
 
@@ -178,11 +178,10 @@
   - 如果进程池中的某一个进程被突然终止，触发异常，执行器上的操作或它的 future 对象会被冻结或死锁
 
 - *class* `concurrent.futures.ProcessPoolExecutor`(*max_workers=None*, *mp_context=None*, *initializer=None*, *initargs=()*)
-
-  - *max_workers* 
+- *max_workers* 
     - `None` 或未给出，它将默认为机器的处理器个数
-
-  - initializer 每个进程开始调用时的一个可选调用对象，initargs传递给可调用对象的参数元组(3.7)
+  
+- initializer 每个进程开始调用时的一个可选调用对象，initargs传递给可调用对象的参数元组(3.7)
 
 # 五、Future类
 
@@ -456,7 +455,8 @@ None # 没有异常
   
   def cb(future):
     print("执行完毕后，会立即调用回调函数")
-    print(future.result())  # 返回值
+    print(future.result())  # 返回值。 着这里获取结果，发生异常程序不会崩溃
+    print("回调函数执行完毕")
   
   
   future_list = []
@@ -467,13 +467,21 @@ None # 没有异常
   for f in future_list:
     f.add_done_callback(cb)
     print(f.exception())  # 线程池获取异常的方式
-    #f.add_done_callback(cb) 在exception前/后调用，发生异常时都会崩溃
+    #f.add_done_callback(cb) 不论在exception前/后调用，发生异常时回调函数都会崩溃，程序不会
+    # 如果没有回调函数，直接去获取结果，发生异常程序会奔溃
   
   print('end')
   
   # concurrent 线程池的方式，最终的处理都在future对象之中
   # 异常： 通过exception获取
-  # 回调函数： 通过add_done_callback 获取， 如果有异常被捕获，会使得崩溃
+  # 回调函数： 通过add_done_callback 获取， 如果有异常被捕获，会使回调函数得崩溃
   ```
-
   
+  
+
+# 十一、启动
+
+- 进程池并不会在创建的时候就“补充”满所有的线程，而是在使用的时候才会补充
+- [link](https://blog.csdn.net/weixin_42357618/article/details/112896600?ops_request_misc=&request_id=&biz_id=102&utm_term=Python%20ThreadPoolExecutor%20%E4%BC%9A%E9%87%8A%E6%94%BE%E7%BA%BF&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-112896600.142^v93^chatgptT3_1&spm=1018.2226.3001.4187)
+  - Python 默认的 concurrent.futures.ThreadPoolExecutor 这个线程池，不具备自动释放资源的功能。也就是该线程池有两个问题，其一是当线程池中线程数量未达到设计上限的时候，每次新增任务都会创建新的线程池，不会利用旧的，即使旧的线程已经空闲。其二是线程池中线程数量只能增加不能减少，即使线程已经空闲也不会释放，导致占用过多系统资源
+    

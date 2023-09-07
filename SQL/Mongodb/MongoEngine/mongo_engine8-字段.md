@@ -23,28 +23,18 @@
 
   - value_decorator 只对默认的计数器有效，在查询的时候value_decorator也会生效，<font color=yellow>所以尽量不要使用该装饰函数</font>
   
+  - 计数器并不需要进行数据的存储，也就是说只要调用一次计数器就会累加一次
+  
+    ```python
+    def test22():
+      """测试批量插入是否可以使用生成器"""
+      """可以使用， 因为生成器只要调用一次就生成一次"""
+      id_1 = LinkPost.link_id.generate()
+      id_2 = LinkPost.link_id.generate()
+      id_3 = LinkPost.link_id.generate()
+      id_4 = LinkPost.link_id.generate()
+      print(id_1, id_2, id_3, id_4)
+    
+    test22()
     ```
-    def test5():
-    
-      obj = realtime_map_draft_data_pb2.RealtimeMapDraftGroups()
-      data = None
-      with open(
-         '/Users/didi/django_test/work_test_script/real_time/data/test_guangzhou_generated_draft_groups_2023060116.pb',
-          'rb+') as f:
-        data = f.read()
-    "http://10.193.202.247:8000/realtime_map/map_cloud/upload_draft_data"
-    
-      time_1 = time.time()
-      ret = requests.post(url,
-                          data,
-                          headers={"Content-Type": "application/x-protobuf"})
-      time_2 = time.time()
-      print("上传时间为:",time_2 - time_1)
-      if ret.ok:
-        print("导入成功")
-      else:
-        print("导入失败：", ret.content)
-    ```
-    
-    
 

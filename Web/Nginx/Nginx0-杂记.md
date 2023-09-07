@@ -6,6 +6,7 @@
 - [git参考链接](https://github.com/dunwu/nginx-tutorial)
   - 文档最下有各种资源
 
+- [Nginx排错和日常维护](https://cloud.tencent.com/developer/article/1886674)
 
 
 # 参考2

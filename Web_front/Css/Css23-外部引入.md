@@ -1,0 +1,15 @@
+- [HTML中LINK标签的那些属性分享](https://baijiahao.baidu.com/s?id=1764947341655970887&wfr=spider&for=pc)
+  - **type** ：该属性用于指定链接资源的MIME类型。例如，当链接到一个CSS样式表时，可以指定其类型为 text/css 。大多数情况下，浏览器可以自动识别资源类型，所以 type 属性不是必需的
+  - **media** ：该属性允许您指定样式表适用于哪些媒体类型。例如，您可以创建专门针对打印的样式表，当用户打印页面时使用
+  - **sizes** ：当使用 link 标签链接到多个尺寸的图标时，可以使用 sizes 属性指定图标的大小。这对于根据设备显示不同大小图标的情况很有用
+  - **crossorigin** ：当链接到跨域资源时，可以使用 crossorigin 属性指定资源的CORS（跨源资源共享）设置
+  - **integrity** ：该属性用于确保外部资源的完整性，可以与 crossorigin 属性一起使用。通过为资源提供一个基于内容的哈希值（如SHA-256），您可以确保资源未被篡改
+  - **preload** ： rel="preload" 可以用于提前加载重要的资源，例如字体、图片或脚本。这可以优化页面加载性能
+  - **alternate** ：使用 rel="alternate" 可以为文档提供替代版本，例如不同语言的页面或适用于不同设备的页面
+  - **dns-prefetch** ：通过 rel="dns-prefetch" 可以预先解析域名，以减少DNS查找时间并加快资源加载速度
+  - **preconnect** ：与 dns-prefetch 类似， rel="preconnect" 可以预先建立连接到第三方资源的TCP连接，减少建立连接所需的时间
+  - **prefetch** ：使用 rel="prefetch" 可以预先获取并缓存资源，以便在后续页面中使用。这对于预加载页面中可能用到的资源很有用
+  - **canonical** ：使用 rel="canonical" 可以为搜索引擎提供一个页面的规范URL，有助于避免重复内容问题
+  - **license** ：使用 rel="license" 可以指定文档的许可证URL
+  - **manifest** ：使用 rel="manifest" 可以将Web应用的清单文件（通常是JSON格式）链接到HTML文档。清单文件包含了Web应用的元数据，如名称、描述、图标等
+  - 

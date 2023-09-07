@@ -13,3 +13,9 @@
 
 - pipenv 采用的是3.6， 3.9的pipenv在/usr/local/bin 之下
 - pipenv 发生错误notype可能是[版本问题](https://github.com/pypa/pipenv/issues/4829)，请使用pipenv==`2021.5.29`
+
+
+
+# 三、python 安装
+
+- [link](https://blog.csdn.net/weixin_39447365/article/details/121159894?ops_request_misc=&request_id=&biz_id=102&utm_term=linux%20%E5%AE%89%E8%A3%85python&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-121159894.nonecase&spm=1018.2226.3001.4187)

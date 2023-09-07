@@ -36,6 +36,7 @@
   ```sql
   def test8():
     """测试使用dict字段，看是否能够使用key 进行查询"""
+    """结论：可以查询"""
     # data = Base.objects.filter(like__exact={
     #   "sport": ["pingpong", "basketball"],
     #   "eat": ["fruit", "beef"]
@@ -61,3 +62,9 @@
 
 - 如下所示，参数like是一个json对象，如果使用其中的sport字段来进行查询![image-20230320202852136](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202303202028668.png)
   - [参考链接](https://stackoverflow.com/questions/27472325/finding-json-objects-in-mongodb)
+
+```sql
+# 和字典写法一样
+db.realtime_draft_data.find({"like.set_id":20004}).limit(1).count()
+```
+

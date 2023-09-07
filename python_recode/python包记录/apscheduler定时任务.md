@@ -1,0 +1,2 @@
+- [link](https://juejin.cn/post/6844903895664164877?searchId=20230802165820E5C5235CD25DE7B47E38)
+- [重复启动、和uwsgi配合](https://blog.csdn.net/ordinary_mood/article/details/121273290)

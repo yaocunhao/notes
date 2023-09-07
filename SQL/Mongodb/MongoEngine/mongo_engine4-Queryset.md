@@ -42,7 +42,45 @@
   - 批量插入文档
   - doc_or_docs:要插入的文档或文档列表
   - load_bulk: 如果True返回文档实例的列表
-  - 
+  
+- 批量删除
+
+  ```python
+  def test23():
+    """
+    测试数据批量删除
+    结论： 通过queryset 进行批量删除速度要快上很多
+    """
+    
+    class LinkPost(Post):
+      link_id = me.SequenceField(required=True)
+  
+  
+    # 数据准备
+    save_data_list = []
+    for i in range(1000):
+      link_post = LinkPost(link_id=i)
+      save_data_list.append(link_post)
+    result = LinkPost.objects.insert(save_data_list)
+  
+    # # 一个个删除
+    # time_s = time.time()
+    # data_list = LinkPost.objects.filter(link_id__lt=100)
+    # for data in data_list:
+    #   data.delete()
+    # time_e = time.time()
+    # print(time_e - time_s) # 0.642568826675415
+  
+    # 批量删除
+    time_s = time.time()
+    data_list = LinkPost.objects.filter(link_id__lt=100)
+    data_list.delete()
+    time_e = time.time()
+    print(time_e - time_s)  # 0.030241966247558594
+  
+  ```
+  
+  
 
 # 二、其它接口
 

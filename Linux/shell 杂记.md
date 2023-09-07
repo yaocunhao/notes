@@ -32,4 +32,7 @@
   - 去除掉最后的`/`，得到真正的目录
 - local
   - 声明变量，一般在函数之中使用，表示这个作用域是处于函数之中 
-
+- <font color=yellow>在命令行中运行</font>
+  
+  - 只需要写脚本的时候换行就行![image-20230901001932737](../../../Library/Application Support/typora-user-images/image-20230901001932737.png)
+  

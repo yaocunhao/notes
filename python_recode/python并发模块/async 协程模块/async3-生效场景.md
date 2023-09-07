@@ -1,0 +1,8 @@
+- [python async 没有提高request网络请求的效率](https://blog.csdn.net/Light2077/article/details/127440915)
+  - `threading + requests` 能够并发请求
+  - `async + requests` 不能并发请求
+  - `async + aiohttp` 能并发请求
+- requests是同步方式写的，因此async + requests 是没有用的
+- [更深层次解读](https://blog.csdn.net/weixin_45804031/article/details/124579021?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169346832016800222864832%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=169346832016800222864832&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-4-124579021-null-null.142^v93^chatgptT3_1&utm_term=async%20%E6%90%AD%E9%85%8D%20requests%20%E5%A4%B1%E6%95%88&spm=1018.2226.3001.4187)
+  - async 只是一个特殊的函数，执行到某处使用关键字`await` 将程序挂起
+  - 因为[requests库](https://so.csdn.net/so/search?q=requests库&spm=1001.2101.3001.7020)的实现仍然是阻塞执行，当发出请求时，就会阻塞当前线程，一直等待请求响应，而我们的协程是运行在用户态的线程里，一旦我们的线程被阻塞，挂起，那么上述所谓的并发就无从谈起了

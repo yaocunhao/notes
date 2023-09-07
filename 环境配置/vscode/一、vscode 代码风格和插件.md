@@ -81,6 +81,7 @@ ${selectedText} - 文件中目前被选择的内容
 # 七、句柄用完了
 
 - [gd](https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc)
+- [好链接](https://blog.csdn.net/lalafans/article/details/128117079?spm=1001.2101.3001.6650.6&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-6-128117079-blog-119081283.235%5Ev38%5Epc_relevant_default_base3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-6-128117079-blog-119081283.235%5Ev38%5Epc_relevant_default_base3&utm_relevant_index=7)
 
 # 八、额外路径设置
 

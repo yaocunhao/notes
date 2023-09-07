@@ -508,3 +508,25 @@
 # 九、raise/from
 
 - [参考链接](https://blog.csdn.net/jpch89/article/details/84315444?ops_request_misc=&request_id=&biz_id=102&utm_term=python%20raise%20xx%20from%20e&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-84315444.142^v68^wechat_v2,201^v4^add_ask,213^v2^t3_esquery_v2&spm=1018.2226.3001.4187)
+
+  ```python
+  def func():
+    raise KeyError("key error")
+  
+  
+  try:
+    func()
+  except Exception as err:
+    # 1、 直接抛异常：
+    # a、显示KeyError异常信息
+    # b、显示处理KeyError异常期间时发生了ValueError异常(During handling of the above exception, another exception occurred:)
+    # c、显示ValueError异常信息
+    # raise ValueError("value error!")
+  
+    # a、显示KeyError
+    # b、显示ValueError异常是由于KeyError 导致的(The above exception was the direct cause of the following exception:)
+    # c、显示ValueError 信息
+    raise ValueError("value error") from err
+  ```
+
+  

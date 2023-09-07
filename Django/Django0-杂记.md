@@ -14,3 +14,10 @@
 - 执行：`python manage.py makemigrations`
 - 执行：`python manage.py migrate`
 - OK
+
+
+
+# 三、寻找静态资源
+
+- [link](https://www.ngui.cc/el/2822433.html?action=onClick)
+  - Django 设置DEBUG=False 时，静态资源无法加载

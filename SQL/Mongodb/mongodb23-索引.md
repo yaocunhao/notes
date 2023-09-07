@@ -19,3 +19,7 @@
   ```
 
   
+
+
+
+- [[MongoDB 是否可以/应该在Mongoose中对嵌入式文档进行索引](https://geek-docs.com/mongodb/mongodb-questions/350_mongodb_canshould_i_index_an_embedded_document_in_mongoose.html)](https://geek-docs.com/mongodb/mongodb-questions/350_mongodb_canshould_i_index_an_embedded_document_in_mongoose.html)

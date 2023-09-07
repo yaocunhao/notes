@@ -1,5 +1,7 @@
 - [w3c](https://www.w3school.com.cn/html/html_basic.asp)
-
 - [标签参考手册](https://www.runoob.com/tags/html-reference.html)
-
 - [文本格式化标签](
+- [value 和  innerHTML]
+  - value和innerHTML都可以用来获取和修改元素的值（或内容）；不同之处如下：
+    - value可以用来修改（获取）textarea和input的value属性的值或元素的内容；
+    - innerHTML用来修改（获取）HTML元素（如div）html格式的内容。

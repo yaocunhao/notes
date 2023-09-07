@@ -73,5 +73,7 @@
   - `save` 方法会监测当前对象有哪些值发生了变化(存在则更新，不存在则创建)。 如果是一个很大的嵌入式文档，MongoEngine这个监测的过程是非常慢的，因此如果能够此处数据为**新建**，那么可以调用`to_mongo`使用pymongo进行存储即可
   
 
-
+- [数据批量处理](https://www.cnpython.com/qa/1664291)
+- [EmbeddedDocumentField 和 ReferenceField的区别](https://www.oomake.com/question/4974118)
+  - `EmbeddedDocumentField`只是父文档的路径，如`DictField`，并存储在mongo中包含父文档的一条记录中。 要保存`EmbeddedDocument`，只需保存父文档。Reference 还需要保存子文档。<font color=yellow > 也就是说Reference不能将子文档变成json存储在父文档之中</font>
 

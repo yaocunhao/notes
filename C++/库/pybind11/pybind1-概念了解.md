@@ -23,6 +23,7 @@
   // example 模块名
   // 第二个参数m， 为是一个类型为py::module_的变量，它是创建绑定的主接口
   // 方法module_::def()生成绑定代码，将add()函数公开给Python。
+  // def 中‘add’ 给python接口的函数名称， &add 是C++的名称
   PYBIND11_MODULE(example, m) {
       m.doc() = "pybind11 example plugin"; // optional module docstring
   
@@ -70,7 +71,7 @@
 
 # 三、从C++导入变量
 
-- 要从c++中公开一个值，请使用attr函数将其注册到模块中，如下所示。内置类型和一般对象(稍后会详细介绍)在作为属性赋值时自动转换，并且可以使用py::cast函数显式转换
+- 要从c++中公开一个值，请使用<font color=yellow>attr函数将其注册到模块中</font>，如下所示。**内置类型和一般对象(稍后会详细介绍)**在作为属性赋值时自动转换，并且可以使用py::cast函数显式转换
 
   ```c++
   PYBIND11_MODULE(example, m) {

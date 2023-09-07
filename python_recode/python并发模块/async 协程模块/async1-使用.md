@@ -54,17 +54,36 @@
       ensure_future() 、 AbstractEventLoop.create_task() 
       ```
 
-      
+- 为什么要有future 对象
 
+  - 在Python协程中，Future对象是一种用于表示未来可能完成的结果或事件的占位符。它可以被用来进行异步编程，以便在协程中处理并发任务。Future对象允许我们在协程中等待一个结果或事件的完成，而不需要阻塞主线程或占用过多的资源
+  - 在asyncio模块中**，Task对象是Future的子类**，并且实现了除了set_result()和set_exception()之外的所有方法。Task对象是用于包装协程的特殊Future对象，它可以被调度器调度和取消。通过使用asyncio.create_task()或asyncio.ensure_future()函数，我们可以将协程包装为Task对象。
+  - 使用Future和Task对象的主要目的是实现并发和异步操作。在协程中，我们可以创建多个Future或Task对象来同时执行多个任务，并使用await关键字等待它们完成。这种方式可以提高程序的效率，允许我们在等待某个任务完成的同时，执行其他的任务。
+  - 总之，Future和Task对象在Python协程中的作用是用于处理并发任务并在协程中等待结果的完成。它们是实现异步编程的重要工具
+
+- run_until_complete 和 create_task 的区别 
+
+  - <font color=yellow>run_until_complete 是运行事件循环，执行所有等待的任务</font>
+  - run_until_complete是一个用于驱动事件循环的函数，它接受一个Future或Task对象作为参数，将这个对象添加到事件循环中等待执行，然后一直运行事件循环，直到这个对象完成（即任务执行完毕或被取消）。它返回一个表示任务结果的对象。可以将它看作是一个阻塞函数，因为在调用run_until_complete时，程序会一直阻塞在这里，直到任务完成
+  - create_task是一个用于创建Task对象的函数，它接受一个可等待对象（如协程）作为参数，并返回一个Task对象。Task对象是Future的子类，它包装了可等待对象，并提供了额外的功能，如取消任务、获取任务状态等。在创建Task对象时，它会被添加到事件循环中等待执行，但不会阻塞程序的执行。可以将它看作是一个非阻塞的函数，因为它只是创建了一个任务，并将其添加到事件循环中，然后立即返回。
+  - 所以，run_until_complete是一个可以阻塞程序执行的函数，用于驱动事件循环并等待某个任务完成；而create_task是一个非阻塞的函数，用于创建任务并将其添加到事件循环中，不会等待任务完成
+
+- asyncio.run 和 loop.run_until_complete 是两种不同的方式来运行异步代码
+
+  - syncio.run()是Python 3.7引入的新函数，它是一个高级函数，可以方便地运行异步代码。它会自动创建一个事件循环，并在代码执行完成后关闭事件循环。使用asyncio.run()时，需要将整个异步任务作为参数传递给它，它会负责运行这个任务并返回结果。
+  - 而loop.run_until_complete()是在低版本的asyncio中使用的方法。它需要手动创建和关闭事件循环，并将一个协程或者一个Future对象传递给它作为参数。loop.run_until_complete()会一直运行，直到传递的协程或者Future对象完成，然后关闭事件循环并返回结果。
+  - 所以，简而言之，asyncio.run()是一个更方便、更高级的方式来运行异步代码，它自动处理事件循环的创建和关闭。而loop.run_until_complete()则是在低版本的asyncio中使用的方式，需要手动处理事件循环的创建和关闭
 
 
 #  二、示例
 
 - [link_1](https://blog.csdn.net/huiqiu8041/article/details/127315487?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522168774959016800185832242%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=168774959016800185832242&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-127315487-null-null.142^v88^control_2,239^v2^insert_chatgpt&utm_term=%20asyncio.gather&spm=1018.2226.3001.4187)
+  
   - asyncio.gather() 可一次性输入多个coroutine对象并转换为task对象加入事件循环中并发执行，返回一个包含各coroutine返回值的列表，列表元素顺序与输入coroutine对象的顺序一致。asyncio.gather() 函数虽然支持输入多个coroutine，但是不能直接用一个包含多个coroutine的列表传入，因为asyncio.gather() 要求传入参数为awaitable(可等待对象)，如果要使用列表形式传入可等待对象，可以采用列表推导的方式进行
 - [Task 对象](https://blog.csdn.net/myli_binbin/article/details/123380985?ops_request_misc=&request_id=&biz_id=102&utm_term=asyncio.Task&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-2-123380985.142^v88^control_2,239^v2^insert_chatgpt&spm=1018.2226.3001.4187)
+  
   - create_task只有在python3.7及以后的版本中才可以使用，就像[asyncio](https://so.csdn.net/so/search?q=asyncio&spm=1001.2101.3001.7020).run()一样，
-
+  
 - 代码
 
   ```python
@@ -100,6 +119,7 @@
     import asyncio
   
     async def slow_operation(future):
+      # 这里传入future的目的是填充返回值
       print('enter slow operation function.')
       await asyncio.sleep(1)
       # 设置返回值(必须的，否则会阻塞这里)
@@ -272,7 +292,84 @@
     loop.close()
   
   
-  test9()
+  def test10():
+    """在python3.7 之中协程的不同启动方法"""
+    async def func():
+      print(1)
+      await asyncio.sleep(2)
+      print(2)
+      return "test"
+   
+    async def main():
+        print("main start")
+              
+        # python 3.7及以上版本的写法
+        task1 = asyncio.create_task(func())
+        task2 = asyncio.create_task(func())
+        # python3.7以前的写法
+        # task1 = asyncio.ensure_future(func())
+        # task2 = asyncio.ensure_future(func())
+        
+        print("main end")
+    
+        ret1 = await task1
+        ret2 = await task2
+    
+        print(ret1, ret2)
+    
+    # python3.7以后的写法
+    asyncio.run(main()) 
+    print("end2------")
+    
+    # python3.7以前的写法
+    # loop = asyncio.get_event_loop()
+    # loop.run_until_complete(main())
+    # loop.close()
+  
+  
+  def test11():
+    """
+    3.7 协程批量传入运行任务
+    a、main、main2 是并行的，两者效率一致(创建好任务，然后丢入循环池运行)
+    b、方式3是等待一个个的任务，是串行的
+    
+    """
+    
+    async def func(i):
+      print(i)
+      await asyncio.sleep(2)
+      return i
+    
+    async def main():
+      task = [func(1), func(2), func(3)]
+      # gather 创建一批任务， await 进行等待完成， run 运行任务
+      ret = await asyncio.gather(*task)
+      for r in ret:
+        print(r)
+    
+    async def main2():
+      # 创建任务
+      task_1 = asyncio.create_task(func(1))
+      task_2 = asyncio.create_task(func(2))
+      task_3 = asyncio.create_task(func(3))
+      # 运行任务
+      await task_1
+      await task_2
+      await task_3
+    
+    async def main3():
+      await func(1)
+      await func(2)
+      await func(3)
+    
+    asyncio.run(main3())
+    
+  t1 = time.time()
+  test11()
+  t2 = time.time()
+  print(t2 -t1)
+  
+  
   ```
   
   
@@ -306,3 +403,4 @@
 
 - [协程是否需要加锁](https://juejin.cn/post/7076325718317072415)
   - 因为线程是系统态切换，虽然同时只能有一个线程执行，但切换过程是<font color=yellow>争抢</font>的，也就会导致写操作被原子性覆盖，而协程虽然在手动切换过程中也无法保证状态一致，但是可以保证最终一致性呢？因为协程是用户态，切换过程是<font color=yellow>协作</font>的，所以写操作不会被争抢覆盖，会被顺序执行，所以肯定可以保证最终一致性。
+
