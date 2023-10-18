@@ -32,6 +32,20 @@
   # {'_id': ObjectId('62f6194dfff25bcff15ee957'), 'name': '31', 'type': 2, 'price': 1231}
   # {'_id': ObjectId('62f6194dfff25bcff15ee957'), 'name': '31', 'type': 2, 'price': 1231}
   # {'_id': ObjectId('62f619af1a88ee67a26c21c3'), 'name': 'dasdsa', 'type': 9999, 'price': 321321}
+  
+  # 聚合查询
+  pipeline = [{
+      "$match": {
+          "element_time": {
+              "$lte": xxx
+          },
+          "region": "xxxx"
+      }
+  }, {
+      "$group": {
+          "_id": "$group_id"
+      }
+  }]
+  data = table.aggregate(pipeline)
   ```
-
   

@@ -122,6 +122,12 @@ pipenv install 下载内容 -i 源 "https://pypi.org/simple"
 pipenv run python xxx.py
 ```
 
+## 13.Pipenv 的一些选项
+
+- pipenv install --system
+  - pipenv install——system将把现有Pipfile的内容安装到您的全局pip环境中
+- pipenv sync
+
 # Pipfile
 
 ## 2.1 内容解析

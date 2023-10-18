@@ -778,3 +778,6 @@
 
   - 上面的代码等价于`fun = funA( funB ( funC (fun) ) )` -> 先执行funC，然后将执行的结果塞入到FuncB之中进行执行，再将其塞入到funcA之中
 
+# 十六、super
+
+- [调用父类的方法](https://www.ycpai.cn/python/NRsrheW8.html)

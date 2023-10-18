@@ -1,0 +1,6 @@
+- Dockerfile 之中RUN 是在当前镜像的顶部执行命令，并且创建新的镜像层
+  - [link](https://www.cnblogs.com/wangmo/p/13043412.html)
+- RUN 指令的原理
+  - RUN 指令将在当前镜像上加新的一层，并执行任何命令和提交结果，生成的提交镜像将用于 Dockfile 中的后续步骤
+  - 一个RUN 增加一层镜像，因此要尽量减少RUN的数量
+  - [pip upgrade 会破坏缓存层BUG](https://github.com/PrefectHQ/prefect/issues/4425)

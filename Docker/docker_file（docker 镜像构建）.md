@@ -26,6 +26,7 @@ CMD ["-y", "deploy_conf/uwsgi.yaml"] # 运行程序，在docker run 时运行，
 
 - RUN 在构建docker镜像的时候就会运行
 - CMD 在docker 容器启动的时候才会运行
+- 
 
 
 

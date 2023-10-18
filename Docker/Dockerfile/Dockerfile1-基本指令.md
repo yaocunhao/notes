@@ -5,8 +5,11 @@
   - docker 会自动在指定的上下文目录之中寻找`Dockerfile`文件
   - **注意：**
     - docker 只会将上下文内容传递到远端服务器中，所以在指定的时候，尽量指定为整个项目的目录
+      - <font color=yellow>执行命令所在的位置就是上下文</font>
+      - Dockerfile 指定位置构建：`docker build -f ~/xx/Dockerfile image_name .` 此处的上下文位置就是 `~/xx`
 
 # 二、文件指令
 
 - WORKDIR 设置镜像工作目录，设定之后后续的操作内容都会在该目录之下，比如COPY之中的内容会拷贝到该目录下
 - COPY 将当前目录下的内容拷贝到镜像之中
+

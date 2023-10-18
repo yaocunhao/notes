@@ -1,1 +1,2 @@
 - [参考链接](https://blog.csdn.net/zzq900503/article/details/113743143?ops_request_misc=&request_id=&biz_id=102&utm_term=mongodb%20%E5%90%8E%E5%8F%B0%E7%B4%A2%E5%BC%95%E6%98%AF%E4%BB%80%E4%B9%88&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-113743143.142^v64^opensearch_v2,201^v3^control_1,213^v2^t3_esquery_v2&spm=1018.2226.3001.4187)
+  - 查看索引创建进度：  db.currentOp() 

@@ -1,0 +1,1 @@
+- 通过在`ARG` 在dockerfile 之中设置变量， 在docker build 时，可以通过 `--build-arg ` 进行传参

@@ -19,7 +19,7 @@
   
       # 增加参数
       # -n 和 --name 是同一个参数
-      parser.add_argument('-n', '--name', default=' Li ')
+      parser.add_argument('-n', '--name', default=' Li ')	
       parser.add_argument('-y', '--year', default='20')
   
       # 解析参数
@@ -83,6 +83,35 @@
 ## 子命令
 
 [参考链接](https://blog.csdn.net/qq_41629756/article/details/105689494?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164974732916782246485787%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=164974732916782246485787&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-105689494.142^v7^control,157^v4^control&utm_term=add_subparsers&spm=1018.2226.3001.4187)
+
+- add_subparsers 表示添加不同的子命令
+
+- add_mutually_exclusive_group 创建一个互斥参数组
+
+  ```python
+  add_mutually_exclusive_group()是Python的argparse模块中的一个方法，用于创建一个互斥参数组。在命令行进行参数指定时，一个互斥参数组中最多只能有一个参数被指定。使用该方法可以确保在解析命令行参数时，只有互斥参数组中的一个参数生效。
+  
+  示例代码如下：
+  
+   
+  import argparse
+  
+  parser = argparse.ArgumentParser()
+  group = parser.add_mutually_exclusive_group()
+  group.add_argument('--foo', action='store_true', help='foo help')
+  group.add_argument('--bar', action='store_true', help='bar help')
+  args = parser.parse_args()
+  
+  if args.foo:
+      print('foo')
+  elif args.bar:
+      print('bar')
+  else:
+      print('neither foo nor bar')
+  在上述代码中，通过argparse.ArgumentParser()创建了解析器parser，然后使用.add_mutually_exclusive_group()方法在解析器中创建了一个互斥参数组group。接下来，使用.add_argument方法向互斥参数组group中添加了两个参数--foo和--bar。最后使用parser.parse_args()进行参数解析，确保只有互斥参数组中的一个参数被指定。
+  ```
+
+  
 
 ## 参数解析
 

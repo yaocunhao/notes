@@ -1,0 +1,7 @@
+- [CMD、ENTRYPOINT](https://www.cnblogs.com/poloyy/p/15470409.html)
+  - ENTRYPOINT 指定镜像的默认入口命令，该入口命令会在启动容器时作为根命令执行，所有其他传入值作为该命令的参数
+  - ENTRYPOINT 的值可以通过 docker run --entrypoint 来覆盖掉
+  - 只有 Dockerfile 中的最后一条 ENTRYPOINT 指令会起作用
+  - ENTRYPOINT 和 CMD 联合使用
+    - 当指定了 ENTRYPOINT 后，CMD 的含义就发生了改变，不再是直接的运行其命令，而是将 CMD 的内容作为参数传给 ENTRYPOINT 指令
+    - 换句话说实际执行时，会变成<ENTRYPOINT> "<CMD>"

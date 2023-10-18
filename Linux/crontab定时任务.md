@@ -49,3 +49,11 @@
   - `10 10 * * */3` 每隔3天发一次，然后
 - 在线测试地址
   - https://tooltt.com/crontab/
+  
+- [启动任务](https://blog.csdn.net/An1090239782/article/details/129176191)
+  
+  - crontab -e 编写用户对应的定时任务配置， crontab 会自动读取该配置然后执行对应的命令
+  - [crontab:运行Python脚本时未找到命令](https://www.cnpython.com/qa/1331868)
+    - <font color=yellow> 这是因为从crontab 启动的程序无法获得登录shell使用的环境 </font>
+    - 解决办法：在脚本开始导入对应的`PATH` 环境变量即可
+
