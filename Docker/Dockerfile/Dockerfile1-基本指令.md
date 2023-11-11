@@ -6,7 +6,9 @@
   - **注意：**
     - docker 只会将上下文内容传递到远端服务器中，所以在指定的时候，尽量指定为整个项目的目录
       - <font color=yellow>执行命令所在的位置就是上下文</font>
-      - Dockerfile 指定位置构建：`docker build -f ~/xx/Dockerfile image_name .` 此处的上下文位置就是 `~/xx`
+      - Dockerfile 指定位置构建：`docker build -f ~/xx/Dockerfile image_name .` 
+        - -f 指定Dockerfile 所在位置
+        - `.` 表示上下文为当前目录
 
 # 二、文件指令
 

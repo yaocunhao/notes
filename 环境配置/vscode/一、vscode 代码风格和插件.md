@@ -18,6 +18,9 @@
   }
   ```
 
+- vscode 不再支持python3.8以下的版本，因此使用配置的方式(直接在vscode里面进行修改)
+
+  ![image-20231110115804407](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202311101158008.png)
 
 ## 1.2 Clang-format
 

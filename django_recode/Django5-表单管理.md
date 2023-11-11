@@ -61,6 +61,16 @@
         return HttpResponse("Your browser is %s" % ua)
     ```
 
+  - request.META中的键名都是大写的，而request.headers中的键名是原样的。比如http传递的是traceId, 在META之中会变成`HTTP_TRACEID`
+
+    ```
+    因此，如果要获取HTTP请求头信息，可以使用以下两种方式：
+    1. 使用request.META.get()方法，例如：auth_token = request.META.get(‘HTTP_AUTH_TOKEN’)
+    2. 使用request.headers.get()方法，例如：timestamp = request.headers.get(‘timestamp’)
+    ```
+
+    
+
 - 手动编写view查看字典之中有什么
 
   ```python

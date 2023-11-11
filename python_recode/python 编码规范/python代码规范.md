@@ -2,3 +2,4 @@
   - 避免使用staticmethod
   - 除非对全局变量操作，否则也请减少 classmethod 的使用
 - [google python代码规范](https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/python_language_rules/#section-11)
+
