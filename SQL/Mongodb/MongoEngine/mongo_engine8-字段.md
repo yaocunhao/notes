@@ -38,3 +38,27 @@
     test22()
     ```
 
+- 测试环境修改计数器
+
+  ![image-20231116194928806](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202311161949270.png)
+
+  ```python
+   def generate(self):
+          """
+          Generate and Increment the counter
+          """
+          sequence_name = self.get_sequence_name()
+          sequence_id = f"{sequence_name}.{self.name}"
+          collection = get_db(alias=self.db_alias)[self.collection_name]
+  
+          counter = collection.find_one_and_update(
+              filter={"_id": sequence_id},
+          # 将这里改成自己想要的递增数接口  
+              update={"$inc": {"next": 1}},
+              return_document=ReturnDocument.AFTER,
+              upsert=True,
+          )
+          return self.value_decorator(counter["next"])
+  ```
+
+  
