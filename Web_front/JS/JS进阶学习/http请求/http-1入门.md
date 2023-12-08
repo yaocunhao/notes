@@ -1,13 +1,13 @@
 # 一、Promise 对象
 
-- [link](https://www.liaoxuefeng.com/wiki/1022910821149312/1023024413276544)
-- [link2](https://blog.csdn.net/wz__QWERTY/article/details/123975234?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-1-123975234-blog-127197204.235^v38^pc_relevant_default_base3&spm=1001.2101.3001.4242.2&utm_relevant_index=4)
-- [link3](https://zhuanlan.zhihu.com/p/26523836)
+- [link-廖雪峰](https://www.liaoxuefeng.com/wiki/1022910821149312/1023024413276544)
+- [link2-原理模拟实现](https://blog.csdn.net/wz__QWERTY/article/details/123975234?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-1-123975234-blog-127197204.235^v38^pc_relevant_default_base3&spm=1001.2101.3001.4242.2&utm_relevant_index=4)
+- [link3-结构清晰](https://zhuanlan.zhihu.com/p/26523836)
 
 ## 1.1 基础概念
 
 - Promise的两个特点
-  - Promise对象的状态不受外界影响：pending 初始状态、fulfilled 成功状态、rejected 失败状态。Promise 有以上三种状态，只有异步操作的结果可以决定当前是哪一种状态，其他任何操作都无法改变这个状态
+  - Promise对象的状态不受外界影响：<font color=yellow>pending 初始状态、fulfilled 成功状态、rejected 失败状态</font>>。Promise 有以上三种状态，只有异步操作的结果可以决定当前是哪一种状态，其他任何操作都无法改变这个状态
   - Promise的状态一旦改变，就不会再变，任何时候都可以得到这个结果，状态不可以逆，只能由 pending变成fulfilled或者由pending变成rejected
 - Promise 的三个缺点
   - 无法取消Promise,一旦新建它就会立即执行，无法中途取消
@@ -20,7 +20,7 @@
   - 创建(new)Promise 对象，该对象接收一个函数为参数
   - 构造函数接受一个函数作为参数
   - 调用构造函数得到实例的同时，作为参数的函数会立即执行
-  - 参数函数接受两个回调函数参数resolve和reject
+  - <font color=yellow>参数函数接受两个回调函数参数resolve和reject</font>
   - 在参数函数被执行的过程中，如果在其内部调用resolve，会将实例的状态变成fulfilled，或者调用reject，会将实例的状态变成rejected
   - <font color=yellow>resolve 或者 reject 中填充的值就是返回值</font>
 - 调用then
@@ -39,8 +39,36 @@
     - new Promise能将一个异步过程转化成promise对象。先有了promise对象，然后才有promise编程方式
   - 2个实例方法：.then 和 .catch
     - .then用于为promise对象的状态注册回调函数。它会返回一个promise对象，所以可以进行链式调用，也就是.then后面可以继续.then。在注册的状态回调函数中，可以通过return语句改变.then返回的promise对象的状态，以及向后面.then注册的状态回调传递数据；也可以不使用return语句，那样默认就是将返回的promise对象resolve
+    
+      ```js
+      // 注意： 
+      // 1. then的真实参数是 then(resolve, rejection)
+      // 2.因此当没有写catch 时，可以在then中写失败的方法，具体如下所示
+      
+      function test(resolve, reject) {
+        var timeOut = Math.random() * 2
+        setTimeout( function() {
+          if (timeOut < 1) {
+            console.log("Success!!")
+            resolve("success!!")
+          }
+          else {
+            console.log("Faild")
+            reject("faild!!")
+          }
+        }
+        )
+      }
+      new Promise(test).then(result=> console.log("promise success!!" + result),err => console.log("promise faild"+err))
+      
+      ```
+    
+      
     - .catch用于注册rejected状态的回调函数，同时该回调也是程序出错的回调，即如果前面的程序运行过程中出错，也会进入执行该回调函数。同.then一样，也会返回新的promise对象
+    
+      - Promise.prototype.catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数
   - 4个静态方法：Promise.all、Promise.race、Promise.resolve和Promise.reject
+    
     - 调用Promise.resolve会返回一个状态为fulfilled状态的promise对象，参数会作为数据传递给后面的状态回调函数
     - Promise.reject与Promise.resolve同理，区别在于返回的promise对象状态为rejected
 - 
@@ -102,7 +130,7 @@ new Promise(test).then(function (result) {
 
   - [link](https://blog.csdn.net/Ge_Daye/article/details/131935682?ops_request_misc=&request_id=&biz_id=102&utm_term=js%20%E6%89%B9%E9%87%8F%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-131935682.142^v93^chatgptT3_1&spm=1018.2226.3001.4187)
 
-  - Promise.all 方法接收一个包含各个 Promise 对象的数组作为参数，返回一个新的 Promise 对象。当数组中所有的 Promise 对象都成功（即状态为 resolved）时，返回的 Promise 对象状态为 resolved，并将所有 Promise 对象的结果组成的数组作为参数传递给回调函数；如果其中任意一个 Promise 对象失败（即状态为 rejected），返回的 Promise 对象状态为 rejected，并将第一个失败的 Promise 对象的错误信息作为参数传递给回调函数
+  - Promise.all 方法接收一个包含各个 Promise 对象的数组作为参数，返回一个新的 Promise 对象。当数组中所有的 Promise 对象都成功（即状态为 resolved）时，返回的 Promise 对象状态为 resolved，并将所有 Promise 对象的结果组成的数组作为参数传递给回调函数；如果其中任意一个 Promise 对象失败（即状态为 rejected），**返回的 Promise 对象状态为 rejected，并将第一个失败的 Promise 对象的错误信息作为参数传递给回调函数**
 
     ```js
     // 1s 后返回结构
@@ -145,8 +173,7 @@ new Promise(test).then(function (result) {
 
 # 二、async 对象
 
-- [link1](https://www.liaoxuefeng.com/wiki/1022910821149312/1056316543988896)
-- [link2](https://blog.csdn.net/weixin_43523043/article/details/126279284?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169410392516800188592661%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=169410392516800188592661&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-126279284-null-null.142^v93^chatgptT3_1&utm_term=js%20async%E5%87%BD%E6%95%B0&spm=1018.2226.3001.4187)
+- [link1](https://blog.csdn.net/weixin_43523043/article/details/126279284?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169410392516800188592661%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=169410392516800188592661&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-126279284-null-null.142^v93^chatgptT3_1&utm_term=js%20async%E5%87%BD%E6%95%B0&spm=1018.2226.3001.4187)
 
 ## 2.1 基本介绍
 

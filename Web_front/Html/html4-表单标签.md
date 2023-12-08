@@ -197,3 +197,25 @@
   <label><input type="radio" name="sex"> 女 </label> <!--方法2-->
 ```
 
+# 七、表单提交相关
+
+## 7.1 表单提交方式
+
+- [link](https://my.oschina.net/u/812141/blog/264644)
+
+  -   onsubmit 是 form 的默认方法，作用是判断是否可以 submit。默认是返回 true。
+    首先，表单执行 submit 时，会判断 onsubmit 的值是否为 true，为 true 则提交，false 则不提交
+    所以如果没有定义 onsubmit； 相当于 <form onsubmit="return true">
+
+    当 <form acction="#" method="post" onsubmit="tijiao ();"> 时，tijiao 的返回值并不作为 onsubmit 方法的返回值，onsubmit 并没有 d 返回值。因此默认为 true，不管 tijiao 返回的是什么，所以会执行提交。
+
+    <form acction="#" method="post" onsubmit="return tijiao ();"> 而加了 return 后，会把 tijiao 的返回值作为 onsubmit 的返回值，因此可以用 tijiao 的返回值控制是否可以提交。
+
+
+
+## 7.2 表单提交会自动刷新页面
+
+- 提交将产生新的 document 用于接受返回的数据。由于你的表单是提交到本页，所以看上去像涮新一样。点击 后退 按钮你就可以回到提交前的页面（刷新是不会的）
+- 阻止刷新的方式
+  - 如果不希望刷新页面，使用ajax提交表单，submit按钮上要加个onclick="return false;"就可以解决这个问题
+  - 阻止form表单元素的默认行为,在点击时间中添加:event.preventDefault()。 [代码参考](https://zhuanlan.zhihu.com/p/594291304)

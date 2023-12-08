@@ -356,3 +356,8 @@ $ sudo add-apt-repository \
 # 十一、Docker 安装
 
 - [link](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+
+# 十二、Docker-compose 安装
+
+- [docker-compose安装](https://github.com/docker/compose/releases)
+  - 直接下载二进制文件

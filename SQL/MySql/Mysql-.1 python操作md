@@ -3,8 +3,8 @@ import requests
 import json
 # from flask_caching.backends.rediscache import RedisCache
 
-# redis = RedisCache(host='172.25.9.133',port=5001,password="didi1234")
-# redis2 = RedisCache(host='10.96.90.72',port=6379,password="didi1234")
+# redis = RedisCache(host='xxx',port=5001,password="xxx")
+# redis2 = RedisCache(host='xxx',port=6379,password="xxx")
 
 
 # b = Base()
@@ -20,10 +20,10 @@ import json
 # 1. 连接数据库，
 import pymysql
 conn = pymysql.connect(
-    host='10.190.25.239',
-    user='voyager',
-    password='didi1234',
-    db='host_map_editor',
+    host='xxx',
+    user='xxx',
+    password='xxx',
+    db='xxx',
     charset='utf8',
        # autocommit=True,    # 如果插入数据，， 是否自动提交? 和conn.commit()功能一致。
 )
@@ -101,3 +101,4 @@ cur = conn.cursor()
 
 ```
 
+- [进行封装](https://blog.csdn.net/qq_35224503/article/details/130278836?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-130278836-blog-130274435.235^v39^pc_relevant_3m_sort_dl_base1&spm=1001.2101.3001.4242.1&utm_relevant_index=3)
