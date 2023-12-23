@@ -4,3 +4,6 @@
 - [参考链接2](https://blog.csdn.net/weixin_47062656/article/details/123239832?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-123239832-blog-123472811.pc_relevant_blogantidownloadv1&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1-123239832-blog-123472811.pc_relevant_blogantidownloadv1&utm_relevant_index=2)
 
 - [**必看**](https://blog.csdn.net/wq1205750492/article/details/124497271?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522166546540816782417037012%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=166546540816782417037012&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-124497271-null-null.142^v52^pc_rank_34_2,201^v3^control_1&utm_term=rsync&spm=1018.2226.3001.4187)
+
+- [和scp的区别](https://blog.csdn.net/CharlesCFA/article/details/114410365?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522170246002316800188565292%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=170246002316800188565292&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~baidu_landing_v2~default-1-114410365-null-null.142^v96^pc_search_result_base8&utm_term=rsync%20%E5%92%8Cscp%E7%9A%84%E5%8C%BA%E5%88%AB&spm=1018.2226.3001.4187)
+  - 拷贝时，可以排除、删除某些目录

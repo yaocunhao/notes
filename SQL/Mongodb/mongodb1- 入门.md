@@ -28,7 +28,11 @@
 
 - 停止MongoDB
 
-  ```python
+  ```shell
+  mongod --shutdown --dbpath /usr/local/data/mongod
+  ```
+
+  ```shell
   mongod --dbpath /var/lib/mongodb --logpath /var/log/mongodb/mongod.log --shutdown
   ```
 

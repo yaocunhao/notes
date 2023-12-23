@@ -1048,7 +1048,15 @@ class UserInfo(models.Model):
      cursor.execute(query, None)
   ```
 
-  
+
+
+
+# 十一、指定字段
+
+- [link](https://blog.51cto.com/u_16061969/6215478)
+
+- `defer()` 排除哪些字段
+- `only()` 只需要哪些字段
 
 # 参考链接
 

@@ -102,4 +102,8 @@
   
   ```
   
-  
+- [多数据库](https://blog.csdn.net/qq_38923792/article/details/100182474?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-100182474-blog-119356028.235^v39^pc_relevant_3m_sort_dl_base1&spm=1001.2101.3001.4242.1&utm_relevant_index=3)
+
+- [多数据库2](https://pymongo.readthedocs.io/en/stable/examples/high_availability.html)
+
+  - Do **not** connect PyMongo to a pool of mongos instances through a load balancer. A single socket connection must always be routed to the same mongos instance for proper cursor support.
