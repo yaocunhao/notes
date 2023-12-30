@@ -1,4 +1,4 @@
-## 一、字体样式
+# 一、字体样式
 
 - 字体大小：font-size
 
@@ -113,8 +113,13 @@
 
 # 三、line-height 行高
 
+- [link](https://blog.csdn.net/sillies_3/article/details/100023507?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522170360015016800222894350%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=170360015016800222894350&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-100023507-null-null.142^v98^pc_search_result_base8&utm_term=line-height%E5%90%AB%E4%B9%89&spm=1018.2226.3001.4187)
+  - 如果是多行文字，line-height = 每一行文字基线之间的距离。
+  - 如果是单行文字，line-height = 上间距 + 文本的高度+下间距。并且上间距等于下间距
+
 - 控制不同行字体之间的间隔高度
 - 可以在大小后面`/`后面连接行高
+- **可以将行高设置为和高度一样的值，使单行文字在一个元素中垂直居中**
 
 ![image-20220917233531024](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202209172335118.png)
 

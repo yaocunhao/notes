@@ -1,4 +1,6 @@
 # 一、清除浮动介绍
+- 如果子元素浮动了，此时子元素不能撑开块级父元素
+- 原因是子元素浮动后脱标，不占位置
 
 ![image-20230101235936291](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202301012359341.png)
 

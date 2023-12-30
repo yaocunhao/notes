@@ -30,8 +30,9 @@
       console.log(response.status);
     ```
 
-
 # 二、Fetch 的使用方法
+
+## 2.1 基本使用
 
 - [link](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API)
 
@@ -61,6 +62,42 @@
       console.log(err)
     }
   )
+  ```
+
+
+## 2.2 小结
+
+- response实例方法返回的是本是个promise对象。可以先熟练掌握下面几种情况
+
+  ```js
+  // 如果返回的是文件流对象
+  return res.blob()
+  
+  // json对象
+  return res.json()
+  
+  // text 文本对象
+  return res.text()
+  
+  // ---------示例-----------
+  fetch("http://127.0.0.1:6001/test43/", {
+      method: 'post',
+      body: formData,
+    }).then(
+      res => {
+  	    // 根据后端接口类型拿到对应的返回值
+        return res.blob()
+      },
+      err => {
+        console.log("上传失败!!")
+      }
+    ).then(
+      data=>{
+  	     console.log(data)
+      }
+    )
+  }
+  
   ```
 
   

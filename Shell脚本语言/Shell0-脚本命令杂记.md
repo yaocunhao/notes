@@ -89,3 +89,32 @@
     ```
 
     
+
+- [shell语法之${},``,$(),$(())四种语法含义](https://blog.csdn.net/qq_24393347/article/details/100272360)
+- [正则表达式匹配]()
+  - "=~"表示[正则表达式匹配](https://so.csdn.net/so/search?q=正则表达式匹配&spm=1001.2101.3001.7020)，就是等号两边的字符串是否有能匹配上的。
+
+- [不要使用 ls|grep](https://blog.csdn.net/Dontla/article/details/132319411?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522170349254916777224464881%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=170349254916777224464881&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-132319411-null-null.142^v96^pc_search_result_base8&utm_term=Dont%20use%20ls%20%7C%20grep.%20Use%20a%20glob%20or%20a%20for%20loop%20with%20a%20condition%20to%20allow%20non-alphanumeric%20filenames&spm=1018.2226.3001.4187)
+
+  ```shell
+  # 为什么
+  1、grep 使用空格进行分割，因此当文件名中包含空格时，可能会出现问题
+  
+  2、引入不必要的复杂性
+  另外，ls | grep模式也可能引入不必要的复杂性。使用ls和grep的组合可能会使得解析结果更加困难，尤其是在处理大量数据时。
+  例如，假设你正在查找特定类型的文件，如所有.txt文件。使用ls | grep模式可能需要额外的解析步骤来正确地识别出这些文件
+  
+  
+  # 使用什么方法？
+  1、glob 方法
+  	echo *.txt
+  2、for 循环
+  	$ for file in *; do
+      if [[ $file == *.txt ]]; then
+          echo "$file"
+      fi
+      done
+  	
+  ```
+
+  
