@@ -36,4 +36,16 @@
   sudo /etc/init.d/ssh restart
   ```
 
+- [容器无法登录](https://blog.csdn.net/qq_33259057/article/details/124737659?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522171005469816800222831046%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=171005469816800222831046&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-124737659-null-null.142^v99^pc_search_result_base5&utm_term=ssh%20%E8%BF%9E%E6%8E%A5docker%20%E5%AE%B9%E5%99%A8&spm=1018.2226.3001.4187)
+
+  - 容器22端口需要进行挂载，比如挂载到主机2222端口 ` docker run -d -p 2222:22 your_image`
+  
+  - 进行安装`openssh-server`
+
+  - 按照上述更改配置文件
+  
+  - 链接到容器：`ssh -p 2222 user@host`， user 是容器用户名称，host 是主机ip
+  
+    
+  
   

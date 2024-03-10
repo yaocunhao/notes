@@ -2,6 +2,8 @@
 
 - 绑定对象： class_为c++类或结构风格的数据结构创建绑定
 - init： 表示绑定构造函数， 填充模板为构造函数的参数类型
+  - 如果有多重构造函数，且都需要保留，则绑定多个init 就行
+
 - def 绑定类中的函数
 - 静态成员函数可以使用class_::def_static()以同样的方式绑定
 - 参数的绑定方法和前面介绍的相同
@@ -99,7 +101,7 @@ print(p) // 输出的是lambda表达式得到的内容
       std::string bark() const { return "woof!"; }
     };
     
-    // 方法一
+    // 方法一 第一种方式将 C++ 基类指定为 的额外模板参数
     // PYBIND11_MODULE(example, m)
     // {
     // py::class_<Pet>(m, "Pet")
@@ -112,7 +114,7 @@ print(p) // 输出的是lambda表达式得到的内容
     //     .def("bark", &Dog::bark);
     // }
     
-    // 方法二
+    // 方法二 
     PYBIND11_MODULE(example, m)
     {
       py::class_<Pet> pet(m, "Pet"); // 下面会用到， 因此这里需要提前定义
@@ -140,11 +142,16 @@ print(p) // 输出的是lambda表达式得到的内容
       print(type(p))
       print(p.name)
       #p.bark() # 派生类切割回去给基类，这里是不行的
+        
+     // 注意点(慎用， 不符合C++语法)：
+     //  如果父类之中包含了虚函数， 切割回去的基类在python 之中能够访问子类的方法
+        
+    
     
     ```
-
+  
   - 重载
-
+  
     ```c++
     struct Pet
     {
@@ -186,9 +193,9 @@ print(p) // 输出的是lambda表达式得到的内容
       print(p.name, p.age)
       
     ```
-
+  
   - 枚举和内部类型
-
+  
     ```c++
     struct Pet
     {
@@ -237,9 +244,9 @@ print(p) // 输出的是lambda表达式得到的内容
       print(str(p.type)) # Kind.Cat
       print(p.type.name) # Cat
     ```
-
+  
   - 直接枚举
-
+  
     ```c++
     // 测试七：单纯枚举类型
     enum Food
@@ -264,5 +271,5 @@ print(p) // 输出的是lambda表达式得到的内容
       print(food.beef.name)
       print(food.beef.value)
     ```
-
+  
     
