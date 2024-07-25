@@ -1,0 +1,2 @@
+- [Google api 设计](https://cloud.google.com/apis/design/errors?hl=zh-cn)
+  - 状态码设计可参考链接文中此段： `下面的表格包含在 google.rpc.Code`

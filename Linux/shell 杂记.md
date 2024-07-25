@@ -35,4 +35,39 @@
 - <font color=yellow>在命令行中运行</font>
   
   - 只需要写脚本的时候换行就行![image-20230901001932737](../../../Library/Application Support/typora-user-images/image-20230901001932737.png)
+
+- sudo env 和  su root 再env 看到的环境变量不一致(PATH 和 LD_LIBRARY_PATH 不一致)
+  - [处理方式](https://unix.stackexchange.com/questions/83191/how-to-make-sudo-preserve-path)
+  
+- dirname 和 BASE_SOURCE[0] 的区别
+  
+  ```shell
+  #!/bin/bash
+  # 获取当前脚本所在目录
+  SCRIPT_DIR=$(
+    cd "$(dirname "$0")"
+    pwd
+  )
+  
+  
+  在 bash 中执行脚本和使用 source 命令执行脚本时，SCRIPT_DIR 变量的值可能会不同。这主要是因为这两种方式处理脚本的环境和上下文的方式不同。
+  
+  区别解释
+  bash 执行脚本:
+  当你用 bash script.sh 或 ./script.sh 运行一个脚本时，系统会启动一个新的子 shell 进程来执行该脚本。这个子 shell 进程会将脚本中的 $0 设置为脚本的文件路径。
+  由于脚本在一个新的子 shell 中运行，$0 表示的是脚本的路径，所以 SCRIPT_DIR 会被设置为脚本所在的目录。
+  
+  source 执行脚本:
+  当你用 source script.sh 或 . script.sh 执行一个脚本时，脚本内容会在当前的 shell 会话中直接运行，而不是在一个新的子 shell 中。
+  在这种情况下，$0 通常表示的是当前的 shell（通常是 -bash），而不是脚本的路径。因此，当脚本尝试获取其自身路径时，dirname "$0" 将返回 . 或空字符串，因为 $0 不再代表脚本路径。
+  这会导致 SCRIPT_DIR 的值不是脚本所在的目录，而是当前 shell 的工作目录。
+  
+  如果你需要在 source 和 bash 两种执行方式下都能正确获取脚本所在的目录，可以考虑以下方法：
+  
+  SCRIPT_DIR=$(
+    cd "$(dirname "${BASH_SOURCE[0]}")"
+    pwd
+  )
+  ```
+  
   

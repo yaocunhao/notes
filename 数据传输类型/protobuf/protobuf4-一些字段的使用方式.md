@@ -1,41 +1,28 @@
 
 
+# 注意
+
+- 如果字段类型是 `message` 不能直接 `=`  进行赋值
+
+  ```protobuf
+  message Foo {
+    optional Bar bar = 1;
+  }
+  message Bar {
+    optional int32 i = 1;
+  }
+  
+  oo = Foo()
+  foo.bar = Bar()  # WRONG!
+  ```
+
+  
+
 # 一、嵌套类型和重复类型
 
-- 当message 嵌套写入数据时，**使用add**
-
-- *repeated 字段类型,查看转义源码 default_value=[] 可知为 list 类型，可使用 **append()添加字段***
-
-  - 如果是嵌入类型则使用add()
-
-    ```python
-    import demo2_pb2
-    
-    info = demo2_pb2.Info()
-    info.address = 'beijing'
-    
-    # userInfo 是嵌入类型，使用add来添加重复元素
-    user_info1 = info.userInfo.add()
-    user_info1.name='tom'
-    user_info1.age = 18
-    
-    user_info2 = info.userInfo.add()
-    user_info2.name = 'jim'
-    user_info2.age = 22
-    
-    print(info)
-    address: "beijing"
-    userInfo {
-      name: "tom"
-      age: 18
-    }
-    userInfo {
-      name: "jim"
-      age: 22
-    }
-    ```
-  
-  - 当数据类型为基础数据时，使用的是`append`
+- 嵌套类型在`python` 之中等价于list。因此赋值时有两种方式
+  - 第一种是 `add()` 一个对象，初始化这个对象就是赋值一个
+  - 第二种是 `append` 一个对象 或者`extend` 一个`list`
 
 
 # 二、Any 和 enum类型
@@ -124,3 +111,30 @@
 # 四、services
 
 - 用于Rpc 调用字段
+
+# 四、判断字段是否设置
+
+- 如果字段的类型不是`message` 是不允许判断的
+
+```python
+syntax = "proto3";
+
+message St {
+  int32 a = 1;
+  string b =2;
+
+}
+
+message Test {
+  int32 a=1;
+  St st = 2;
+}
+
+from test_proto_pb2 import Test
+
+t = Test()
+print(t.HasField("st")) # 允许
+print(t.HasField("a"))  # 不允许
+print(t.st.HasField("a")) # 不允许
+```
+

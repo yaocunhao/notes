@@ -104,5 +104,22 @@ ${selectedText} - 文件中目前被选择的内容
 
 - [link](https://blog.csdn.net/kunkliu/article/details/123904333)
 
+# 十、Clangd
+
+- 是否开启内嵌提示
+  - `editor > inlay hints: enabled`
 
 
+![image-20240321185637775](/Users/didi/Library/Application Support/typora-user-images/image-20240321185637775.png)
+
+- 不要对clangd 进行资源限制，否则大项目构建很难完成
+
+  ```json
+  // 如下所示，不要进行一些兼职
+  "clangd.arguments": [
+      // "--background-index", // 后台索引
+      // "-j=50" // Limit clangd to few cores only
+    ],
+  ```
+
+  

@@ -2,7 +2,7 @@
 
 - [link](https://blog.csdn.net/Coxhuang/article/details/89953619)
 
-  - Django 原生为单线程序，当第一个请求没有完成时，第二个请求辉阻塞，知道第一个请求完成，第二个请求才会执行
+  - Django 原生为单线程序，当第一个请求没有完成时，第二个请求辉阻塞，直到第一个请求完成，第二个请求才会执行
   - <font color=yellow>Django就没有用异步，通过线程来实现并发，这也是WSGI普遍的做法，跟tornado不是一个概念</font>
   - 官方文档解释django自带的server默认是多线程
   - 测试方法：一个接口延时20S， 另外一个无延时，不会发生阻塞

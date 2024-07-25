@@ -113,6 +113,8 @@
 
     ![image-20221031205449928](https://yrecord.oss-cn-hangzhou.aliyuncs.com/picture/202210312054790.png)
   
+  - 找头文件有用，找源文件的话还是需要相对于CMAKE_CURRENT_SOURCE_DIR
+  
 - include
 
   - 从指定的文件加载、运行CMake代码。如果指定文件，则直接处理。如果指定module，则寻找module.cmake文件，首先在${CMAKE_MODULE_PATH}中寻找，然后在CMake的module目录中查找
@@ -206,3 +208,5 @@
 
 - aux_source_directory(. DIR_SRCS)
   - 遍历当前目录的所有文件并使用DIR_SRCS保存
+  
+- 

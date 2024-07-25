@@ -42,10 +42,34 @@
   
   - 进行安装`openssh-server`
 
-  - 按照上述更改配置文件
+  - 按照上述更改配置文件(链接、无法免密登封路、容器中重启)
   
-  - 链接到容器：`ssh -p 2222 user@host`， user 是容器用户名称，host 是主机ip
+  - 链接到容器：`ssh -P 2222 user@host`， user 是容器用户名称，host 是主机ip
+  
+- 密码太复杂
+
+  ```shell
+  vim /etc/pam.d/system-auth
+  #注释掉以下行
+  #password    requisite     pam_pwquality.so try_first_pass local_users_only retry=3 authtok_type=
+  
+  #删除掉下行中的选项use_authok
+  password    sufficient    pam_unix.so sha512 shadow nullok try_first_pass #use_authtok 
+  
+  ```
+  
+  - docker 中设置流程
+  
+    ```shell
+    # 在root 用户下(脚本处理)
+    1、处理密码(密码太复杂，可以省略)、 设置密码 
+    2、yum install openssh-server -y
+    3、ssh-keygen -A
+    4、免密登录前置条件(#StrictModes yes  --> StrictModes no)
+    5、/usr/sbin/sshd -f /etc/ssh/sshd_config
+    ```
   
     
   
   
+

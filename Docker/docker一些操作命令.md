@@ -27,6 +27,14 @@
 
 - [查看容量](https://blog.csdn.net/weixin_43066097/article/details/116410785?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169512202816800227452653%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=169512202816800227452653&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-2-116410785-null-null.142^v94^chatsearchT3_1&utm_term=docker%20%E5%8D%A0%E7%94%A8%E7%A9%BA%E9%97%B4%E8%BF%87%E5%A4%A7&spm=1018.2226.3001.4187)
   - docker system df
-- [空间清理](https://blog.csdn.net/pushiqiang/article/details/105991522?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169512234016800197087025%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=169512234016800197087025&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-4-105991522-null-null.142^v94^chatsearchT3_1&utm_term=Local%20Volumes&spm=1018.2226.3001.4187)
+- [docker空间清理](https://blog.csdn.net/pushiqiang/article/details/105991522?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169512234016800197087025%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=169512234016800197087025&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-4-105991522-null-null.142^v94^chatsearchT3_1&utm_term=Local%20Volumes&spm=1018.2226.3001.4187)
   - docker system prune 
 - [Dockerfile 一些编写规则](https://blog.csdn.net/xcbeyond/article/details/124917942?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522169512598716800225565363%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fall.%2522%257D&request_id=169512598716800225565363&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~first_rank_ecpm_v1~rank_v31_ecpm-1-124917942-null-null.142^v94^chatsearchT3_1&utm_term=Dockerfile%20%E4%B9%8B%E4%B8%AD%20RUN%20%E8%B6%8A%E5%B0%91%E8%B6%8A%E5%A5%BD%E4%B9%88&spm=1018.2226.3001.4187)
+
+- 通过设置 `--network host` 参数实现容器与宿主机共享网络栈，从而暴露所有端
+
+  - 注意事项
+    - **安全性**：使用 `--network host` 可能带来安全风险，因为容器中的所有端口都暴露在宿主机上。
+    - **端口冲突**：确保容器中的端口不会与宿主机上已经使用的端口发生冲突。
+
+  - `docker run -d --network host --name my_container my_image`

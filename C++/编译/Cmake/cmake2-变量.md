@@ -33,6 +33,22 @@
 - 环境变量在CMake流程中具有全局作用域。它们从不缓存
 - 变量引用的形式为$ENV{<变量>}
 - CMake环境变量的初始值是调用进程的初始值。可以使用set()和unset()命令更改值。这些命令只影响正在运行的CMake进程，而不影响整个系统环境。更改后的值不会写回调用流程，后续的构建或测试流程也不会看到它们
+- CMAKE_BINARY_DIR
 
+  ```shell
+  mkdir build
+  cd build
+  cmake ..
+  那么 CMAKE_BINARY_DIR 将会被设置为当前目录下的 build 目录的路径。
+  ```
 
+  
+
+# 四、预定义变量
+
+- CMAKE_SOURCE_DIR: 根目录位置
+- CMAKE_CURRENT_SOURCE_DIR: 当前执行的 CMakeLists.txt 的位置
+- CMAKE_CURRENT_BINARY_DIR:  当前build 文件的位置
+- CMAKE_CURRENT_LIST_DIR： 当前执行的cmake位置
+  - 和 CMAKE_CURRENT_SOURCE_DIR 区别在于，如果引用的是一个xx.cmake 文件没有cmake_list 那么是无法通过CMAKE_CURRENT_SOURCE_DIR获取当前位置的
 

@@ -18,3 +18,9 @@
 - [后台进程](https://blog.csdn.net/loovelj/article/details/91610965?ops_request_misc=&request_id=&biz_id=102&utm_term=uwsgi%20%E5%A6%82%E6%9E%9C%E4%BD%BF%E7%94%A8%E4%BA%86daemonize%EF%BC%8C%E5%9C%A8docker%E4%B8%AD%E6%97%A0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-8-91610965.142^v46^pc_rank_34_default_2&spm=1018.2226.3001.4187)
   - 所以一个比较好的办法就是，在容器之中是的最后一个进程在前台运行
 - 因为给日志设置了守护进程，导致不断的重启
+
+
+
+# 环境变量不一致
+
+- docker 登录时和通过ssh 登录得到的环境变量不一致：[link](https://stackoverflow.com/questions/69788652/why-does-path-differ-when-i-connect-to-my-docker-container-with-ssh-or-with-exec)
